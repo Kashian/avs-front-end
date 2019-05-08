@@ -1,0 +1,1171 @@
+﻿<!DOCTYPE html>
+<html ng-app="post" lang="{{ lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title translate="title"> </title>
+
+
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link rel='icon' href="img/logo.png" type='image/x-icon' />
+    <link rel='apple-touch-icon' href="img/logo.png" />
+
+    <meta http-equiv="content-language" content="fa" />
+    <meta name="keywords" content="اعتبار سنجی نشانی، اعتبار سنجی نشانی، اعتبار سنجی، اعتبار سنجی، اعتبار، صحت نشانی، اعتبار سنجی نشانی، اعتبار داشتن نشانی، چک کردن نشانی، تایید نشانی پستی، صحت نشانی و نشانی ، سامانه اعتبار سنجی نشانی شهروند ، سامانه اعتبار سنجی نشانی" />
+    <meta name="description" content="  کلیه شهروندان ساکن ایران با مراجعه به این سامانه می توانند نسبت به تقاضای نامه اعتبار سنجی نشانی محل کار یا زندگی خود اقدام نمایند. این سامانه توسط شرکت پست ایران مدیریت می شود. " />
+
+
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.min.js" type="text/javascript"></script>
+
+    <!--<script src="Controller/Controller.js"></script>
+    <script src="app.js"></script>-->
+
+
+    <link href="css/template.min.css" rel="stylesheet">
+
+</head>
+
+<body ng-controller="HomeCtrl" ng-init="initFunction()" style="font-family:{{font}} !important;">
+    <div id="page">
+        <header id="header" class="site-header">
+
+            <nav id="navbar" style="background-color: rgba(255, 255, 255, 1) !important;" class="site-navbar navbar navbar-static-top one-page-nav" role="navigation">
+
+                <div ng-controller="LanguageSwitchController" class="translate">
+                    <div ng-show="lang == 'en'" ng-click="changeLanguage('fa')" style="text-align: center; padding: 28px 5px 21px 5px;">فارسی</div>
+                    <div ng-show="lang == 'fa'" ng-click="changeLanguage('en')" style="text-align: center; padding: 28px 5px 21px 5px;">En</div>
+                </div>
+
+                <div class="container">
+                    <div class="navbar-header" style="float:{{float}} !important; direction:{{direction}} !important;font-family:{{font}} !important;">
+                        <button type="button" style=" margin-left: 0; margin-right: 0;" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <h1 class="navbar-brand" style="float:{{float}} !important; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h3}}px !important;">
+                            <img src="img/logo.png" style="width: 49px; margin: -10px 0px 0px;" />
+                            <a class="hidden-xs" href="/" translate="title"></a>
+                            <a class="hidden-xs sr-only" href="/">سامانه اعتبار سنجی نشانی شهروند</a>
+                        </h1>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1" style="float:{{mirrorFloat}} !important; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h5*1)+3}}px !important;">
+                        <ul style="margin-left: -27px;" id="navigation" class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="#header" class="current" translate="menu_1"> </a></li>
+                            <li><a href="#features" translate="menu_2"></a></li>
+                            <li><a href="#clients" translate="menu_3"></a></li>
+                            <li><a href="#fallow" translate="menu_4">  </a></li>
+                            <li><a href="#blog" translate="menu_5"></a></li>
+                            <li><a href="#testimonials" translate="menu_6">  </a></li>
+                            <li><a href="#contact" translate="menu_7"></a></li>
+                            <li><a href="#aboutUs" translate="menu_8"></a></li>
+                        </ul>
+                        <ul style="margin-left: -27px;" id="navigation" class="nav navbar-nav navbar-right sr-only">
+                            <li class="active"><a href="#header" class="current"> تایید نشانی </a></li>
+                            <li><a href="#features">راهنما</a></li>
+                            <li><a href="#clients">درخواست جدید </a></li>
+                            <li><a href="#fallow">رهگیری</a></li>
+                            <li><a href="#blog">گزارش اشتباه </a></li>
+                            <li><a href="#testimonials">ارسال مجدد </a></li>
+                            <li><a href="#contact">ثبت شکایات </a></li>
+                            <li><a href="#aboutUs">درباره ما </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </nav>
+        </header>
+
+        <main id="main" class="site-main">
+
+
+            <section class="section section-center section-cta" style="padding-top:0px; margin-bottom: 0">
+                <div class="container">
+                    <h4 style=" line-height: 39px;font-size: 22px; width: 97%;text-align: justify; margin: 0 auto; border: 1px solid #ffffff; border-radius: 5px; padding: 4px 12px 6px 1px;color: #570b9a;">
+                        <b style="float:{{float}} !important; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h3}}px !important; width:100%; margin:8px -25px 8px 0;" translate="text_1">
+                            <b class=" sr-only">اعتبار سنجی نشانی شهروند </b> <!--سامانه-->
+                        </b>
+                        <br />
+                        <span style="float:{{float}} !important; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h3}}px !important; margin: 0 0 16px 0;" translate="text_2"></span>
+                        <span class=" sr-only">
+                            خدمتی است که شرکت ملی پست با همکاری شرکت رایانه روژینا، به اشخاص حقیقی و حقوقی( دولتی و خصوصی) این امکان را می دهد تا بر اساس ساز و کار اجرایی، صحت نشانی پستی مشتریان و مخاطبان خود را اعتبار سنجی نمایند، در این خدمت، نامه ای حاوی رمز (کد) ۶ رقمی اعتبار نشانی فرد مورد نظر تولید و در چرخه پستی جهت توزیع قرار می گیرد و مخاطب جهت تایید نشانی خود می بایست با استفاده از ابزار های ارتباطی و الکترونیکی (وب سایت، تلفن و پیامک) کد اعتبار سنجی خود را به سامانه اعلام نماید.
+                        </span>
+                    </h4>
+
+
+
+
+                    <div class="main-action row" style="margin:45px 0 0 0">
+                        <form id="verifyRequestForm" ng-submit="verifyRequestFunction(verify)">
+
+                            <div class="col-md-3  col-sm-4 col-md-pull-2 col-xs-6  " style="float:right !important">
+                                <div class="form-group">
+                                    <label class="sr-only">کد ملی</label>
+                                    <input onblur="clearSpecialCharacter(this);" id="nationalCode" type="text" ng-model="verify.national_id" maxlength="10" class="form-control placeHolder{{float}}" style="float: left; height: 64px;font-size: 26px; padding-left: 25px;" placeholder="{{'text_52' | translate}}"
+                                           data-validation="required  number length" data-validation-length="10" data-validation-error-msg-container="#nationalCode-error" data-validation-error-msg="{{'validation_1' | translate}}">
+                                    <div style="width:20px; height: 63px;"></div>
+                                    <div id="nationalCode-error" style="text-align: center;float: right;"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-sm-3 col-md-pull-2 col-xs-5" style="float:right !important">
+                                <div class="form-group">
+                                    <label class="sr-only">کد تایید ۶ رقمی</label>
+                                    <input onblur="clearSpecialCharacter(this);" id="confirmCode" type="text" ng-model="verify.secret_code" maxlength="6" class="form-control placeHolder{{float}}" style=" height: 64px;font-size: 26px; padding-left: 25px;" placeholder="{{'text_51' | translate}}"
+                                           data-validation="required  number length" data-validation-length="6" data-validation-error-msg-container="#confirmCode-error" data-validation-error-msg="{{'validation_2' | translate}}">
+                                    <div id="confirmCode-error"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3  col-sm-3 col-md-pull-2 col-xs-9 col-xs-pull-1" style="float:right !important">
+                                <div class="form-group">
+                                    <button id="confirmAddress" type="submit" style="height: 64px;font-size: 24px;" class="btn btn-default btn-block" translate="menu_1"></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div ng-show="verify.success" ng-init="verify.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="verify.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'successful' | translate}}
+                        </h4>
+                        <p ng-bind="verify.success"></p>
+                    </div>
+
+                    <div ng-show="verify.error" ng-init="verify.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="verify.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' | translate}}
+                        </h4>
+                        <p ng-bind="verify.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section id="features" class="section section-center section-hilite section-features">
+                <div class="container">
+                    <h2 class="section-title"><span translate="text_3" style="direction:{{direction}} !important; font-size:{{h1}}px !important;"></span></h2>
+                    <h2 class="sr-only">فرایند اجرایی سامانه</h2>
+                    <div class="row" style="">
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-comments-flat.png" alt="">
+                                <i style="font-size: 51px;margin: -50px 227px 0;color: #1abc9c;" class="fa fa-arrow-left hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 translate="text_4" style="direction:{{direction}} !important;font-size:{{(h3*1)-2}}px !important;"></h4>
+                            <p translate="text_5" style="direction:{{direction}} !important; font-size:{{(h4*1)-1}}px !important;">  </p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-bag-flat.png" alt="">
+                                <i style="font-size: 51px;margin: -50px 227px 0; color: #1abc9c;" class="fa fa-arrow-left hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 translate="text_6" style="direction:{{direction}} !important; font-size:{{(h3*1)-2}}px !important;"></h4>
+                            <p translate="text_7" style="direction:{{direction}} !important; font-size:{{(h4*1)-1}}px !important;"></p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-calculator-flat.png" alt="">
+                                <i style="font-size: 51px;margin: 122px 227px 0; color: #1abc9c;" class="fa fa-arrow-down hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 translate="text_8" style="direction:{{direction}} !important; font-size:{{(h3*1)-2}}px !important;"></h4>
+                            <p translate="text_9" style="direction:{{direction}} !important; font-size:{{(h4*1)-1}}px !important;"></p>
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-photo-flat.png" alt="">
+                                <i style="font-size: 51px;margin: -50px 227px 0;color: #1abc9c;" class="fa fa-arrow-right hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 translate="text_10" style="direction:{{direction}} !important; font-size:{{(h3*1)-2}}px !important;"> </h4>
+                            <p translate="text_11" style="direction:{{direction}} !important; font-size:{{(h4*1)-1}}px !important;"></p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-easel-flat.png" alt="">
+                                <i style="font-size: 51px;margin: -50px 227px 0; color: #1abc9c;" class="fa fa-arrow-right hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 translate="text_12" style="direction:{{direction}} !important; font-size:{{(h3*1)-2}}px !important;"></h4>
+                            <p translate="text_13" style="direction:{{direction}} !important; font-size:{{(h4*1)-1}}px !important;"> </p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-book-flat.png" alt="">
+                            </div>
+                            <h4 translate="text_14" style="direction:{{direction}} !important; font-size:{{(h3*1)-2}}px !important;"></h4>
+                            <p translate="text_15" style="direction:{{direction}} !important; font-size:{{(h4*1)-1}}px !important;"></p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div style="height:100px; height: 50px; margin:-10px 0 50px 0px; color: #036365; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;" class="hidden-xs">
+                            <span id="typed" style="white-space:pre;">
+
+                            </span>
+                        </div>
+
+                        <div id="typed-strings">
+                            <p translate="text_86"></p>
+                            <p translate="text_87"></p>
+                            <p translate="text_88"></p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div style="direction:{{direction}} !important; font-size:{{(h4*1)-1}}px !important; width: 89%; margin:-17px auto 30px auto; border: 1px #ffd5d5 solid;text-align: justify; padding: 8px; border-radius: 5px; color: #5d3a65; background-color: white;" translate="text_16">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="clients" class="section section-center section-contact">
+                <div class="container">
+                    <h2 class="section-title"><span style="line-height: 33px; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;" translate="text_17"></span></h2>
+                    <h2 class="sr-only">
+                        درخواست جدید برای اعتبار سنجی نشانی شهروند
+                    </h2>
+                    <h5 style=" line-height: 39px; line-height: 39px; font-size: 14px; width: 91%; margin: 26px auto 33px auto;  direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;  background: rgba(183, 222, 226, 0.29);border-radius: 5px; padding: 5px;" translate="text_18"></h5>
+
+                    <p translate="text_19" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                    </p>
+                    <div>
+                        <p translate="text_20" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                        </p>
+                    </div>
+                    <div class="main-action">
+
+                        <form id="addNewRequestForm" style=" direction:{{direction}}  ;font-family:{{font}} !important;">
+                            <div class="results"></div>
+                            <div class="row">
+
+                                <div class="col-sm-6 pull-right col-xs-pull-1 col-sm-pull-1">
+
+                                    <div class="form-group  col-sm-9 pull-right  col-xs-10" style=" direction: {{mirrorDirection}}; text-align: {{mirrorFloat}};">
+                                        <label ng-show="direction=='rtl'" class="col-xs-12 col-md-3" style="float: right; padding: 0;font-size: 14px;text-align: right;"> &nbsp; <span translate="text_21"></span>  &nbsp; </label>
+
+
+                                        <span class="col-xs-6 col-md-5" style=" margin: 0 -3px 0 -21px; padding:0px; float: right;">
+                                            {{'text_90' |translate}}
+                                            <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="personType" value="natural_person" ng-model="addNewRequest.personType" ng-init="addNewRequest.personType='natural_person'" />
+                                        </span>
+                                        <span class="col-xs-6 col-md-5" style=" margin: 0 -3px 0 -21px; padding:0px; float: right;">
+                                            {{'text_91' |translate}}
+                                            <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="personType" value="legal_person" ng-model="addNewRequest.personType" />
+                                        </span>
+
+                                        <label ng-show="direction=='ltr'" class="col-xs-12 col-md-3" style="float: right; padding: 0;font-size: 14px;text-align: left;"> &nbsp; <span translate="text_21"></span>  &nbsp; </label>
+
+
+                                    </div>
+                                    <div ng-show="addNewRequest.personType=='natural_person'">
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10 ">
+                                            <label class="sr-only">نام</label>
+                                            <input id="addNewRequestFirstName" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="30" placeholder="{{'text_53' | translate}} "
+                                                   data-validation="required custom" data-validation-regexp="^[\u0600-\u06FF\s]+$" data-validation-error-msg-container="#addNewRequestFirstName-error" data-validation-error-msg="{{'validation_5' | translate}}" data-validation-help="{{'validation_5' | translate}}">
+                                            <div id="addNewRequestFirstName-error"></div>
+                                        </div>
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10 ">
+                                            <label class="sr-only">نام خانوادگی</label>
+                                            <input id="addNewRequestLastName" ng-model="addNewRequest.LastName" type="text" class="form-control placeHolder{{float}}" maxlength="50" placeholder="{{'text_54' | translate}} "
+                                                   data-validation="required custom" data-validation-regexp="^[\u0600-\u06FF\s]+$" data-validation-error-msg-container="#addNewRequestLastName-error" data-validation-error-msg="{{'validation_6' | translate}}" data-validation-help="{{'validation_6' | translate}}">
+                                            <div id="addNewRequestLastName-error"></div>
+                                        </div>
+
+
+
+
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10" style=" direction: {{mirrorDirection}}; text-align: {{mirrorFloat}};">
+                                            <label ng-show="direction=='rtl'" class="col-xs-12 col-md-3" style="float: right; padding: 0;font-size: 14px;text-align: right;"> &nbsp; <span translate="text_22"></span>  &nbsp; </label>
+
+
+                                            <span class="col-xs-6 col-md-5" style=" margin: 0 -3px 0 -21px; padding:0px; float: right;">
+                                                {{'text_23' |translate}}
+                                                <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="Geneder" value="1" ng-value="1" ng-model="addNewRequest.Gender" />
+                                            </span>
+                                            <span class="col-xs-6 col-md-4" style=" margin: 0 -3px 0 -21px; padding:0px; float: right;">
+                                                {{'text_24' |translate}}
+                                                <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="Geneder" value="2" ng-value="2" ng-model="addNewRequest.Gender" />
+                                            </span>
+
+                                            <label ng-show="direction=='ltr'" class="col-xs-12 col-md-4" style="float: right; padding: 0;font-size: 14px;text-align: left;"> &nbsp; <span translate="text_22"></span>  &nbsp; </label>
+
+
+                                        </div>
+
+
+
+
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">کد ملی</label>
+                                            <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode" ng-model="addNewRequest.NationalCode" maxlength="10" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_58' | translate}} "
+                                                   data-validation="required  number length  IranNationalCode" data-validation-length="10" data-validation-error-msg-container="#addNewRequestNationalCode-error" data-validation-help="{{'validation_7' | translate}}">
+                                            <div id="addNewRequestNationalCode-error"></div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">شماره تلفن</label>
+                                            <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_55' | translate}}   "
+                                                   data-validation="required number custom" data-validation-length="11" data-validation-regexp="09[0-9]{9}$" maxlength="11" data-validation-error-msg-container="#addNewRequestPhoneNumber-error" data-validation-error-msg="{{'validation_8' | translate}}" data-validation-help="{{'validation_8' | translate}}">
+                                            <div id="addNewRequestPhoneNumber-error"></div>
+                                        </div>
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">ایمیل</label>
+                                            <input id="addNewRequestEmail" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class="form-control placeHolder{{float}}" placeholder="{{'text_56' | translate}} "
+                                                   data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail-error" data-validation-help="{{'validation_9' | translate}}">
+                                            <div id="addNewRequestEmail-error"></div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="addNewRequest.personType!='natural_person'">
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10 ">
+                                            <label class="sr-only">نام شرکت</label>
+                                            <input id="addNewRequestFirstName1" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="30" placeholder="{{'text_57' | translate}} "
+                                                   data-validation="required custom" data-validation-regexp="^[\u0600-\u06FF\s]+$" data-validation-error-msg-container="#addNewRequestFirstName1-error" data-validation-error-msg="{{'validation_10' | translate}}" data-validation-help="{{'validation_10' | translate}}">
+                                            <div id="addNewRequestFirstName1-error"></div>
+                                        </div>
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">شماره ملی </label>
+                                            <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode1" ng-model="addNewRequest.NationalCode" maxlength="13" type="text" class="form-control placeHolder{{float}}" placeholder=" {{'text_58' | translate}} "
+                                                   data-validation="required  number length" data-validation-length="13" data-validation-error-msg-container="#addNewRequestNationalCode1-error" data-validation-error-msg="{{'validation_11' | translate}}" data-validation-help="{{'validation_11' | translate}}">
+                                            <div id="addNewRequestNationalCode1-error"></div>
+                                        </div>
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">شماره تلفن شرکت</label>
+                                            <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber1" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_59' | translate}}  "
+                                                   data-validation="required number" data-validation-length="11" maxlength="11" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' | translate}}" data-validation-help="{{'validation_12' | translate}}">
+                                            <div id="addNewRequestPhoneNumber1-error"></div>
+                                        </div>
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">ایمیل شرکت / موسسه</label>
+                                            <input id="addNewRequestEmail1" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class="form-control placeHolder{{float}}" placeholder="{{'text_60' | translate}} "
+                                                   data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail1-error" data-validation-help="{{'validation_13' | translate}}">
+                                            <div id="addNewRequestEmail1-error"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" col-sm-6 pull-right col-xs-pull-1 col-sm-pull-0">
+
+                                    <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                        <label class="sr-only">کد پستی مکان فعلی شما</label>
+                                        <input onblur="clearSpecialCharacter(this); angular.element(this).scope().checkPostalCode();" id="addNewRequestPostalCode1" ng-model="addNewRequest.PostalCode1" ng-init="addNewRequest.PostalCode1=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_61' | translate}}  "
+                                               data-validation="required  length custom CheckPostalCode" data-validation-regexp="^[1-13-9]+$" data-validation-length="10" maxlength="10" data-validation-error-msg-container="#addNewRequestPostalCode1-error" data-validation-error-msg="{{'validation_14' | translate}}" data-validation-help="{{'validation_14' | translate}}">
+                                        <div id="addNewRequestPostalCode1-error"></div>
+                                    </div>
+
+                                    <!--<div ng-show="addNewRequest.personType=='natural_person'" class="form-group  col-sm-9 pull-right  col-xs-10">
+                                        <label class="sr-only">کد پستی مندرج در پشت کارت ملی شما </label>
+                                        <input onblur="clearSpecialCharacter(this);" id="addNewRequestPostalCode2" ng-model="addNewRequest.PostalCode2" type="text" class="form-control" placeholder="کد پستی مندرج در پشت کارت ملی شما* "
+                                               data-validation="required  length custom" data-validation-regexp="^[1-13-9]+$" data-validation-length="10" maxlength="10" data-validation-error-msg-container="#addNewRequestPostalCode2-error" data-validation-error-msg="لطفا کد پستی صحیح خود را وارد نمایید ، تعداد ارقام کد پستی 10 رقم می باشد" data-validation-help="لطفا کد پستی مندرج در پشت کارت ملی خود را وارد نمایید1234512345 ">
+                                        <div id="addNewRequestPostalCode2-error"></div>
+                                    </div>-->
+
+                                    <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-xs-8   ">
+                                                    <input style="padding: 5px 20px !important; " id="addNewRequestSubmit" type="button" ng-click="addNewRequest.PostalCode1!=''?showConfirm=true:null" class="btn btn-default btn-block" value="{{'text_75' | translate}}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group  col-sm-9 pull-right  col-xs-10" ng-show="showConfirm">
+
+                                        <div style=" background-color: rgba(213, 242, 255, 0.72); padding: 5px; border-radius: 5px; margin: 0 0 12px 0;">
+                                            آدرس شما : استان تهران ، شهرستان تهران ، محله نیلوفر ، کوچه جهاد ، پلاک 3 ، طبقه دوم ، واحد 1
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a class="btn btn-success btn-block" ng-click="addAddress=false;addNewRequest.postKind=true;showConfirm=false">آدرس صحیح می باشد</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a class="btn btn-danger  btn-block" ng-click="addAddress=true;addNewRequest.postKind=false;showConfirm=false">آدرس اشتباه است </a>
+                                        </div>
+                                    </div>
+
+
+                                    <div ng-show="addAddress">
+
+                                        <div class="form-group col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">نام استان</label>
+                                            <select id="addNewRequestState" ng-model="addNewRequest.State" ng-change="addNewRequest.City='0';checkPostal()" ng-init="addNewRequest.State='0'" class="form-control"
+                                                    data-validation="required CheckPostalCode" data-validation-error-msg-container="#addNewRequestState-error" data-validation-help="{{'validation_15' | translate}}">
+                                                <option value="0" disabled> {{'text_62' | translate}} *</option>
+                                                <option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                            <div id="addNewRequestState-error"></div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">نام شهرستان</label>
+                                            <select id="addNewRequestCity" ng-change="loadPrice(addNewRequest.City,addNewRequest.State);checkPostal()" ng-model="addNewRequest.City" ng-init="addNewRequest.City='0'" class="form-control"
+                                                    data-validation="required CheckPostalCode" data-validation-error-msg-container="#addNewRequestCity-error" data-validation-help="{{'validation_16' | translate}}">
+                                                <option value="0" disabled> {{'text_63' | translate}} *</option>
+                                                <option ng-repeat="value in city" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                            <div id="addNewRequestCity-error"></div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-4 pull-right  col-xs-10">
+                                            <label class="sr-only">نام بخش / محله / دهستان</label>
+                                            <select id="addNewRequestVillageDrop" ng-model="addNewRequest.VillageDrop" ng-init="addNewRequest.VillageDrop='0'" class="form-control" style="font-size: 12px;"
+                                                    data-validation="required " data-validation-error-msg-container="#addNewRequestVillageDrop-error" data-validation-help="{{'validation_17' | translate}}">
+                                                <option disabled value="0">{{'text_64' | translate}} * </option>
+                                                <option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6  col-md-5 col-sm-6 pull-right  col-xs-10 ">
+                                            <label class="sr-only">نام بخش / محله / دهستان</label>
+                                            <input id="addNewRequestVillageTxt" ng-model="addNewRequest.VillageTxt" type="text" maxlength="20" class="form-control placeHolder{{float}}" lang="fa" placeholder="{{'text_65' | translate}}"
+                                                   data-validation="required custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-error-msg="{{'validation_18' | translate}}" data-validation-error-msg-container="#addNewRequestVillageTxt-error">
+                                            <div id="addNewRequestVillageTxt-error"></div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-4 pull-right  col-xs-10">
+                                            <label class="sr-only">نوع معبر اصلی</label>
+                                            <select id="addNewRequestMainRoadDrop" ng-model="addNewRequest.MainRoadDrop" ng-init="addNewRequest.MainRoadDrop=''" class="form-control">
+                                                <option selected value=""> {{'text_66' | translate}} *  </option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6  col-md-5 col-sm-6 pull-right  col-xs-10 ">
+                                            <label class="sr-only">معبر اصلی</label>
+                                            <input id="addNewRequestMainRoadTxt" ng-model="addNewRequest.MainRoadTxt" ng-init="addNewRequest.MainRoadTxt=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_67' | translate}}"
+                                                   data-validation=" custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-optional="true" />
+                                        </div>
+
+                                        <div class="form-group col-md-4 col-sm-6 pull-right  col-xs-10">
+                                            <label class="sr-only"> نوع معبر فرعی 1</label>
+                                            <select id="addNewRequestSecondaryRoadDrop1" ng-model="addNewRequest.SecondaryRoadDrop1" ng-init="addNewRequest.SecondaryRoadDrop1=''" class="form-control">
+                                                <option selected value="">{{'text_68' | translate}}   </option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-5 col-sm-6 pull-right  col-xs-10">
+                                            <label class="sr-only">معبر فرعی 1 </label>
+                                            <input id="addNewRequestSecondaryRoadTxt1" ng-model="addNewRequest.SecondaryRoadTxt1" ng-init="addNewRequest.SecondaryRoadTxt1=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_69' | translate}}"
+                                                   data-validation=" custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-optional="true" />
+                                        </div>
+
+                                        <div class="form-group  col-sm-6  col-md-4 col-sm-6 pull-right  col-xs-10">
+                                            <label class="sr-only">نوع معبر فرعی 2</label>
+                                            <select id="addNewRequestSecondaryRoadDrop2" ng-model="addNewRequest.SecondaryRoadDrop2" ng-init="addNewRequest.SecondaryRoadDrop2=''" class="form-control">
+                                                <option selected value="">  {{'text_70' | translate}}    </option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-5 col-sm-6 pull-right  col-xs-10">
+                                            <label class="sr-only"> معبر فرعی 2 </label>
+                                            <input type="text" id="addNewRequestSecondaryRoadTxt2" ng-model="addNewRequest.SecondaryRoadTxt2" ng-init="addNewRequest.SecondaryRoadTxt2=''" class="form-control placeHolder{{float}}" placeholder=" {{'text_71' | translate}}"
+                                                   data-validation=" custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-optional="true" />
+                                        </div>
+
+                                        <div class="form-group col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">پلاک / شماره</label>
+                                            <input id="addNewRequestPlaque" ng-model="addNewRequest.Plaque" ng-init="addNewRequest.Plaque=''" type="text" class="form-control placeHolder{{float}}" maxlength="7" placeholder=" {{'text_72' | translate}}"
+                                                   data-validation="required number length" data-validation-length="max7" data-validation-ignore=". / , \ +" data-validation-error-msg-container="#addNewRequestPlaque-error" data-validation-help="{{'validation_19' | translate}}  ">
+                                            <div id="addNewRequestPlaque-error"></div>
+                                        </div>
+
+                                        <div class="form-group col-sm-9 pull-right  col-xs-10 placeHolder{{float}}" style="display:none">
+                                            <label class="sr-only"> طبقه</label>
+                                            <select id="addNewRequestFloor" ng-model="addNewRequest.Floor" class="form-control  js-example-basic-multiple-limit  " multiple="multiple" style="font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;"
+                                                    data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#addNewRequestFloor-error" data-validation-help=" {{'validation_20' | translate}} ">
+                                                <option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
+
+                                            </select>
+                                            <div id="addNewRequestFloor-error"></div>
+                                        </div>
+
+                                        <div class="form-group col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">شماره واحد</label>
+                                            <input id="addNewRequestUnit" ng-model="addNewRequest.Unit" ng-init="addNewRequest.Unit=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_73' | translate}}"
+                                                   data-validation="custom" data-validation-optional="true" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" maxlength="20" data-validation-error-msg="{{'validation_21' | translate}}" data-validation-help="{{'validation_21' | translate}}  ">
+                                            <div id="addNewRequestUnit-error"></div>
+                                        </div>
+
+                                        <div class="form-group col-sm-9 pull-right  col-xs-10">
+                                            <label class="sr-only">نام ساختمان</label>
+                                            <input id="addNewRequestBuildingName" ng-model="addNewRequest.BuildingName" ng-init="addNewRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' | translate}}"
+                                                   data-validation=" custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-optional="true" data-validation-error-msg="{{'validation_22' | translate}}" data-validation-help=" {{'validation_22' | translate}} ">
+                                            <div id="addNewRequestBuildingName-error"></div>
+                                        </div>
+
+                                        <div class="form-group col-sm-9 pull-right  col-xs-10">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6 col-xs-8   ">
+                                                        <input style="padding: 5px 20px !important; " id="addNewRequestSubmit" type="submit" class="btn btn-default btn-block" value="{{'text_75' | translate}}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!--<div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-3 col-xs-8 col-sm-offset-2 col-xs-offset-2 ">
+                                            <input style="padding: 5px 20px !important; " id="addNewRequestSubmit" type="submit" class="btn btn-default btn-block" value="{{'text_75' | translate}}" />
+                                        </div>
+                                    </div>
+                                </div>-->
+                            </div>
+                        </form>
+                    </div>
+                    <div style=" height: 84px; margin:0px 0px 13px 0px; display:none;" ng-show="addNewRequest.postKind" class="row firstHide alert alert-info alert-block fade in">
+                        <button ng-click="addNewRequest.postKind=false; cancelRequest();" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+
+                        <p translate="text_92">
+
+                        </p>
+
+                        <div class="col-lg-12 form-group">
+                            <div class="col-lg-4 col-md-5 col-md-pull-3 pull-right col-lg-pull-4 ">
+                                <select ng-model="addNewRequest.companyRequestTypeId" ng-init="addNewRequest.companyRequestTypeId=''" ng-change="loadPreview(addNewRequest.companyRequestTypeId)" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' ریال ' for value in sendType">
+                                    <option value="" selected disabled>نوع ارسال</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="addNewRequest.companyRequestTypeId!='' && addNewRequest.postKind" style="margin: 0 0 12px 0;background-color: rgba(85, 226, 59, 0.1); border-radius: 5px; border: 1px solid rgba(158, 216, 179, 0.42);">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-4" style="margin: 27px 0 0 0;">
+                                    <img width="200" style="box-shadow: 7px 7px 5px #888888;" src="img/letter.png" />
+                                </div>
+                                <div class="col-lg-7" style="font-size: 18px;text-align: right;color: rgba(36, 5, 107, 0.87); padding: 19px;">
+
+
+                                    <table class="table table-advance table-hover">
+                                        <tr>
+                                            <td style=" width: 28%;">نام محصول </td>
+                                            <td ng-bind="' نامه اعتبار سنجی نشانی شهروند - '+SelectedPostMethod.name "></td>
+                                        </tr>
+                                        <tr ng-show="SelectedPostMethod.description!=null">
+                                            <td>شرح محصول </td>
+                                            <td ng-bind="SelectedPostMethod.description"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>قیمت </td>
+                                            <td ng-bind="SelectedPostMethod.price + ' ریال '"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ارزش افزوده</td>
+                                            <td ng-bind="(SelectedPostMethod.price*0.09 )+ ' ریال '"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>مبلغ قابل پرداخت</b>
+                                            </td>
+                                            <td>
+                                                <b ng-bind="((SelectedPostMethod.price*0.09 )+SelectedPostMethod.price)+ ' ریال '"></b>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-5 pull-left" style=" margin: 0 0 20px 0;">
+                                <a class="btn btn-info" ng-click="addNewRequest.postKind=false; cancelRequest();">تغییر مشخصات  </a>
+                                <a class="btn btn-success" id="addNewRequestSendBtn" ng-click="addNewRequestFunction(addNewRequest)">انتقال به درگاه بانک و پرداخت  </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <div ng-show="addNewRequest.success" ng-init="addNewRequest.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="addNewRequest.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'successful' | translate}}
+                        </h4>
+                        <p ng-bind="addNewRequest.success"></p>
+                    </div>
+
+                    <div ng-show="addNewRequest.error" ng-init="addNewRequest.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="addNewRequest.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' | translate}}
+                        </h4>
+                        <p ng-bind="addNewRequest.error"></p>
+                    </div>
+
+                </div>
+
+
+            </section>
+
+            <section id="fallow" class="section section-center section-contact  section-hilite section-testimonial">
+
+                <div class="container">
+                    <div class="main-action row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12  col-xs-12" style="float:right !important;">
+                                <h2 class="section-title"><span style="line-height: 39px; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;" translate="text_25">  </span></h2>
+                                <h2 class="sr-only">
+                                    رهگیری و مشاهده آخرین وضعیت نامه اعتبار سنجی
+                                </h2>
+                                <p translate="text_26" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                                </p>
+                            </div>
+                            <form id="getRequestForm" ng-submit="getRequestFunction(get)">
+                                <div class="col-md-4 col-sm-6 col-md-pull-3  col-sm-pull-1 col-xs-12" style="float:right !important">
+                                    <div class="form-group">
+                                        <label class="sr-only">کد رهگیری</label>
+                                        <input onblur="clearSpecialCharacter(this);" id="trackingCode1" ng-model="get.uniqeId" style="margin: auto; width: 232px;direction: ltr; padding-left: 25px;" type="text" maxlength="20" class="form-control placeHolder{{float}}" placeholder="{{'text_76' | translate}} "
+                                               data-validation="required  number length" data-validation-length="min10" data-validation-error-msg-container="#trackingCode1-error" data-validation-error-msg="{{'validation_3' | translate}}">
+                                        <div id="trackingCode1-error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2  col-sm-3 col-md-pull-3 col-sm-pull-1 col-xs-12 col-xs-pull-2 col-xs-8" style="float:right !important">
+                                    <div class="form-group">
+                                        <button id="getRequest" type="submit" style="padding: 5px;" class="btn btn-default btn-block" translate="menu_4"></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div ng-show="get.success" ng-init="get.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="get.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            مشخصات نامه اعتبار سنجی شما :
+                        </h4>
+
+                        <p style=" margin: 10px 8%;" ng-bind="get.success1"></p>
+                        <p style=" margin: 10px 8%;" ng-bind="get.success2"></p>
+                        <p style=" margin: 10px 8%;" ng-bind="get.success3"></p>
+                    </div>
+
+                    <div ng-show="get.error" ng-init="get.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="get.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' | translate}}
+                        </h4>
+                        <p ng-bind="get.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section id="blog" class="section section-center section-cta">
+                <div class="container">
+                    <h2 class="section-title"><span translate="text_27" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;"></span></h2>
+                    <h2 class="sr-only">
+                        اعلام توزیع اشتباه در نشانی گیرنده
+                    </h2>
+                    <p translate="text_28" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                    </p>
+                    <div class="main-action">
+                        <form method="post" name="contactform" id="reportRequestForm" ng-submit="reportRequestConfirmFunction(report)">
+                            <div class="results"></div>
+
+                            <div class="main-action row">
+
+                                <div class="col-md-4 col-sm-6 col-md-pull-3  col-sm-pull-1 col-xs-12" style="float:right !important">
+                                    <div class="form-group">
+                                        <label class="sr-only">کد رهگیری</label>
+                                        <input onblur="clearSpecialCharacter(this);" id="trackingCode3" ng-model="report.uniqeId" style="margin: auto; width: 232px;direction: ltr; padding-left: 25px;" type="text" maxlength="20" class="form-control placeHolder{{float}}" placeholder="{{'text_76' | translate}} "
+                                               data-validation="required  number length" data-validation-length="min10" data-validation-error-msg-container="#trackingCode3-error" data-validation-error-msg="{{'validation_3' | translate}}">
+                                        <div id="trackingCode3-error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2  col-sm-3 col-md-pull-3 col-sm-pull-1 col-xs-12 col-xs-pull-2 col-xs-8" style="float:right !important">
+                                    <div class="form-group">
+
+                                        <button id="reportRequest" type="submit" style="padding: 5px;" class="btn btn-default btn-block" translate="text_78"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div ng-show="confirm.success" ng-init="confirm.success=''" style=" display:none;" class="firstHide alert alert-info alert-block fade in">
+                        <button ng-click="confirm.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <center>
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                {{'text_89' | translate}}
+                            </h4>
+                            <a style="float: left;margin: -4px 0px 0px 44px;" ng-click="reportRequestFunction(report)" class="btn btn-default">{{'Confirm' | translate}}</a>
+                            <p style=" margin: 10px 8%;" ng-bind="confirm.success1"></p>
+                            <p style=" margin: 10px 8%;" ng-bind="confirm.success2"></p>
+                            <p style=" margin: 10px 8%;" ng-bind="confirm.success3"></p>
+                        </center>
+                    </div>
+
+                    <div ng-show="confirm.error" ng-init="confirm.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="confirm.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' | translate}}
+                        </h4>
+                        <p ng-bind="confirm.error"></p>
+                    </div>
+
+                    <div ng-show="report.success" ng-init="report.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="report.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'successful' | translate}}
+                        </h4>
+                        <p ng-bind="report.success"></p>
+                    </div>
+
+                    <div ng-show="report.error" ng-init="report.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="report.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' | translate}}
+                        </h4>
+                        <p ng-bind="report.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section id="testimonials" class=" section section-hilite section-testimonial section-center">
+                <div class="container">
+                    <h2 class="section-title"><span style="line-height: 33px; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;" translate="text_29"></span></h2>
+                    <h2 class="sr-only">
+                        ثبت درخواست ارسال مجدد نامه اعتبار سنجی نشانی
+                    </h2>
+                    <p translate="text_30" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                    </p><p translate="text_31" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                    </p>
+                    <div class="main-action" style="margin-top: 38px;">
+                        <form method="post" name="contactform" id="resendRequestForm" ng-submit="beforeResendRequestFunction(resend)">
+                            <div class="results"></div>
+
+                            <div class="main-action row">
+                                <div class="col-md-4 col-sm-6 col-md-pull-3  col-sm-pull-1 col-xs-12" style="float:right !important">
+                                    <div class="form-group">
+                                        <label class="sr-only">کد رهگیری</label>
+                                        <input onblur="clearSpecialCharacter(this);" id="trackingCode2" ng-model="resend.uniqeId" style="margin: auto;width: 232px;direction: ltr; padding-left: 25px;" type="text" maxlength="20" class="form-control placeHolder{{float}}" placeholder="{{'text_76' | translate}} "
+                                               data-validation="required  number length" data-validation-length="min10" data-validation-error-msg-container="#trackingCode2-error" data-validation-error-msg="{{'validation_3' | translate}}">
+                                        <div id="trackingCode2-error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3  col-sm-3 col-md-pull-3 col-sm-pull-1 col-xs-12 col-xs-pull-2 col-xs-8" style="float:right !important">
+                                    <div class="form-group">
+                                        <button id="resendRequest" type="submit" style="padding: 5px;" class="btn btn-default btn-block" translate="text_79"> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div style=" height: 230px; display:none;" ng-show="resendGet.success" ng-init="resendGet.success=''" class=" firstHide alert alert-success alert-block fade in">
+                        <button ng-click="resendGet.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            نامه اعتبار سنجی جدیدی مجددا برای شما ارسال خواهد شد.  نامه اعتبار سنجی قبلی برای مخاطب و نشانی ذیل ارسال شده بود :
+                        </h4>
+
+                        <p style=" margin: 10px 8%;" ng-bind="resendGet.success1"></p>
+                        <p style=" margin: 10px 8%;" ng-bind="resendGet.success2"></p>
+                        <p style=" margin: 10px 8%;">
+                            جهت ارسال مجدد، امکان تغییر نشانی و یا مخاطب موجود نیست و به همان نشانی موجود در سیستم مجدد نامه ارسال خواهد شد. ارسال مجدد نامه اعتبار سنجی نیاز به پرداخت مجدد هزینه ارسال پستی دارد. <!--لطفا نوع ارسال را مشخص و هزینه را مرحله بعد پرداخت نمایید-->:
+                        </p>
+                        <div class="col-lg-12 form-group">
+                            <div class="col-lg-4 col-md-5 col-md-pull-3 pull-right col-lg-pull-4 ">
+
+                                <select id="resendKindSend" ng-model="resend.KindSend" ng-init="resend.KindSend=''" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' ریال ' for value in sendType2">
+                                    <option value="" selected disabled>نوع ارسال</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-1 col-md-4 col-md-offset-1 col-lg-pull-4">
+                                <button type="button" class="btn btn-default" ng-click="resendRequestFunction(resend)">پرداخت</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="resendGet.error" ng-init="resendGet.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="resendGet.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' | translate}}
+                        </h4>
+                        <p ng-bind="resendGet.error"></p>
+                    </div>
+                    <div ng-show="resend.error" ng-init="resend.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="resend.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' | translate}}
+                        </h4>
+                        <p ng-bind="resend.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="contact" class="section section-center section-contact">
+                <div class="container">
+                    <h2 class="section-title"><span translate="text_32" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;"></span></h2>
+                    <h2 class="sr-only">
+                        ثبت نظر، شکایت و یا انتقاد
+                    </h2>
+                    <p translate="text_33" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+                    </p>
+
+                    <div class="main-action">
+                        <form method="post" name="contactform" id="addNewMessageForm" ng-submit="addNewMessageFunction(addNewMessage)">
+                            <div class="results"></div>
+                            <div class="row">
+
+                                <div class="col-sm-6  pull-right col-sm-pull-0 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="sr-only">نام و نام خانوادگی</label>
+                                        <input name="subject" ng-model="addNewMessage.name" ng-init="addNewMessage.name=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_82' | translate }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only">ایمیل</label>
+                                        <input name="name" ng-model="addNewMessage.email" ng-init="addNewMessage.email=''" type="email" class="form-control placeHolder{{float}}" placeholder="{{'text_83' | translate }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only">شماره تلفن همراه</label>
+                                        <input id="phoneNumber2" ng-model="addNewMessage.cell" ng-init="addNewMessage.cell=''" max-length="11" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_84' | translate }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only">کد رهگیری در صورت وجود</label>
+                                        <input onblur="clearSpecialCharacter(this);" max-length="8" ng-model="addNewMessage.uniqId" ng-init="addNewMessage.uniqId=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_77' | translate}}">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 pull-righ col-sm-pull-0 col-xs-pull-3t">
+                                    <div class="form-group">
+                                        <label class="sr-only">پرسش خود را در اینجا تایپ کنید</label>
+                                        <textarea id="addNewMessageText" name="message" ng-model="addNewMessage.text" ng-init="addNewMessage.text=''" class="form-control placeHolder{{float}}" maxlength="2000" placeholder="{{'text_85' |translate }}" style="height: 181px" rows="6"
+                                                  data-validation="required" data-validation-error-msg-container="#addNewMessageText-error" data-validation-error-msg="{{'validation_4' | translate}}"></textarea>
+                                        <div id="addNewMessageText-error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                <button id="message" style="padding: 5px;" type="submit" class="btn btn-default btn-block" translate="text_80"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div ng-show="addNewMessage.success" ng-init="addNewMessage.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="addNewMessage.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            با تشکر از تماس شما
+                        </h4>
+                        <p ng-bind="addNewMessage.success"></p>
+                    </div>
+
+                    <div ng-show="addNewMessage.error" ng-init="addNewMessage.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="addNewMessage.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' | translate}}
+                        </h4>
+                        <p ng-bind="addNewMessage.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="aboutUs" class="section section-hilite section-testimonial section-center">
+                <div class="container">
+                    <h2 class="section-title"><span translate="menu_8" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;"> </span></h2>
+                    <h2 class="sr-only">
+                        درباره ما
+                    </h2>
+                    <div class="main-action">
+                        <form method="post" name="contactform" id="addNewMessageForm" ng-submit="addNewMessageFunction(addNewMessage)">
+                            <div class="results"></div>
+                            <div class="row">
+
+                                <div class="col-sm-12 ">
+                                    <div style=" text-align: justify; text-justify: inter-word; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;" translate="text_34">
+
+                                    </div>
+                                    <br />
+                                    <br />
+
+                                    <p translate="text_35" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;"></p>
+
+                                    <span translate="text_36" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                                    </span>
+
+                                    <br />
+
+                                    <br />
+                                    <br />
+                                    <p translate="text_37" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                                    </p>
+                                    <span translate="text_38" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+                                    </span>
+
+                                    <p translate="text_39" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+
+                                    </p>
+
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer id="footer" class="site-footer">
+            <div class="container">
+
+                <div id="sidebar-footer-1">
+                    <div class="row">
+
+                        <aside class="widget col-md-3 col-sm-6">
+
+                            <form method="post" name="contactform" id="newslatterForm" ng-submit="newsletterFunction(newsletterEmail)">
+
+                                <h5 class="widget-title" translate="text_40" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;"></h5>
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control placeHolder{{float}}" id="newslatter" ng-model="newsletterEmail" placeholder="{{'text_81' | translate }}"
+                                           data-validation="required email" data-validation-error-msg-container="#newslatter-error" />
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-danger" style="padding: 6px;"><i class="fa fa-arrow-right"></i></button>
+                                    </span>
+                                </div>
+
+
+                                <p id="newslatter-error" style="margin-top: 7px;" ng-bind="newsletterResponse"></p>
+                                <ul class="social-links"></ul>
+                            </form>
+
+                        </aside>
+
+                        <aside class="widget col-md-3 col-sm-6">
+                            <h5 class="widget-title" translate="text_41" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;"></h5>
+                            <a href="/law/">    <p translate="text_42" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-3}}px !important;"></p></a>
+                        </aside>
+
+                        <aside class="widget col-md-3 col-sm-6">
+                            <h5 class="widget-title" translate="text_43" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;"></h5>
+                            <div class="textwidget">
+                                <div class="adr" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-1}}px !important;">
+                                    <div class="street-address" translate="text_44" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{(h4*1)-3}}px !important;">
+
+                                    </div>
+                                    <div><span translate="text_45"></span>: <span class="tel">88522948</span></div>
+                                    <div><span translate="text_46"></span>: <a class="url" href="http://avs.post.ir">avs.post.ir</a></div>
+
+                                </div>
+
+                            </div>
+                        </aside>
+                        <aside class="widget col-md-3 col-sm-6">
+                            <img id='hwlaxlapsguiwmcssgui' style='cursor:pointer' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=43080&p=odshfuixdrfsaqgwdrfs", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")' alt='' src='https://trustseal.enamad.ir/logo.aspx?id=43080&p=aodsvjymgthvukaqgthv' />
+
+                        </aside>
+                    </div>
+                </div>
+
+
+                <div class="copyright"><p><span translate="lisense">  </span><br /><span translate="text_47"></span>  <a href="http://www.post.ir/" translate="text_48"> </a>  <a href="http://www.rojina.com/" translate="text_49"></a> <span translate="text_50"></span></p></div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="scroll-to-top" data-spy="affix" data-offset-top="200"><a href="#page" class="smooth-scroll"><i class="fa fa-arrow-up"></i></a></div>
+    <!--<script src="Model/Model.js"></script>
+    <script src="js/angular-translate.min.js"></script>-->
+
+    <script>
+        (function ($) {
+            "use strict";
+            // Add "loaded" class when a section has been loaded
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+                $(".section").each(function () {
+                    var elementTop = $(this).offset().top - $('#header').outerHeight();
+                    if (scrollTop >= elementTop) {
+                        $(this).addClass('loaded');
+                    }
+                });
+            });
+            // One Page Navigation Setup
+            $('.one-page-nav #navigation').singlePageNav({
+                offset: $('.one-page-nav').outerHeight(),
+                filter: ':not(.external)',
+                speed: 750,
+                currentClass: 'active',
+
+                beforeStart: function () {
+                },
+                onComplete: function () {
+                }
+            });
+            // Sticky Navbar Affix
+            $('.one-page-nav').affix({
+                offset: {
+                    top: $('#topbar').outerHeight(),
+                }
+            });
+            // Smooth Hash Link Scroll
+            $('.smooth-scroll').click(function () {
+                if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top - 30
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+            $('.nav a').on('click', function () {
+                if ($('.navbar-toggle').css('display') !== 'none') {
+                    $(".navbar-toggle").click();
+                }
+            });
+
+            // filter items when filter link is clicked
+            $('#filters a').click(function () {
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector });
+                return false;
+            });
+
+        })(jQuery);
+    </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://avs.post.ir",
+        "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+98-21-8852 2948",
+        "contactType": "customer service"
+        }]
+        }
+    </script>
+
+    <script>
+
+        function clearSpecialCharacter(input) {
+            $(input).val(input.value.replace(/[&\/\\#,+()$~%.'":*?<>{} -]/g, ''))
+        }
+    </script>
+
+    <!--Start of Zendesk Chat Script-->
+    <script type="text/javascript">
+        window.$zopim || (function (d, s) {
+            var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+            d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                z.set.
+                _.push(o)
+            }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
+            $.src = "https://v2.zopim.com/?4O3bq7aswkYOmGbeNWrlWMxgbOQFNF8D"; z.t = +new Date; $.
+            type = "text/javascript"; e.parentNode.insertBefore($, e)
+        })(document, "script");
+    </script>
+    <!--End of Zendesk Chat Script-->
+
+</body>
+</html>

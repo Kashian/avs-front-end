@@ -1,0 +1,70 @@
+﻿   
+
+ var myLanguage = {
+        requiredFields: 'لطفا همه های اجباری را پر نمایید',
+        requiredField: 'لطفا این فیلد را پر نمایید',
+         badEmail: 'لطفا آدرس ایمیل را به درستی وارد نمایید',
+        lengthBadStart: 'لطفا   ',
+        lengthBadEnd: ' کاراکتر وارد نمایید',
+        lengthTooLongStart: 'لطفا حداکثر ',
+        lengthTooShortStart: 'لطفا حداقل ',
+        notConfirmed: 'مقدار وارد شده درست نمی باشد',
+        badCustomVal: 'مقدار وارد شده صحیح نمی باشد',
+        andSpaces: ' and spaces ',
+        badInt: 'لطفا در این فیلد فقط از اعداد استفاده نمایید',
+        badNumberOfSelectedOptionsStart: 'لطفا حداقل  ',
+        badNumberOfSelectedOptionsEnd: ' گزینه را انتخاب نمایید',
+        badAlphaNumeric: 'لطفا در این فیلد فقط از اعداد و حروف استفاده نمایید ',
+        badAlphaNumericExtra: ' and ',
+        groupCheckedRangeStart: 'شما باید  ',
+        groupCheckedTooFewStart: 'شما باید حداقل ',
+        groupCheckedTooManyStart: 'شما باید حداکثر ',
+        groupCheckedEnd: ' مورد را انتخاب نمایید',
+        min: 'حداقل',
+        max: 'حداکثر'
+    };
+
+    $.validate({
+        language: myLanguage,
+        //modules: 'location,  security',
+        //validateOnBlur : false, // disable validation when input looses focus
+        // errorMessagePosition : 'top', // Instead of 'inline' which is default
+        scrollToTopOnError: false // Set this property to true on longer forms
+    });
+
+
+
+
+
+ ///////defult with out adding module , but have beautiful module
+    //data-validation="required alphanumeric"
+    //data-validation="email"
+    //data-validation="required" 
+    //data-validation-error-msg="You have to agree to our terms"
+    //data-validation-error-msg-container="#email-error-dialog"
+    // data-validation="length"  data-validation-length="min5" 
+    // data-validation="length" data-validation-length="max100"
+    //data-validation="length " data-validation-length="3-12" 
+    //data-validation="number" data-validation-allowing="float,negative"
+    //data-validation-allowing="float" 
+    // data-validation-decimal-separator=","
+    // data-validation-allowing="range[-50;30],negative"
+    //data-validation="url"
+    // data-validation="date" data-validation-format="dd/mm/yyyy"
+    //data-validation="alphanumeric" data-validation-allowing="-_"
+    //data-validation="checkbox_group" data-validation-qty="max3"
+    ////////file
+    //data-validation="mime size required" 
+    ////data-validation-allowing="jpg, png" 
+    //data-validation-max-size="300kb" 
+    //data-validation-error-msg-required="No image selected"
+    // data-validation-regexp="^([a-z]+)$"
+    //data-validation-optional="true" اختیاری
+    //data-validation-help="Please give us some more information"
+    //data-suggestions="White, Green, Blue, Black, Brown"
+    // var largeArray = []; largeArray.push('Something'); largeArray.push('Something else');
+    // $.formUtils.suggest( $('#the-input'), largeArray );
+    // data-validation="number" data-validation-ignore="$"
+    //  $('#area').restrictLength(4); /بیشتر از این تعدادی که گفته نمیشود تایپ کند 
+     
+    //http://www.formvalidator.net/

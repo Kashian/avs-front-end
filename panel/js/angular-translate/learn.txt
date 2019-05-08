@@ -1,0 +1,83 @@
+﻿ main site : https://angular-translate.github.io
+
+best learn : https://www.sitepoint.com/multilingual-support-for-angularjs/
+
+
+//in app.js
+
+
+angular.module('post', [
+        'post.Controller',
+        'post.Model',
+        'pascalprecht.translate'
+])
+
+    //for translate
+    .config(['$translateProvider', function ($translateProvider) {
+
+        $translateProvider
+        .useStaticFilesLoader({
+            prefix: 'js/',
+            suffix: '.json'
+        })
+        .preferredLanguage('fa')
+        .useMissingTranslationHandlerLog();
+    }])
+    .run(['$rootScope', function ($rootScope) {
+        $rootScope.lang = 'fa';
+
+        $rootScope.default_float = 'right';
+        $rootScope.opposite_float = 'left';
+
+        $rootScope.default_direction = 'rtl';
+        $rootScope.opposite_direction = 'ltr';
+    }])
+    .controller('LanguageSwitchController', ['$scope', '$rootScope', '$translate',
+      function ($scope, $rootScope, $translate) {
+          $scope.changeLanguage = function (langKey) {
+              $translate.use(langKey);
+          };
+
+          $rootScope.$on('$translateChangeSuccess', function (event, data) {
+              var language = data.language;
+
+              $rootScope.lang = language;
+
+              $rootScope.default_direction = language === 'fa' ? 'rtl' : 'ltr';
+              $rootScope.opposite_direction = language === 'fa' ? 'ltr' : 'rtl';
+
+              $rootScope.default_float = language === 'fa' ? 'right' : 'left';
+              $rootScope.opposite_float = language === 'fa' ? 'left' : 'right';
+          });
+      }]);
+
+// end translate
+
+//end app.js
+
+
+//in html 
+<html ng-app="post"  lang="{{ lang }}">
+
+
+  <div ng-controller="LanguageSwitchController">
+        <button ng-show="lang == 'en'" ng-click="changeLanguage('fa')">فارسی</button>
+        <button ng-show="lang == 'fa'" ng-click="changeLanguage('en')" >English</button>
+  </div>
+
+
+// for translate
+  <button translate="keyForTranslate"></button>
+  or
+  <h2>{{ 'keyForTranslate' | translate }}</h2>
+
+
+//for css
+
+[lang='fa'] .media-image {
+  padding-left: 10px;
+ }
+
+[lang='en'] .media-image {
+  padding-right: 10px;
+ }

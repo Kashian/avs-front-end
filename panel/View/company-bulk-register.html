@@ -1,0 +1,376 @@
+﻿
+<!--
+ <script src="/panel/js/xls.js"></script>
+-->
+
+<section id="clients" class="section section-center section-contact" ng-init="initFunction();registerLetterInit();">
+	<div class="">
+		<h2 class="section-title"><span style="line-height: 33px; direction:rtl !important;font-family:IranSans !important; font-size:30px !important;">
+			درخواست جدید برای اعتبار سنجی نشانی
+		</span></h2>
+
+		<div>
+			لطفا فیلد های زیر را پر نمایید.
+		</div>
+		<!--<div>
+			شما می توانید اطلاعات را با استفاده از فرم زیر وارد نمایید ، همچنین با استفاده از فایل اکسل نیز قادر به ورود اطلاعات می باشید
+		</div>
+
+		<div style="margin: 20px 0 20px 0;">
+			لطفا فایل اکسل را مطابق <a href="change-password.html">این فایل</a> تکمیل و بارگذاری نمایید
+			<input type="file" id="uploadCSV" >
+			<div id="csvStatus"></div>
+
+		</div>-->
+
+
+		<!--
+				<h5 style=" line-height: 39px; line-height: 39px; font-size: 14px;  direction:rtl !important;font-family:IranSans !important; font-size:14px !important;  background: rgba(183, 222, 226, 0.29);border-radius: 5px; padding: 13px;">
+					در این بخش می توانید برای افرادی که می خواهید ، نامه اعتبار سنجی نشانی ایجاد کنید.
+				</h5>
+
+				<div>
+					<p style=" direction:rtl !important;font-family:IranSans !important; font-size:14px !important;">
+						 توجه : تکمیل گزینه های ستاره دار الزامی می باشد.
+					</p>
+				</div>-->
+
+
+		<div class="main-action" ng-init="allRequest=[{}]">
+
+			<form id="addNewRequestForm" style=" direction:rtl  ;font-family:IranSans !important;">
+				<div class="results"></div>
+				<div class="row" style="position: relative;">
+					<div id="overlay" class="boxDeactive"></div>
+
+
+
+					<div class="row"  ng-repeat=" addNewRequest in allRequest" ng-style="{'background-color': addNewRequest.error?'#ff4646':addNewRequest.success?'#3cd448':'#bfbfbf'}"   style="padding: 10px 0px 8px 0; margin: 4px 4px 7px 5px;border-radius: 4px;">
+						<div class="col-md-12">
+							<button ng-click="allRequest.splice($index , 1);" style=" margin: -10px 0 -12px -16px;width:20px; height:20px;" class="close close-sm" type="button">
+ 								<i class="icon-remove"></i>
+							</button>
+							<div class="col-md-1" style="padding:0.2%">
+
+								<input ng-model="addNewRequest.FirstName" type="text" class="addNewRequestFirstName form-control " maxlength="30" placeholder="نام "
+									   data-validation="required custom" data-validation-regexp="^[\u0600-\u06FF\\s]+$" data-validation-error-msg-container="#addNewRequestFirstName-error" data-validation-error-msg="لطفا نام خود را وارد نمایید">
+
+								<input style="margin-top: 5px;padding: 6px;"  ng-model="addNewRequest.LastName" type="text" class="addNewRequestLastName form-control " maxlength="50" placeholder="نام خانوادگی "
+									   data-validation="required custom" data-validation-regexp="^[\u0600-\u06FF\\s]+$" data-validation-error-msg-container="#addNewRequestLastName-error" data-validation-error-msg="لطفا نام خانوادگی خود را وارد نمایید">
+
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+								<input onblur="clearSpecialCharacter(this); "  ng-model="addNewRequest.NationalCode" maxlength="10" type="text" class="addNewRequestNationalCode form-control  " placeholder="شماره ملی "
+									   data-validation="required  number length  IranNationalCode" data-validation-length="10" data-validation-error-msg-container="#addNewRequestNationalCode-error">
+
+ 									 <span style="padding:0px;margin: 0 8px 0 0; float: right;">
+										مرد
+										<input type="radio" style="margin: 14px -1px 0 13px;" class="forDisableCheckBox" name="Geneder" value="1" ng-value="1" ng-model="addNewRequest.Gender"/>
+									</span>
+									<span style=" padding:0px; float: right;">
+										زن
+									<input type="radio" style="margin: 14px -1px 0 0px;" class="forDisableCheckBox" name="Geneder" value="2" ng-value="2" ng-model="addNewRequest.Gender"/>
+								</span>
+
+
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+								<input onblur="clearSpecialCharacter(this);" style="padding: 7px;"  ng-model="addNewRequest.PhoneNumber" type="text" class="addNewRequestPhoneNumber form-control  " placeholder=" تلفن همراه"
+									   data-validation="required number custom" data-validation-length="11" data-validation-regexp="09[0-9]{9}$" maxlength="11" data-validation-error-msg-container="#addNewRequestPhoneNumber-error"
+									   data-validation-error-msg="لطفا شماره تلفن همراه خود که با  09 آغاز میشود را وارد نمایید ">
+								<!--
+															   <input  ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class=" addNewRequestEmail form-control  " placeholder="ایمیل"
+																	  data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail-error">
+								-->
+								<input style="margin-top: 5px;padding: 7px;" onblur="clearSpecialCharacter(this);" ng-model="addNewRequest.PostalCode1" ng-init="addNewRequest.PostalCode1=''" type="text"
+									   class="addNewRequestPostalCode1 form-control  " placeholder="کد پستی"
+									   data-validation="required  length custom " data-validation-regexp="^[1-13-9]+$" data-validation-length="10" maxlength="10" data-validation-error-msg-container="#addNewRequestPostalCode1-error"
+									   data-validation-error-msg="لطفا کد پستی 10 رقمی خود را با  فرمت استاندارد و صحیح وارد نمایید">
+
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+								<select  ng-model="addNewRequest.State" style="padding: 6px;" ng-change="setCity(addNewRequest);addNewRequest.City='0';checkPostal()" ng-init="addNewRequest.State='0'" class="addNewRequestState form-control"
+										data-validation="required " data-validation-error-msg-container="#addNewRequestState-error">
+									<option value="0" disabled> نام استان </option>
+									<option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
+								</select>
+
+								<select style="padding: 0px;margin-top: 5px;"  ng-change="loadPrice(addNewRequest.City,addNewRequest.State);checkPostal()" ng-model="addNewRequest.City" ng-init="addNewRequest.City='0'" class="addNewRequestCity form-control"
+										data-validation="required " data-validation-error-msg-container="#addNewRequestCity-error">
+									<option value="0" disabled> نام شهرستان </option>
+									<option ng-repeat="value in addNewRequest.AllCity" ng-value="value.id">{{value.name}}</option>
+								</select>
+
+							</div>
+							<div class="col-md-6" style="padding: 0;">
+								<div class="col-md-3" style="padding:0.2%">
+									<select ng-model="addNewRequest.VillageDrop"  ng-init="addNewRequest.VillageDrop='0'" class="addNewRequestVillageDrop form-control" style="font-size: 12px;padding: 5px;"
+											data-validation="required " data-validation-error-msg-container="#addNewRequestVillageDrop-error">
+										<option disabled value="0"> بخش/محله/دهستان </option>
+										<option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
+									</select>
+									<input style="margin-top: 5px;padding: 5px;" ng-model="addNewRequest.VillageTxt" type="text" maxlength="20" class="addNewRequestVillageTxt form-control " placeholder="نام بخش/محله/دهستان"
+										   data-validation="required custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-error-msg="لطفا نام محله یا بخش  خود را وارد نمایید" data-validation-error-msg-container="#addNewRequestVillageTxt-error">
+
+								</div>
+								<div class="col-md-3" style="padding:0.2%">
+
+									<select ng-model="addNewRequest.MainRoadDrop" ng-init="addNewRequest.MainRoadDrop=''" class="addNewRequestMainRoadDrop form-control">
+										<option selected value=""> نوع معبر اصلی </option>
+										<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+									</select>
+									<input style="margin-top: 5px;" ng-model="addNewRequest.MainRoadTxt" ng-init="addNewRequest.MainRoadTxt=''" type="text" class="addNewRequestMainRoadTxt form-control " placeholder="نام معبر اصلی "
+										   data-validation=" custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-optional="true"/>
+
+								</div>
+								<div class="col-md-3" style="padding:0.2%">
+									<select ng-model="addNewRequest.SecondaryRoadDrop1" ng-init="addNewRequest.SecondaryRoadDrop1=''" class=" addNewRequestSecondaryRoadDrop1 form-control">
+										<option selected value="">نوع معبر فرعی 1</option>
+										<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+									</select>
+									<input style="margin-top: 5px;"  ng-model="addNewRequest.SecondaryRoadTxt1" ng-init="addNewRequest.SecondaryRoadTxt1=''" type="text" class="addNewRequestSecondaryRoadTxt1 form-control " placeholder="نام معبر فرعی 1"
+										   data-validation=" custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-optional="true"/>
+
+								</div>
+								<div class="col-md-3" style="padding:0.2%">
+									<select ng-model="addNewRequest.SecondaryRoadDrop2" ng-init="addNewRequest.SecondaryRoadDrop2=''" class="addNewRequestSecondaryRoadDrop2 form-control">
+										<option selected value=""> نوع معبر فرعی 2</option>
+										<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+									</select>
+
+									<input style="margin-top: 5px;" type="text" ng-model="addNewRequest.SecondaryRoadTxt2" ng-init="addNewRequest.SecondaryRoadTxt2=''" class="addNewRequestSecondaryRoadTxt2 form-control " placeholder="نام معبر فرعی 2 "
+										   data-validation=" custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-optional="true"/>
+
+								</div>
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+
+								<select  ng-model="addNewRequest.Floor" class="  form-control  js-example-basic-multiple-limit  " multiple="multiple"
+										 style="font-family:IranSans !important; font-size:14px !important;"
+										data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#addNewRequestFloor-error">
+									<option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
+
+								</select>
+								<input style="margin-top: 6px;padding: 5px;"  ng-model="addNewRequest.Plaque" ng-init="addNewRequest.Plaque=''" type="text" class="addNewRequestPlaque form-control  " maxlength="7" placeholder="پلاک / شماره "
+									   data-validation="required number length" data-validation-length="max7" data-validation-ignore="- _" data-validation-error-msg-container="#addNewRequestPlaque-error">
+
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+								<input ng-model="addNewRequest.Unit" ng-init="addNewRequest.Unit=''" type="text" class="addNewRequestUnit form-control " placeholder="شماره واحد"
+									   data-validation="custom" data-suggestions="شرقی, غربی, شمالی, جنوبی" data-validation-optional="true" maxlength="20" data-validation-error-msg="لطفا شماره واحد  خود را وارد کنید ">
+
+								<input  style="margin-top: 5px;padding: 9px;"  ng-model="addNewRequest.BuildingName" ng-init="addNewRequest.BuildingName=''" type="text" class="addNewRequestBuildingName form-control  " placeholder="نام ساختمان"
+									   data-validation=" custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-optional="true" data-validation-error-msg="لطفا نام ساختمان خود را وارد کنید">
+
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4 col-sm-4 col-xs-8 col-sm-offset-2 col-xs-offset-2 " style="margin-left: 14.1%;padding: 0 0 0 15px;">
+								<input style="padding: 5px 20px !important; text-align: center;font-size: 17px;"
+									   type="button" ng-show="allRequest.length>0" class="btn addNewRequestSubmit" value="ثبت"  ng-click="checkAndRegister();"/>
+								<input type="button" value="افزودن سطر" class="btn btn-default" ng-click="allRequest.push({});registerLetterInit();">
+							</div>
+							<div>
+								<div style="font-size: 20px;font-weight: bold;" ng-show="loading">
+									لطفا کمی صبر کنید{{loadingPoint}} {{percent}}%
+								</div>
+								<div ng-show="allSuccessRequest.length >0 || allErrorRequest.length>0">
+									نتیجه : <span  style="color: #3cd448;" ng-show="allSuccessRequest.length>0">{{allSuccessRequest.length}}   - درخواست تایید شده است</span>    <span style="color: #ff4646;" ng-show="allErrorRequest.length>0">{{allErrorRequest.length}} درخواست با خطا مواجه شد </span>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+
+					<div class="row"  ng-repeat=" addNewRequest in allSuccessRequest"  style="background-color:#3cd448; padding: 10px 0px 8px 0; margin: 4px 4px 7px 5px;border-radius: 4px;">
+						<div class="col-md-12">
+							<div class="col-md-1" style="padding:0.2%">
+
+								<input disabled ng-model="addNewRequest.FirstName" type="text" class="addNewRequestFirstName form-control " maxlength="30" placeholder="نام "
+									   data-validation="required custom" data-validation-regexp="^[\u0600-\u06FF\\s]+$" data-validation-error-msg-container="#addNewRequestFirstName-error" data-validation-error-msg="لطفا نام خود را وارد نمایید">
+
+								<input disabled style="margin-top: 5px;padding: 6px;"  ng-model="addNewRequest.LastName" type="text" class="addNewRequestLastName form-control " maxlength="50" placeholder="نام خانوادگی "
+									   data-validation="required custom" data-validation-regexp="^[\u0600-\u06FF\\s]+$" data-validation-error-msg-container="#addNewRequestLastName-error" data-validation-error-msg="لطفا نام خانوادگی خود را وارد نمایید">
+
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+								<input disabled onblur="clearSpecialCharacter(this); "  ng-model="addNewRequest.NationalCode"     maxlength="10" type="text" class="addNewRequestNationalCode form-control  " placeholder="شماره ملی "
+									   data-validation="required  number length  IranNationalCode" data-validation-length="10" data-validation-error-msg-container="#addNewRequestNationalCode-error">
+
+ 									 <span style="padding:0px;margin: 0 8px 0 0; float: right;">
+										مرد
+										<input disabled type="radio" style="margin: 14px -1px 0 13px;" class="forDisableCheckBox" name="Geneder" value="1" ng-value="1" ng-model="addNewRequest.Gender" ng-init="addNewRequest.Gender='1'"/>
+									</span>
+									<span style=" padding:0px; float: right;">
+										زن
+									<input disabled type="radio" style="margin: 14px -1px 0 0px;" class="forDisableCheckBox" name="Geneder" value="2" ng-value="2" ng-model="addNewRequest.Gender"/>
+								</span>
+
+
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+								<input disabled onblur="clearSpecialCharacter(this);" style="padding: 7px;"  ng-model="addNewRequest.PhoneNumber" type="text" class="addNewRequestPhoneNumber form-control  " placeholder=" تلفن همراه"
+									   data-validation="required number custom" data-validation-length="11" data-validation-regexp="09[0-9]{9}$" maxlength="11" data-validation-error-msg-container="#addNewRequestPhoneNumber-error"
+									   data-validation-error-msg="لطفا شماره تلفن همراه خود که با  09 آغاز میشود را وارد نمایید ">
+								<!--
+															   <input  ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class=" addNewRequestEmail form-control  " placeholder="ایمیل"
+																	  data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail-error">
+								-->
+								<input disabled style="margin-top: 5px;padding: 7px;" onblur="clearSpecialCharacter(this);" ng-model="addNewRequest.PostalCode1" ng-init="addNewRequest.PostalCode1=''" type="text"
+									   class="addNewRequestPostalCode1 form-control  " placeholder="کد پستی"
+									   data-validation="required  length custom " data-validation-regexp="^[1-13-9]+$" data-validation-length="10" maxlength="10" data-validation-error-msg-container="#addNewRequestPostalCode1-error"
+									   data-validation-error-msg="لطفا کد پستی 10 رقمی خود را با  فرمت استاندارد و صحیح وارد نمایید">
+
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+								<select disabled ng-model="addNewRequest.State" style="padding: 6px;" ng-change="setCity(addNewRequest);addNewRequest.City='0';checkPostal()" ng-init="addNewRequest.State='0'" class="addNewRequestState form-control"
+										 data-validation="required " data-validation-error-msg-container="#addNewRequestState-error">
+									<option value="0" disabled> نام استان </option>
+									<option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
+								</select>
+
+								<select disabled style="padding: 0px;margin-top: 5px;"  ng-change="loadPrice(addNewRequest.City,addNewRequest.State);checkPostal()" ng-model="addNewRequest.City" ng-init="addNewRequest.City='0'" class="addNewRequestCity form-control"
+										data-validation="required " data-validation-error-msg-container="#addNewRequestCity-error">
+									<option value="0" disabled> نام شهرستان </option>
+									<option ng-repeat="value in addNewRequest.AllCity" ng-value="value.id">{{value.name}}</option>
+								</select>
+
+							</div>
+							<div class="col-md-6" style="padding: 0;">
+								<div class="col-md-3" style="padding:0.2%">
+									<select disabled ng-model="addNewRequest.VillageDrop"  ng-init="addNewRequest.VillageDrop='0'" class="addNewRequestVillageDrop form-control" style="font-size: 12px;padding: 5px;"
+											data-validation="required " data-validation-error-msg-container="#addNewRequestVillageDrop-error">
+										<option disabled value="0"> بخش/محله/دهستان </option>
+										<option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
+									</select>
+									<input disabled style="margin-top: 5px;padding: 5px;" ng-model="addNewRequest.VillageTxt" type="text" maxlength="20" class="addNewRequestVillageTxt form-control " placeholder="نام بخش/محله/دهستان"
+										   data-validation="required custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-error-msg="لطفا نام محله یا بخش  خود را وارد نمایید" data-validation-error-msg-container="#addNewRequestVillageTxt-error">
+								</div>
+								<div class="col-md-3" style="padding:0.2%">
+
+									<select ng-model="addNewRequest.MainRoadDrop" ng-init="addNewRequest.MainRoadDrop=''" class="addNewRequestMainRoadDrop form-control">
+										<option selected value=""> نوع معبر اصلی </option>
+										<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+									</select>
+									<input style="margin-top: 5px;" ng-model="addNewRequest.MainRoadTxt" ng-init="addNewRequest.MainRoadTxt=''" type="text" class="addNewRequestMainRoadTxt form-control " placeholder="نام معبر اصلی "
+										   data-validation=" custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-optional="true"/>
+
+								</div>
+								<div class="col-md-3" style="padding:0.2%">
+									<select ng-model="addNewRequest.SecondaryRoadDrop1" ng-init="addNewRequest.SecondaryRoadDrop1=''" class=" addNewRequestSecondaryRoadDrop1 form-control">
+										<option selected value="">نوع معبر فرعی 1</option>
+										<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+									</select>
+									<input style="margin-top: 5px;"  ng-model="addNewRequest.SecondaryRoadTxt1" ng-init="addNewRequest.SecondaryRoadTxt1=''" type="text" class="addNewRequestSecondaryRoadTxt1 form-control " placeholder="نام معبر فرعی 1"
+										   data-validation=" custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-optional="true"/>
+
+								</div>
+								<div class="col-md-3" style="padding:0.2%">
+									<select ng-model="addNewRequest.SecondaryRoadDrop2" ng-init="addNewRequest.SecondaryRoadDrop2=''" class="addNewRequestSecondaryRoadDrop2 form-control">
+										<option selected value=""> نوع معبر فرعی 2</option>
+										<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+									</select>
+
+									<input style="margin-top: 5px;" type="text" ng-model="addNewRequest.SecondaryRoadTxt2" ng-init="addNewRequest.SecondaryRoadTxt2=''" class="addNewRequestSecondaryRoadTxt2 form-control " placeholder="نام معبر فرعی 2 "
+										   data-validation=" custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-optional="true"/>
+
+								</div>
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+
+								<select disabled ng-model="addNewRequest.Floor" class="  form-control  js-example-basic-multiple-limit  " multiple="multiple"
+										 style="font-family:IranSans !important; font-size:14px !important;"
+										 data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#addNewRequestFloor-error">
+									<option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
+
+								</select>
+								<input disabled style="margin-top: 6px;padding: 5px;"  ng-model="addNewRequest.Plaque" ng-init="addNewRequest.Plaque=''" type="text" class="addNewRequestPlaque form-control  " maxlength="7" placeholder="پلاک / شماره "
+									   data-validation="required number length" data-validation-length="max7" data-validation-ignore="- _" data-validation-error-msg-container="#addNewRequestPlaque-error">
+
+							</div>
+							<div class="col-md-1" style="padding:0.2%">
+								<input disabled ng-model="addNewRequest.Unit" ng-init="addNewRequest.Unit=''" type="text" class="addNewRequestUnit form-control " placeholder="شماره واحد"
+									   data-validation="custom" data-suggestions="شرقی, غربی, شمالی, جنوبی" data-validation-optional="true" maxlength="20" data-validation-error-msg="لطفا شماره واحد  خود را وارد کنید ">
+
+								<input disabled  style="margin-top: 5px;padding: 9px;"  ng-model="addNewRequest.BuildingName" ng-init="addNewRequest.BuildingName=''" type="text" class="addNewRequestBuildingName form-control  " placeholder="نام ساختمان"
+										data-validation=" custom" data-validation-regexp="^[0-9\u0600-\u06FF\\s]+$" data-validation-optional="true" data-validation-error-msg="لطفا نام ساختمان خود را وارد کنید">
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</form>
+		</div>
+		<div style=" height: 147px; margin:0px 0px 13px 0px; display:none;" ng-show="addNewRequest.postKind" class="row firstHide alert alert-info alert-block fade in">
+			<button ng-click="addNewRequest.postKind=false; cancelRequest();" style="width:20px; height:20px;" class="close close-sm" type="button">
+				x
+				<i class="icon-remove"></i>
+			</button>
+
+			<p>
+				"اطلاعات شما ثبت شد، پس از انتخاب نوع ارسال و پرداخت وجه ، نامه اعتبار سنجی برایتان ارسال میشود
+			</p>
+			<p>
+				"اگر دارای کد تخفیف هستید، بعد از انتخاب نوع سرویس در مرحله بعد وارد کنید.
+			</p>
+
+			<div class="col-lg-12 form-group">
+				<div class="col-lg-5 col-md-5 col-md-pull-3 pull-right col-lg-pull-4 " style="text-align: right;margin-top: 5px;">
+					<!--  <select ng-model="addNewRequest.companyRequestTypeId" ng-init="addNewRequest.companyRequestTypeId=''" ng-change="loadPreview(addNewRequest.companyRequestTypeId)" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' ریال ' for value in sendType">
+						  <option value="" selected disabled>{{'text_106' = translate}}</option>
+					  </select>-->
+
+					<div ng-repeat="value in sendType" ng-init="addNewRequest.companyRequestTypeId=''">
+						<input type="radio" name="companyRequestTypeId" ng-model="addNewRequest.companyRequestTypeId" ng-value="value.id" ng-click="loadPreview(addNewRequest.companyRequestTypeId)" style=" transform: scale(1.5);">
+						<div style=" width: 92%;" ng-init="value.price==null?value.price=0:null">{{value.name +' - '+ value.price + ' ریال '}}</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="container">
+		<div ng-show="addNewRequest.success" ng-init="addNewRequest.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+			<button ng-click="addNewRequest.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+				x
+				<i class="icon-remove"></i>
+			</button>
+			<h4>
+				<i class="icon-ok-sign"></i>
+				موفقیت آمیز
+			</h4>
+			<p ng-bind="addNewRequest.success"></p>
+		</div>
+
+		<div ng-show="addNewRequest.error" ng-init="addNewRequest.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+			<button ng-click="addNewRequest.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+				x
+				<i class="icon-remove"></i>
+			</button>
+			<h4>
+				<i class="icon-ok-sign"></i>
+				خطا
+			</h4>
+			<p ng-bind="addNewRequest.error"></p>
+		</div>
+
+	</div>
+
+
+</section>
+
+
+<script>
+
+	function clearSpecialCharacter(input) {
+		$(input).val(input.value.replace(/[&\/\\#,+()$~%.'":*?<>{} -]/g, ''))
+	}
+</script>
+

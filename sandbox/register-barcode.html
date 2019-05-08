@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+
+
+	<link rel="shortcut icon" href="img/logo.png" type="image/x-icon"/>
+	<link rel='icon' href="img/logo.png" type='image/x-icon'/>
+	<link rel='apple-touch-icon' href="img/logo.png"/>
+
+	<meta http-equiv="content-language" content="fa"/>
+	<meta name="keywords" content="اعتبار سنجی نشانی، اعتبار سنجی نشانی، اعتبار سنجی، اعتبار سنجی، اعتبار، صحت نشانی، اعتبار سنجی نشانی، اعتبار داشتن نشانی، چک کردن نشانی، تایید نشانی پستی، صحت نشانی و نشانی ، سامانه اعتبار سنجی نشانی شهروند ، سامانه اعتبار سنجی نشانی"/>
+	<meta name="description" content="  کلیه شهروندان ساکن ایران با مراجعه به این سامانه می توانند نسبت به تقاضای نامه اعتبار سنجی نشانی محل کار یا زندگی خود اقدام نمایند. این سامانه توسط شرکت پست ایران مدیریت می شود. "/>
+
+
+	<script src="js/jquery-2.1.3.min.js"></script>
+
+	<!--<script src="Controller/Controller.js"></script>
+	<script src="app.js"></script>-->
+
+
+	<link href="css/template.min.css" rel="stylesheet">
+
+</head>
+
+<body style="font-family:IranSans !important;">
+<div id="page">
+
+
+	<section id="contact" class="section section-center section-contact">
+		<div class="container">
+			<h2>
+				ثبت مشخصات بار کد
+			</h2>
+			<h2 class="section-title"><span translate="text_32" style=" direction:rtl !important;font-family:IranSans !important; font-size:30px !important;"></span></h2>
+			<p translate="text_33" style=" direction:rtl !important;font-family:IranSans !important; font-size:13px !important;">
+			</p>
+
+			<div class="main-action">
+				<form method="post" name="contactform" id="addNewMessageForm">
+					<div class="results"></div>
+					<div class="row">
+
+						<div class="col-sm-6  pull-right col-sm-pull-0 col-xs-12">
+							<div class="form-group">
+ 								<input name="username"  placeholder="کد قرارداد" type="text" class="form-control placeHolderright">
+							</div>
+							<div class="form-group">
+ 								<input name="password" placeholder="کد 20 رقمی مرسوله " type="text" class="form-control placeHolderright">
+							</div>
+							<div class="form-group">
+								<select id="CityCode"  class="form-control placeHolderright">
+									<option selected>نوع سرویس(اختیاری)</option>
+									<option value="1">پیشتاز </option>
+									<option value="2">سفارشی</option>
+									<option value="3">ویژه</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select id="CityCode"  class="form-control placeHolderright">
+									<option selected>نوع مرسوله</option>
+									<option value="0">پاکت </option>
+									<option value="1">بسته</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input id="tabletype" placeholder=" کد رهگیری مبداء" type="text" class="form-control placeHolderright">
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="کد شهر مقصد"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="(اختیاری)نام فرستنده"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="نام گیرنده(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="تاریخ قبول مرسوله "  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="زمان قبول مرسوله(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="کد پستی گیرنده(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="کد پستی فرستنده(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="حق السهم پست به ریال"  type="text" class="form-control placeHolderright" >
+							</div>
+
+						</div>
+
+						<div class="col-sm-6 pull-right col-sm-pull-0 col-xs-pull-3t">
+							<div class="form-group">
+								<input id="CityCode" placeholder="حق السهم طرف قرار داد به ریال"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="جمع کل هزینه به ریال"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="مالیات بر ارزش افزوده به ریال"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="وزن مرسوله "  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="نرخ اصلی مخزن"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="نرخ زیر گروه مخزن"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="مبلغ بیمه(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="سایر اطلاعات(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="کد ملی فرستنده(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="کد ملی گیرنده(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="شماره همراه فرستنده(اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<input id="CityCode" placeholder="شماره همراه گیرنده (اختیاری)"  type="text" class="form-control placeHolderright" >
+							</div>
+							<div class="form-group">
+								<div class="row">
+
+									<div class="col-md-3 col-sm-3 col-xs-12">
+										<button id="message" style="padding: 5px;" type="submit" class="btn btn-default btn-block">ثبت بارکد</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+
+		</div>
+	</section>
+
+
+</div>
+<script>
+/*	$.ajax({
+		type: "POST",
+		data: {},
+		url: "/infra/core/default-company/request/invoice/" + params[1],
+		success: function (data) {
+
+		},
+		error: function () {
+		}
+	});*/
+
+</script>
+</body>
+</html>

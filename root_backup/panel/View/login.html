@@ -1,0 +1,38 @@
+﻿<form class="form-signin"  >
+
+
+    <h2 ng-hide="showForget" ng-init="showForget=false" class="form-signin-heading">نام کاربری و رمز عبور خود را وارد کنید</h2>
+    <div class="login-wrap" ng-hide="showForget">
+        <input type="text" ng-model="userName" id="UserName" class="form-control" placeholder="نام کاربری" autofocus>
+        <input type="password" ng-model="password" id="Password" class="form-control" placeholder="کلمه عبور">
+        <label class="checkbox">
+            <!--<input type="checkbox" value="remember-me"> مرا به خاطر بسپار-->
+            <span class="pull-right"  ng-click="showForget=true"> <a  > کلمه عبور را فراموش کرده اید؟</a></span>
+        </label>
+        <button class="btn btn-lg btn-login btn-block" ng-click="signIn(userName,password)" id="loginBtn" type="button">ورود</button>
+        <p ng-bind="loginStatus"></p>
+
+    </div>
+
+
+    <h2 ng-show="showForget" class="form-signin-heading">فراموشی رمز عبور</h2>
+    <div ng-if="showForget" ng-init="organizationalPositionList()" class="login-wrap">
+        <input type="text" ng-model="name" id="name" class="form-control" placeholder="نام و نام خانوادگی " autofocus>
+        <input type="email" ng-model="email" id="cell" class="form-control" style="font-size: 12px;" placeholder="ایمیل">
+        <input type="text" ng-model="cell" id="cell" style=" margin-top: 14px;" class="form-control" placeholder="شماره تلفن">
+        <select id="position" ng-model="position" ng-init="position='0'" class="form-control">
+            <option value="0" disabled>سمت سازمانی</option>
+            <option ng-repeat="value in positions" ng-value="value.id">{{value.name}}</option>
+        </select>
+        <!--<label ng-click="showForget=''"  class="checkbox">
+            <span class="pull-right" > <a ng-click="showForget=''" >صفحه ورود</a></span>
+        </label>-->
+        <button class="btn btn-lg btn-login btn-block" ng-click="forgetPassword(name,email,cell,position)" style="margin-top:10px;" id="forgetBtn" type="button">ثبت</button>
+
+        <p ng-bind="forgetStatus"></p>
+
+    </div>
+
+
+
+</form>

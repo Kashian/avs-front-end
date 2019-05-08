@@ -1,0 +1,248 @@
+﻿<div class="row" ng-init="companyRequestStatusList();companyRequestMediaList();">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                جستجو نامه تصدیق
+
+            </header>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal tasi-form">
+                    <div class="form-group ">
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">نام </label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="نام" id="fName" ng-init="request.fName=''" ng-model="request.fName" class="form-control marginTop5">
+                            </div>
+                        </div>
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label"> نام خانوادگی</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder=" نام خانوادگی" id="lName" ng-init="request.lName=''" ng-model="request.lName" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">شماره تلفن </label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="شماره تلفن" id="cell" ng-init="request.cell=''" ng-model="request.cell" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">ایمیل </label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="ایمیل" id="email" ng-init="request.email=''" ng-model="request.email" class="form-control marginTop5">
+                            </div>
+                        </div>
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">کد ملی متقاضی</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="کد ملی متقاضی" id="nationalId" ng-init="request.nationalId=''" ng-model="request.nationalId" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">کد پستی متقاضی </label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="کد پستی متقاضی" id="postcode" ng-init="request.postcode=''" ng-model="request.postcode" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">کد پستی پشت کارت ملی</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="کد پستی پشت کارت ملی" id="nationalCardPostcode" ng-init="request.nationalCardPostcode=''" ng-model="request.nationalCardPostcode" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">کد رهگیری پستی</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="کد رهگیری پستی" id="trackingId" ng-init="request.trackingId=''" ng-model="request.trackingId" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label"> کد رهگیری سامانه تصدیق</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="کد رهگیری سامانه تصدیق" id="uniqueId" ng-init="request.uniqueId=''" ng-model="request.uniqueId" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">بازه زمانی</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <select class="form-control marginTop5" id="creation_time" ng-init="request.creation_time='2'" ng-model="request.creation_time">
+                                    <option value="">تاریخ</option>
+                                    <!--<option value="1">سه ماه گذشته</option>-->
+                                    <option value="2">ماه گذشته</option>
+                                    <option value="3">هفته گذشته</option>
+                                    <!--<option value="4">دیروز</option>
+                                    <option value="5">امروز</option>
+                                    <option value="6">فردا</option>-->
+                                    <!--<option value="7">هفته آینده</option>
+                                    <option value="8">ماه آینده</option>-->
+                                    <!--<option value="9">سه ماه آینده</option>-->
+                                    <option value="10">ماه اخیر </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="col-lg-3 col-md-2">
+                                <select class="form-control marginTop5" id="status" ng-init="request.status=''" ng-model="request.status">
+                                    <option value="">وضعیت</option>
+                                    <option ng-repeat="value in Status" ng-value="value.id">{{value.name}}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-lg-3 col-md-2">
+                                <select class="form-control marginTop5" id="verificationMedia" ng-init="request.verificationMedia=''" ng-model="request.verificationMedia">
+                                    <option value="">تصدیق از طریق </option>
+                                    <option ng-repeat="value in Media" ng-value="value.id">{{value.name}}</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-right col-lg-11">
+                            <button ng-click="SearchCompanyRequest(1)" class="btn btn-danger pull-left " type="submit">فیلتر کردن</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<div class="row" ng-show="ShowSearchResultBox">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                نتایج جستجو
+
+            </header>
+            <table class="table table-striped table-advance table-hover">
+                <thead>
+                    <tr>
+                        <!--<th style="text-align: center;"> شماره </th>-->
+                        <th style="text-align: center;"> نام </th>
+                        <th style="text-align: center;"> نام خانوادگی</th>
+                        <th style="text-align: center;"> کد ملی</th>
+                        <th style="text-align: center;"> شماره تلفن</th>
+                        <th style="text-align: center;"> استان</th>
+                        <th style="text-align: center;"> شهر</th>
+                        <th style="text-align: center;"> ایمیل</th>
+                        <th style="text-align: center;"> تصدیق از طریق</th>
+                        <th style="text-align: center;"> وضعیت</th>
+                        <th style="text-align: center;"> دانلود</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--<tr ng-repeat=" value in SearchResult">-->
+                    <tr dir-paginate="value in SearchResult.data | itemsPerPage: 25" total-items="{{ SearchResult.total_count}}" current-page="pagination.current">
+                        <!--<td ng-bind="(pagination.current-1)*25+$index +1" style="text-align: center;"> </td>-->
+                        <td ng-bind="value.first_name" style="text-align: center;"></td>
+                        <td ng-bind="value.last_name" style="text-align: center;"> </td>
+                        <td ng-bind="value.national_id" style="text-align: center;"></td>
+                        <td ng-bind="value.cell" style="text-align: center;"></td>
+                        <td ng-bind="value.province.label" style="text-align: center;"></td>
+                        <td ng-bind="value.city.label" style="text-align: center;"></td>
+                        <td ng-bind="value.email" style="text-align: center;"></td>
+                        <td ng-bind="value.verification_media.label" style="text-align: center;"></td>
+                        <td ng-bind="value.status.label" style="text-align: center;"></td>
+                        <td style="text-align: center;">
+                            <a ng-show="value.unique_id" href="http://myaddress.space/media/letters/{{value.company.id}}/{{value.unique_id}}.pdf" target="blank">دانلود</a>
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <td>
+                            <a href="#">
+                                Adimin co
+                            </a>
+                        </td>
+                        <td class="hidden-phone">Lorem Ipsum dorolo</td>
+                        <td>56456.00$ </td>
+                        <td><span class="label label-warning label-mini">Due</span></td>
+                        <td>
+                            <button class="btn btn-success btn-xs"><i class="icon-ok"></i></button>
+                            <button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button>
+                            <button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button>
+                        </td>
+                    </tr>-->
+
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!--<dir-pagination-controls template-url="js/Pagination/dirPagination.tpl.html"></dir-pagination-controls>-->
+    <div style="text-align: center">
+        <dir-pagination-controls template-url="js/Pagination/dirPagination.tpl.html" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+        <!--<div ng-show="ShowLoading" class="loader">
+        </div>-->
+        <div ng-show="ShowLoading" class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+
+
+</div>
+ <style>
+     .spinner {
+  margin:-95px auto 0 auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  
+  -webkit-animation: sk-rotate 2.0s infinite linear;
+  animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #428bca;
+  border-radius: 100%;
+   -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+ </style>

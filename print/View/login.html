@@ -1,0 +1,25 @@
+﻿<form class="form-signin"  >
+    <h2 class="form-signin-heading">نام کاربری و رمز عبور خود را وارد کنید</h2>
+    <div class="login-wrap">
+        <input type="text" ng-model="userName" id="UserName" class="form-control" placeholder="نام کاربری" autofocus>
+        <input type="password" ng-model="password" id="Password" class="form-control" placeholder="کلمه عبور">
+        <label class="checkbox">
+            <!--<input type="checkbox" value="remember-me"> مرا به خاطر بسپار-->
+            <!--<span class="pull-right"> <a href="#"> کلمه عبور را فراموش کرده اید؟</a></span>-->
+        </label>
+        <button class="btn btn-lg btn-login btn-block" ng-click="signIn(userName,password)" id="loginBtn" type="button">ورود</button>
+        <!--<p>یا توسط یکی از حسابهای شبکه اجتماعی خود وارد شوید</p>
+        <div class="login-social-link">
+            <a href="index.html" class="facebook">
+                <i class="icon-facebook"></i>
+                Facebook
+            </a>
+            <a href="index.html" class="twitter">
+                <i class="icon-twitter"></i>
+                Twitter
+            </a>
+        </div>-->
+
+    </div>
+
+</form>

@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html ng-app="post" lang="{{ lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title translate="title"> </title>
+
+
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link rel='icon' href="img/logo.png" type='image/x-icon' />
+    <link rel='apple-touch-icon' href="img/logo.png" />
+
+    <meta http-equiv="content-language" content="fa" />
+    <meta name="keywords" content="اعتبار سنجی نشانی، اعتبار سنجی نشانی، اعتبار سنجی، اعتبار سنجی، اعتبار، صحت نشانی، اعتبار سنجی نشانی، اعتبار داشتن نشانی، چک کردن نشانی، تایید نشانی پستی، صحت نشانی و نشانی ، سامانه اعتبار سنجی نشانی شهروند ، سامانه اعتبار سنجی نشانی" />
+    <meta name="description" content="  کلیه شهروندان ساکن ایران با مراجعه به این سامانه می توانند نسبت به تقاضای نامه اعتبار سنجی نشانی محل کار یا زندگی خود اقدام نمایند. این سامانه توسط شرکت پست ایران مدیریت می شود. " />
+
+
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/main.min.js" type="text/javascript"></script>
+    <script src="Model/Model.js?512"></script>    
+    <script src="Controller/Controller.js?512"></script>
+    <script src="app.js"></script>
+
+
+    <link href="css/template.min.css" rel="stylesheet">
+
+</head>
+
+<body ng-controller="HomeCtrl" ng-init="initFunction()" style="font-family:Iransans;">
+    <div id="page">
+        <header id="header" class="site-header">
+
+            <nav id="navbar" style="background-color: rgba(255, 255, 255, 1);" class="site-navbar navbar navbar-static-top one-page-nav" role="navigation">
+ 
+
+                <div class="container" style="padding: 7px 0 22px 0;">
+                    <div class="navbar-header" style="float:right ; direction:rtl;font-family:Iransans;">
+                     
+                        <h1 class="navbar-brand" style="float:right; direction:rtl;font-family:Iransans; font-size:32px ">
+                                <img src="img/logo.png" style="width: 49px; margin: -10px 0px 0px;" />
+                            <a class="hidden-xs" href="/" translate="title"></a>
+                            <a class="hidden-xs sr-only" href="/">سامانه اعتبار سنجی نشانی شهروند</a>
+                        </h1>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1" style="float:{{mirrorFloat}}; direction:rtl;font-family:Iransans; font-size:{{(h5*1)+3}}px;">
+                       
+                    </div>
+                </div>
+
+
+            </nav>
+        </header>
+
+        <main id="main" class="site-main" style="min-height: 584px;"> 
+
+            <section class="section section-center section-cta" style="padding-top:0px; margin-bottom: 0;">
+                <div class="container"> 
+                    <h4 ng-hide="(verify=='avs100'&&click==true)" style=" line-height: 39px;font-size: 22px; width: 97%;text-align: justify; margin: 0 auto; border: 1px solid #ffffff; border-radius: 5px; padding: 4px 12px 6px 1px;color: #570b9a;">
+                        <b style="float:right; direction:rtl;font-family:Iransans; font-size:20px; width:100%; margin:8px -25px 8px 0;" >
+                                برای مشاهده ویدیو لطفا کد ورود را وارد نمایید
+                            </b>
+                        <br />
+                        <span style="float:right; direction:rtl;font-family:Iransans; font-size:20px; margin: 0 0 16px 0;" ></span>
+                         
+                    </h4>
+ 
+                    <div class="main-action row" style="margin:45px 0 0 0" ng-hide="(verify=='avs100'&&click==true)">
+                        <form id="verifyRequestForm" ng-submit="verifyRequestFunction(verify)">
+ 
+                            <div class="col-md-2 col-sm-3 col-md-pull-2 col-xs-5" style="float:right">
+                                <div class="form-group">
+                                    <input  id="confirmCode" type="text" ng-model="verify" maxlength="6" class="form-control placeHolderright" style=" height: 64px;font-size: 26px; padding-left: 25px;" placeholder="کد ورود"
+                                           data-validation="required  number length" data-validation-length="6" data-validation-error-msg-container="#confirmCode-error" data-validation-error-msg="{{'validation_2' | translate}}">
+                                    <div id="confirmCode-error"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-3  col-sm-3 col-md-pull-2 col-xs-9 col-xs-pull-1" style="float:right">
+                                <div class="form-group">
+                                    <button id="confirmAddress" type="button" ng-click="click=true" style="height: 64px;font-size: 24px;" class="btn btn-default btn-block" >ورود</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+ 
+                    <div ng-show="(verify=='avs100'&&click==true)" style="width:100%; heigth:700px">
+                       
+                        <!-- <video ng-if='videoUrl' controls src="{{videoUrl | trustUrl}}" ></video> -->
+                   	<!-- <div id="15111556699659292"><script type="text/JavaScript" src="https://www.aparat.com/embed/8ThqY?data[rnddiv]=15111556699659292&data[responsive]=yes"></script></div> -->
+
+<div id="15141110721023695"><script type="text/JavaScript" src="https://www.aparat.com/embed/w0ET8?data[rnddiv]=15141110721023695&data[responsive]=yes"></script></div>
+
+                        <br/>
+                      <br/>
+                        <div class="col-md-7" style="float:right;text-align: right;">
+                            
+
+                                <!-- <div class="col-md-7" class="form-group">
+                                    <div>
+                                        نام شهر :
+                                    </div>
+                                    <div>
+                                        <input  type="text" ng-model="city"  class="form-control placeHolderright"   placeholder=""/>
+                                    </div>
+
+                                </div>   
+                                <br/> -->
+                            <div id='saveWatcherBox'> 
+                               
+                                <div class="row"> 
+                                    <div class="col-md-6"  >
+                                        <div >
+                                            کد ملی افراد حاضر :
+                                        </div>
+                                        <div>
+                                            <textarea ng-model="watchers" ng-init="watchers=''" rows="4" cols="40">
+                                            </textarea> 
+                                        </div>
+                                        
+                                        <div style="display:none; color:red" id="nationalError">
+                                            لطفا کد ملی های افراد حاضر را وارد نمایید
+                                        </div>
+                                    </div>  
+                                </div>  
+                                <div class="row" style="margin: 10px 0 23px;"> 
+                                    <div class="col-md-6"  >
+                                        <div >
+                                            شهر شما : 
+                                        </div>
+                                        <div> 
+                                            
+                                            <select  style="width: 94%;float: left;" id="state" ng-model="state" ng-change="city='0';" ng-init="state='0'" class="form-control">
+                                                <option value="0" selected disabled> استان *</option>
+                                                <option ng-repeat="value in states" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                    
+                                            <select style="width: 94%;float: left;" id="city"  ng-model="city" ng-init="city='0'" class="form-control" >
+                                                <option value="0" selected disabled> شهرستان *</option>
+                                                <option ng-repeat="value in citys" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+
+                                        </div>
+                                        <div style="display:none;color:red;" id="cityError">
+                                            لطفا نام شهر خود را وارد نمایید
+                                        </div>
+                                    </div>  
+                                </div>  
+                                <div class="col-md-6" >
+                                    <button ng-click="saveWatchers()"  type="button" style="font-size: 24px;" class="btn btn-default btn-block" >ارسال</button>                                        
+                                </div>
+                            </div>
+                            <div id='tryAgain' class="col-md-6" style="display:none">
+                                <div style="color:green; font-size:20px">
+                                        افراد با موفقیت ثبت شدند
+                                </div>
+                                 <div ng-click="tryAnother()">
+                                    <a style="cursor:pointer">ثبت نام افراد دیگر </a> 
+                                 </div>
+                            </div>
+                                
+                        </div>
+                    </div>
+                     
+                    <div ng-show="(verify!='avs100'&&click==true)"  style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="verify.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            کد ورود صحیح نمی باشد 
+                        </h4>
+                        <p ng-bind="verify.error"></p>
+                    </div> 
+                </div> 
+            </section>
+  
+        </main>
+ 
+        <footer id="footer" class="site-footer">
+            <div class="container">
+
+                <div id="sidebar-footer-1">
+                    <div class="row">
+    
+                    </div>
+                </div>
+
+
+                <div class="copyright"><p><span translate="lisense">  </span><br /><span translate="text_47"></span>  <a href="http://www.post.ir/" translate="text_48"> </a>  <a href="http://www.rojina.com/" translate="text_49"></a> <span translate="text_50"></span></p></div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="scroll-to-top" data-spy="affix" data-offset-top="200"><a href="#page" class="smooth-scroll"><i class="fa fa-arrow-up"></i></a></div>
+  
+    <script>
+        (function ($) {
+            "use strict";
+            // Add "loaded" class when a section has been loaded
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+                $(".section").each(function () {
+                    var elementTop = $(this).offset().top - $('#header').outerHeight();
+                    if (scrollTop >= elementTop) {
+                        $(this).addClass('loaded');
+                    }
+                });
+            });
+            // One Page Navigation Setup
+            $('.one-page-nav #navigation').singlePageNav({
+                offset: $('.one-page-nav').outerHeight(),
+                filter: ':not(.external)',
+                speed: 750,
+                currentClass: 'active',
+
+                beforeStart: function () {
+                },
+                onComplete: function () {
+                }
+            });
+            // Sticky Navbar Affix
+            $('.one-page-nav').affix({
+                offset: {
+                    top: $('#topbar').outerHeight(),
+                }
+            });
+            // Smooth Hash Link Scroll
+            $('.smooth-scroll').click(function () {
+                if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top - 30
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+            $('.nav a').on('click', function () {
+                if ($('.navbar-toggle').css('display') !== 'none') {
+                    $(".navbar-toggle").click();
+                }
+            });
+
+            // filter items when filter link is clicked
+            $('#filters a').click(function () {
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector });
+                return false;
+            });
+
+        })(jQuery);
+    </script>
+   
+</body>
+</html>

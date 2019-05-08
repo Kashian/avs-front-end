@@ -1,0 +1,187 @@
+* {
+    font-family: "IranSans";
+}
+
+
+.container {
+    background-image: url("../../letter/letter_bg_002.png");
+    background-position-x:0px;
+    background-position-y:0px;
+    background-size: 1040px;
+    height:1460px;
+    /*background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+}
+
+.container-nobg {
+    background-position-x:0px;
+    background-position-y:0px;
+    background-size: 1040px;
+    height:1460px;
+    /*background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+}
+
+
+.text2 {
+    font-size: 26px;
+    position: relative;
+    top: 67px;
+    right: 52px;
+    float: right;
+    width: 167px;
+    height: 120px;
+}
+
+
+.text4 {
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    top: 224px;
+    right: 78px;
+    float: right;
+    width: 183px;
+    height: 38px;
+}
+
+.text4-inner-2 {
+    font-size: 22px;
+    width: 290px;
+    margin-top: 8px;
+}
+
+.text7 {
+    font-size: 26px;
+    position: relative;
+    top: 147px;
+    right: 197px;
+    float: right;
+    width: 164px;
+    height: 84px;
+    direction: rtl;
+}
+
+.text11 {
+    font-size: 26px;
+    position: relative;
+    top: 523px;
+    right: -85px;
+    float: left;
+    width: 722px;
+    height: 119px;
+}
+
+
+.text2-inner1 {
+    width: 440px;
+    font-weight: bold;
+    font-size: 32px;
+    float: right;
+    direction: rtl;
+    margin: 117px 29px -14px 0;
+}
+
+.text2-inner2 {
+    font-size: 17px;
+    font-weight: bold;
+    float: right;
+    direction: rtl;
+    margin: 50px 31px 0 0;
+    line-height: 22px;
+    max-width: 400px;
+    min-width: 348px;
+}
+
+.text4 {
+    font-size: 23px;
+    text-align: center;
+    position: relative;
+    top: 421px;
+    right: 553px;
+    float: right;
+    width: 149px;
+    font-weight: bold;
+    height: 38px;
+}
+
+.text7 {
+    font-size: 26px;
+    position: relative;
+    top: 791px;
+    right: 263px;
+    float: right;
+    width: 183px;
+    height: 84px;
+    text-align: center;
+    direction: rtl;
+}
+
+.text7-inner1 {
+    width: 250px;
+    margin: -56px 147px 0 0;
+}
+
+.text7-inner2 {
+    margin-top: -86px;
+    font-size: 53px;
+    font-weight: bold;
+}
+
+.text11 {
+    font-size: 26px;
+    position: relative;
+    top: 1227px;
+    right: -129px;
+    float: left;
+    width: 773px;
+    height: 101px;
+}
+
+.text11-inner1 {
+    float: right;
+    direction: rtl;
+    margin: 7px 9px 0px 7px;
+    font-size: 15px;
+}
+
+.text12 {
+    position: absolute;
+    top: 1252px;
+    left: -100px;
+    font-size: 13px;
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+    /* IE */
+    -ms-transform: rotate(-90deg);
+    /* Opera */
+    -o-transform: rotate(-90deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.text13 {
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    top: 480px;
+    right: -150px;
+    float: right;
+    width: 429px;
+    height: 38px;
+    margin-top: 4px;
+    overflow:hidden;
+    font-size:24px;
+    font-weight:bold;
+    padding:0 4px;
+    text-align:center;
+}
+
+@font-face {
+    font-family: 'IranSans';
+    src: url('../../fonts/iransans/IRANSansWeb.eot') format('eot'), url('../../fonts/iransans/IRANSansWeb.ttf') format('truetype'), url('../../fonts/iransans/IRANSansWeb.woff') format('woff');
+}

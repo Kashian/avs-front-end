@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /panel
+Disallow: /logistics
+Disallow: /payment
+Disallow: /print
+Allow: /
+Allow: #/
+Allow: #features
+Allow: #testimonials
+Allow: #header
+Allow: #blog
+Allow: #clients
+Allow: #contact

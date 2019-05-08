@@ -1,0 +1,135 @@
+﻿<div class="row" ng-init="companyRequestStatusList();">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+               نمودار آماری
+
+            </header>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal tasi-form">
+                    <div class="form-group ">
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">نام </label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder="نام" id="fName" ng-init="request.fName=''" ng-model="request.fName" class="form-control marginTop5">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label"> نام خانوادگی</label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder=" نام خانوادگی" id="lName" ng-init="request.lName=''" ng-model="request.lName" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">شماره تلفن </label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder="شماره تلفن" id="cell" ng-init="request.cell=''" ng-model="request.cell" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">ایمیل </label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder="ایمیل" id="email" ng-init="request.email=''" ng-model="request.email" class="form-control marginTop5">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">کد ملی متقاضی</label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder="کد ملی متقاضی" id="nationalId" ng-init="request.nationalId=''" ng-model="request.nationalId" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">کد پستی متقاضی </label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder="کد پستی متقاضی" id="postcode" ng-init="request.postcode=''" ng-model="request.postcode" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">کد پستی پشت کارت ملی</label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder="کد پستی پشت کارت ملی" id="nationalCardPostcode" ng-init="request.nationalCardPostcode=''" ng-model="request.nationalCardPostcode" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">کد رهگیری پستی</label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder="کد رهگیری پستی" id="trackingId" ng-init="request.trackingId=''" ng-model="request.trackingId" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label"> کد رهگیری سامانه تصدیق</label>
+                            <div class="col-lg-2 col-md-2">
+                                <input type="text" placeholder="کد رهگیری سامانه تصدیق" id="uniqueId" ng-init="request.uniqueId=''" ng-model="request.uniqueId" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">بازه زمانی</label>
+                            <div class="col-lg-2 col-md-2">
+                                <select class="form-control marginTop5" id="creation_time" ng-init="request.creation_time='2'" ng-model="request.creation_time">
+                                    <option value="">تاریخ</option>
+                                    <!--<option value="1">سه ماه گذشته</option>-->
+                                    <option value="2">ماه گذشته</option>
+                                    <option value="3">هفته گذشته</option>
+                                    <!--<option value="4">دیروز</option>
+                                    <option value="5">امروز</option>
+                                    <option value="6">فردا</option>-->
+                                    <!--<option value="7">هفته آینده</option>
+                                    <option value="8">ماه آینده</option>-->
+                                    <!--<option value="9">سه ماه آینده</option>-->
+                                    <option value="10">ماه اخیر </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">وضعیعت</label>
+                            <div class="col-lg-2 col-md-2">
+                                <select class="form-control marginTop5" id="status" ng-init="request.status='not_verified'" ng-model="request.status" ng-options="value.id as value.name for value in Status">
+                                    <option value="">وضعیت</option>
+                                    <!--<option ng-selected="value.id==request.status" ng-repeat="value in Status" ng-value="value.id">{{value.name}}</option>-->
+
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-right col-lg-11">
+                            <button ng-click="companyRequestStatistics(request)" class="btn btn-danger pull-left " type="submit">جستجو</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="row"   ng-init="companyRequestStatistics(request);">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                نتایج
+
+            </header>
+
+            <div id="chartContainer" style="width: 100%!important;direction: ltr; height: 600px;  margin: 0 auto">
+            </div>
+        </section>
+    </div>
+</div>
+
+<style>
+    tspan {
+        font-family: Iransans;
+    }
+</style>

@@ -1,0 +1,1871 @@
+﻿<!DOCTYPE html>
+<html ng-app="post" lang="{{lang}}">
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta http-equiv="content-language" content="fa" />
+    <meta name="keywords" content="اعتبار سنجی نشانی، اعتبار سنجی نشانی، اعتبار سنجی، اعتبار سنجی، اعتبار، صحت نشانی، اعتبار سنجی نشانی، اعتبار داشتن نشانی، چک کردن نشانی، تایید نشانی پستی، صحت نشانی و نشانی ، سامانه اعتبار سنجی نشانی شهروند ، سامانه اعتبار سنجی نشانی" />
+    <meta name="description" content="این سامانه جهت صحت سنجی و راستی آزمایی نشانی پستی (محل کار یا منزل) شهروندان ایرانی طراحی شده است تا به سازمانهای دولتی و خصوصی در گردآوری اطلاعات هویت مکانی دقیق یاری رساند" />
+
+    
+    <title> سامانه اعتبار سنجی نشانی شهروند</title>
+
+    <style>
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f5f5f5;
+            z-index: 9999999;
+        }
+
+        .cssload-thecube { 
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            bottom: auto;
+            right: auto;  
+            width: 73px;
+            height: 73px;
+          
+            transform: rotateZ(45deg);
+                -o-transform: rotateZ(45deg);
+                -ms-transform: rotateZ(45deg);
+                -webkit-transform: rotateZ(45deg);
+                -moz-transform: rotateZ(45deg);
+        }
+        .cssload-thecube .cssload-cube {
+            position: relative;
+            transform: rotateZ(45deg);
+                -o-transform: rotateZ(45deg);
+                -ms-transform: rotateZ(45deg);
+                -webkit-transform: rotateZ(45deg);
+                -moz-transform: rotateZ(45deg);
+        }
+        .cssload-thecube .cssload-cube {
+            float: left;
+            width: 50%;
+            height: 50%;
+            position: relative;
+            transform: scale(1.1);
+                -o-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+        }
+        .cssload-thecube .cssload-cube:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(43,160,199);
+            animation: cssload-fold-thecube 2.76s infinite linear both;
+                -o-animation: cssload-fold-thecube 2.76s infinite linear both;
+                -ms-animation: cssload-fold-thecube 2.76s infinite linear both;
+                -webkit-animation: cssload-fold-thecube 2.76s infinite linear both;
+                -moz-animation: cssload-fold-thecube 2.76s infinite linear both;
+            transform-origin: 100% 100%;
+                -o-transform-origin: 100% 100%;
+                -ms-transform-origin: 100% 100%;
+                -webkit-transform-origin: 100% 100%;
+                -moz-transform-origin: 100% 100%;
+        }
+        .cssload-thecube .cssload-c2 {
+            transform: scale(1.1) rotateZ(90deg);
+                -o-transform: scale(1.1) rotateZ(90deg);
+                -ms-transform: scale(1.1) rotateZ(90deg);
+                -webkit-transform: scale(1.1) rotateZ(90deg);
+                -moz-transform: scale(1.1) rotateZ(90deg);
+        }
+        .cssload-thecube .cssload-c3 {
+            transform: scale(1.1) rotateZ(180deg);
+                -o-transform: scale(1.1) rotateZ(180deg);
+                -ms-transform: scale(1.1) rotateZ(180deg);
+                -webkit-transform: scale(1.1) rotateZ(180deg);
+                -moz-transform: scale(1.1) rotateZ(180deg);
+        }
+        .cssload-thecube .cssload-c4 {
+            transform: scale(1.1) rotateZ(270deg);
+                -o-transform: scale(1.1) rotateZ(270deg);
+                -ms-transform: scale(1.1) rotateZ(270deg);
+                -webkit-transform: scale(1.1) rotateZ(270deg);
+                -moz-transform: scale(1.1) rotateZ(270deg);
+        }
+        .cssload-thecube .cssload-c2:before {
+            animation-delay: 0.35s;
+                -o-animation-delay: 0.35s;
+                -ms-animation-delay: 0.35s;
+                -webkit-animation-delay: 0.35s;
+                -moz-animation-delay: 0.35s;
+        }
+        .cssload-thecube .cssload-c3:before {
+            animation-delay: 0.69s;
+                -o-animation-delay: 0.69s;
+                -ms-animation-delay: 0.69s;
+                -webkit-animation-delay: 0.69s;
+                -moz-animation-delay: 0.69s;
+        }
+        .cssload-thecube .cssload-c4:before {
+            animation-delay: 1.04s;
+                -o-animation-delay: 1.04s;
+                -ms-animation-delay: 1.04s;
+                -webkit-animation-delay: 1.04s;
+                -moz-animation-delay: 1.04s;
+        }
+
+
+
+        @keyframes cssload-fold-thecube {
+            0%, 10% {
+                transform: perspective(136px) rotateX(-180deg);
+                opacity: 0;
+            }
+            25%,
+                        75% {
+                transform: perspective(136px) rotateX(0deg);
+                opacity: 1;
+            }
+            90%,
+                        100% {
+                transform: perspective(136px) rotateY(180deg);
+                opacity: 0;
+            }
+        }
+
+        @-o-keyframes cssload-fold-thecube {
+            0%, 10% {
+                -o-transform: perspective(136px) rotateX(-180deg);
+                opacity: 0;
+            }
+            25%,
+                        75% {
+                -o-transform: perspective(136px) rotateX(0deg);
+                opacity: 1;
+            }
+            90%,
+                        100% {
+                -o-transform: perspective(136px) rotateY(180deg);
+                opacity: 0;
+            }
+        }
+
+        @-ms-keyframes cssload-fold-thecube {
+            0%, 10% {
+                -ms-transform: perspective(136px) rotateX(-180deg);
+                opacity: 0;
+            }
+            25%,
+                        75% {
+                -ms-transform: perspective(136px) rotateX(0deg);
+                opacity: 1;
+            }
+            90%,
+                        100% {
+                -ms-transform: perspective(136px) rotateY(180deg);
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes cssload-fold-thecube {
+            0%, 10% {
+                -webkit-transform: perspective(136px) rotateX(-180deg);
+                opacity: 0;
+            }
+            25%,
+                        75% {
+                -webkit-transform: perspective(136px) rotateX(0deg);
+                opacity: 1;
+            }
+            90%,
+                        100% {
+                -webkit-transform: perspective(136px) rotateY(180deg);
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes cssload-fold-thecube {
+            0%, 10% {
+                -moz-transform: perspective(136px) rotateX(-180deg);
+                opacity: 0;
+            }
+            25%,
+                        75% {
+                -moz-transform: perspective(136px) rotateX(0deg);
+                opacity: 1;
+            }
+            90%,
+                        100% {
+                -moz-transform: perspective(136px) rotateY(180deg);
+                opacity: 0;
+            }
+        }
+    </style>
+    
+    <link href="css/template.min.css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link rel='icon' href="img/logo.png" type='image/x-icon' />
+    <link rel='apple-touch-icon' href="img/logo.png" />
+ 
+</head>
+
+<body ng-controller="HomeCtrl" ng-init="initFunction()" style="font-family:{{font}} !important;">
+    
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="cssload-thecube">
+            <div class="cssload-cube cssload-c1"></div>
+            <div class="cssload-cube cssload-c2"></div>
+            <div class="cssload-cube cssload-c4"></div>
+            <div class="cssload-cube cssload-c3"></div>
+            <div class="notShowInIframe" style="width: 251px;font-size: 18px;color: black;text-align: center;transform: rotateZ(-45deg);-o-transform: rotateZ(-45deg);-ms-transform: rotateZ(-45deg);-webkit-transform: rotateZ(-45deg);-moz-transform: rotateZ(-45deg); margin: 76px 0 0 22px;"> با توجه به ترافیک بالا  ، احتمال دارد بارگذاری سایت به کندی انجام شود<br/> درصورت دسترسی به اینترنت و جهت تسریع در دسترسی به سرویس اعتبار سنجی ، می توانید به آدرس ذیل مراجعه نمایید  <div ><a href="http://myaddress.space" style="color: #02054d;text-decoration: none;font-weight: bold;font-size: 21px;">http://myaddress.space</a></div></div>
+        </div>
+    </div>
+    <!-- end Preloader -->
+    
+
+    <link href="css/template.min.css" rel="stylesheet">
+    
+    <div id="page">
+        <header id="header" class="site-header">
+
+            <nav id="navbar" style="z-index: 999999;background-color: rgba(255, 255, 255, 1) !important;" class="site-navbar navbar navbar-static-top one-page-nav" role="navigation">
+
+                <div class="translate">
+                    <a style="text-decoration:none;" href="/{{otherlang}}"><div style="text-align: center; padding: 28px 5px 21px 5px;"><img style="width: 42px;margin: -40px 0 -13px 0;" src="/img/{{otherlang}}.png" /><div ng-bind="lang == 'en'?'فارسی':'EN'" style=" margin: -3px 0 -18px 0;"> </div> </div></a>
+                </div>
+                <!--<div ng-controller="LanguageSwitchController" class="translate">
+                    <div ng-show="lang == 'en'" ng-click="changeLanguage('fa')" style="text-align: center; padding: 28px 5px 21px 5px;">فارسی </div>
+                    <div ng-show="lang == 'fa'" ng-click="changeLanguage('en')" style="text-align: center; padding: 28px 5px 21px 5px;">En</div>
+                </div>-->
+
+                <div class="container">
+                    <div class="navbar-header" style="float:{{float}} !important; direction:{{direction}} !important;font-family:{{font}} !important;">
+                        <button type="button" style=" margin-left: 0; margin-right: 0;" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <h1 class="navbar-brand" style="float:{{float}} !important; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h3}}px !important;">
+                            <img src="img/logo.png" style="width: 49px; margin: -10px 0px 0px;" />
+                            <a class="hidden-xs" href="/">{{'title' = translate}}</a>
+                        </h1>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1" style="float:{{mirrorFloat}} !important; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h5}}px !important;">
+                        <ul style="margin-left: -55px;" id="navigation" class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="#header" class="current">{{'menu_1' = translate}} </a></li>
+                            <li><a href="#features">{{'menu_2' = translate}}</a></li>
+                            <li><a href="#register">{{'menu_3' = translate}}</a></li>
+                            <li><a href="#edit"> ویرایش اطلاعات </a></li>
+                            <li><a href="#fallow"> {{'menu_4' = translate}} </a></li>
+                            <li><a href="#blog">{{'menu_5' = translate}}</a></li>
+                            <li><a href="#testimonials"> {{'menu_6' = translate}} </a></li>
+                            <li><a href="#contact">{{'menu_7' = translate}}</a></li>
+                            <li><a href="#aboutUs">{{'menu_8' = translate}}</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+            </nav>
+        </header>
+
+        <main id="main" class="site-main">
+
+
+            <section class="notShowInIframe section section-center section-cta" style="padding-top:0px; margin-bottom: 0">
+
+                 <div class="container">
+                    <div class="col-md-6 pull-right">
+                        <h4 style=" line-height: 39px; margin: 0 auto; border: 1px solid #ffffff; padding: 4px 12px 6px 1px; color: rgb(10, 82, 80);">
+                            <p style="float:{{float}} !important; direction:{{direction}} !important;text-align: justify;font-family:{{font}} !important; font-size:{{h3}}px !important; width:100%; margin:8px 0px 8px 0;">
+                                {{'text_1' = translate}}
+                            </p>
+                            <br />
+                            <div id="mainText" style="float:{{float}} !important;height: 0px; overflow: hidden; direction:{{direction}} !important;font-family:{{font}} !important; text-align: justify;font-size:{{h4}}px !important; margin: 0 0 16px 0; transition: all 0.5s ease-in-out; padding: 6px; border-radius: 10px;">{{'text_2' = translate}}</div>
+                        </h4>
+                        <button class="btn" id="toggleMainText" style="float:{{mirrorFloat}} ;cursor:pointer; font-size: 16px;">{{'more' = translate}}</button>
+                        <button class="btn openModal" style="margin: 0 20px;float:{{mirrorFloat}} ;cursor:pointer; font-size: 16px;">{{'letter' = translate}}</button>
+                    </div>
+
+                    <div class="modal fade" id="modalHolder" role="dialog">
+                        <div class="modal-dialog" style="margin-top: 77px;">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <button type="button" style="margin: 7px;" class="close" data-dismiss="modal">&times;</button>
+                                <img src="/img/letterBig.png" style="width: 74%;" />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="main-action row" style="margin:45px 0 0 0">
+
+                            <div style="text-align:center;">
+                                <p style="width: 79%;direction: rtl;margin: -28px auto 21px;font-size: 16px;color: rgb(10, 82, 80);">
+                                    {{'text_107' = translate}}
+                               </p>
+                            </div>
+
+
+
+                            <form id="verifyRequestForm" ng-submit="verifyRequestFunction(verify)">
+
+                                <div class="col-md-10 col-md-pull-1 col-md-offset-1" style="float:right !important">
+                                    <div class="form-group">
+                                        <input onblur="clearSpecialCharacter(this);" id="nationalCode" type="text" ng-model="verify.national_id" maxlength="13" class="form-control textBoxLeftAlign placeHolder{{float}}" style="float: left; height: 64px;font-size: 26px; padding-left: 25px;" placeholder="{{'text_108' = translate}}"
+                                               data-validation="required  number length" data-validation-length="10-13" data-validation-error-msg-container="#nationalCode-error" data-validation-error-msg="{{'validation_1' = translate}}">
+                                        <div style="width:20px; height: 63px;"></div>
+                                        <div id="nationalCode-error" style="text-align: center;float: right;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-10 col-md-pull-1 col-md-offset-1" style="float:right !important">
+                                    <div class="form-group">
+                                        <input onblur="clearSpecialCharacter(this);" id="confirmCode" type="text" ng-model="verify.secret_code" maxlength="6" class="form-control textBoxLeftAlign placeHolder{{float}}" style=" height: 64px;font-size: 26px; padding-left: 25px;" placeholder="{{'text_51' = translate}}"
+                                               data-validation="required  number length" data-validation-length="6" data-validation-error-msg-container="#confirmCode-error" data-validation-error-msg="{{'validation_2' = translate}}">
+                                        <div id="confirmCode-error"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10 col-md-pull-1 col-md-offset-1 " style="float:right !important">
+                                    <div class="form-group">
+                                        <button id="confirmAddress" type="submit" ng-disabled="!verify.secret_code ||verify.secret_code.length <6 ||!verify.national_id||verify.national_id.length <10" style="height: 64px;font-size: 24px;" class="btn btn-default btn-block">{{'menu_1' = translate}}</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div ng-show="verify.success" ng-init="verify.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                            <button ng-click="verify.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                                x
+                                <i class="icon-remove"></i>
+                            </button>
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                {{'successful' = translate}}
+                            </h4>
+                            <p ng-bind="verify.success"></p>
+                        </div>
+
+                        <div ng-show="verify.error" ng-init="verify.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                            <button ng-click="verify.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                                x
+                                <i class="icon-remove"></i>
+                            </button>
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                {{'error' = translate}}
+                            </h4>
+                            <p ng-bind="verify.error"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <section id="features" class="section section-center section-hilite section-features">
+                <div class="container">
+                    <h2 class="section-title"><span style="direction:{{direction}} !important; font-size:{{h1}}px !important;">{{'text_3' = translate}}</span></h2>
+                    <div class="row" style="">
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-comments-flat.png" alt="">
+                                <i style="font-size: 51px;margin: -50px 227px 0;color: #1abc9c;" class="fa fa-arrow-left hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 style="direction:{{direction}} !important;font-size:{{h3}}px !important;">{{'text_4' = translate}}</h4>
+                            <p style="direction:{{direction}} !important; font-size:{{h4}}px !important;"> {{'text_5' = translate}} </p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-bag-flat.png" alt="">
+                                <i style="font-size: 51px;margin: -50px 227px 0; color: #1abc9c;" class="fa fa-arrow-left hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 style="direction:{{direction}} !important; font-size:{{h3}}px !important;">{{'text_6' = translate}}</h4>
+                            <p style="direction:{{direction}} !important; font-size:{{h4}}px !important;">{{'text_7' = translate}}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-calculator-flat.png" alt="">
+                                <i style="font-size: 51px;margin: 122px 227px 0; color: #1abc9c;" class="fa fa-arrow-down hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 style="direction:{{direction}} !important; font-size:{{h3}}px !important;">{{'text_8' = translate}}</h4>
+                            <p style="direction:{{direction}} !important; font-size:{{h4}}px !important;">{{'text_9' = translate}}</p>
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-photo-flat.png" alt="">
+                                <i style="font-size: 51px;margin: -50px 227px 0;color: #1abc9c;" class="fa fa-arrow-right hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 style="direction:{{direction}} !important; font-size:{{h3}}px !important;"> {{'text_10' = translate}}</h4>
+                            <p style="direction:{{direction}} !important; font-size:{{h4}}px !important;">{{'text_11' = translate}}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-easel-flat.png" alt="">
+                                <i style="font-size: 51px;margin: -50px 227px 0; color: #1abc9c;" class="fa fa-arrow-right hidden-xs hidden-sm"></i>
+                            </div>
+                            <h4 style="direction:{{direction}} !important; font-size:{{h3}}px !important;">{{'text_12' = translate}}</h4>
+                            <p style="direction:{{direction}} !important; font-size:{{h4}}px !important;"> {{'text_13' = translate}}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6" style="float: right;">
+                            <div class="icon-wrap">
+                                <img src="img/icon-book-flat.png" alt="">
+                            </div>
+                            <h4 style="direction:{{direction}} !important; font-size:{{h3}}px !important;">{{'text_14' = translate}}</h4>
+                            <p style="direction:{{direction}} !important; font-size:{{h4}}px !important;">{{'text_15' = translate}}</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div style="height:100px; height: 50px; margin:-10px 0 50px 0px; color: #036365; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;" class="hidden-xs">
+                            <span id="typed" style="white-space:pre;">
+
+                            </span>
+                        </div>
+
+                        <div id="typed-strings">
+                            <p>{{'text_86' = translate}}</p>
+                            <p>{{'text_87' = translate}}</p>
+                            <p>{{'text_88' = translate}}</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div style="direction:{{direction}} !important; font-size:{{h4}}px !important; width: 89%; margin:-17px auto 30px auto; border: 1px rgb(180, 178, 178) solid;text-align: justify; padding: 8px; border-radius: 5px; color: #5d3a65; background-color: white;">
+                            {{'text_16' = translate}}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="register" style="padding-top:80px;" class="section section-center section-contact">
+                <div class="container">
+                    <h2 class="section-title"><span style="line-height: 33px; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;">{{'text_17' = translate}}</span></h2>
+
+                    <h5 style=" line-height: 39px; line-height: 39px; font-size: 14px; width: 91%; margin: 26px auto 33px auto;  direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;  background: rgba(183, 222, 226, 0.29);border-radius: 5px; padding: 13px;">{{'text_18' = translate}}</h5>
+
+                    <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                        {{'text_19' = translate}}
+                    </p>
+                    <div>
+                        <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                            {{'text_20' = translate}}
+                        </p>
+                    </div>
+                    <div class="main-action"> 
+                        <span style=" direction:{{direction}}  ;font-family:{{font}} !important;">
+                            <div class="results"></div>
+                            <div class="row" style="position: relative;" id="overlay" >
+                                 
+                                <div class="col-sm-6 pull-right" >
+                                    <div id='registerFirstBox' >
+
+                                        <form id="sendSmsForm">
+                                            <div class="form-group  col-sm-12 pull-right  col-xs-12 " style="height:10px">
+                                            </div>   
+
+                                            <div class="form-group  col-sm-12 pull-right  col-xs-12 " style=" direction: {{mirrorDirection}}; text-align: {{mirrorFloat}};">
+                                                <label class="col-xs-4 col-md-4" ng-show="lang=='fa'" style="float: right; padding: 0;font-size: 14px;text-align: right;"> &nbsp; <span>{{'text_21' = translate}}</span>  &nbsp; </label>
+
+
+                                                <span class="col-xs-4 col-md-4" style=" margin: 0 -3px  0 -21px; padding:0px; float: right;">
+                                                    {{'text_90' = translate}}
+                                                    <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="personType" value="natural_person" ng-model="addNewRequest.personType" ng-init="addNewRequest.personType='natural_person'" />
+                                                </span>
+                                                <span class="col-xs-4 col-md-4" style=" margin: 0  12px  0 -21px; padding:0px; float: right;">
+                                                    {{'text_91' = translate}}
+                                                    <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="personType" value="legal_person" ng-model="addNewRequest.personType" />
+                                                </span>
+
+                                                <label ng-show="lang=='en'" class="col-xs-12 col-md-3" style="float: right; padding: 0;font-size: 14px;text-align: left;"> &nbsp; <span>{{'text_21' = translate}}</span>  &nbsp; </label>
+
+
+                                            </div>
+                                            <div ng-show="addNewRequest.personType=='natural_person'">
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
+                                                    <input id="addNewRequestFirstName" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="30" placeholder="{{'text_53' = translate}}"
+                                                        data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestFirstName-error" data-validation-error-msg="{{'validation_5' = translate}}" >
+                                                    <div id="addNewRequestFirstName-error"></div>
+                                                </div>
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
+                                                    <input id="addNewRequestLastName" ng-model="addNewRequest.LastName" type="text" class="form-control placeHolder{{float}}" maxlength="50" placeholder="{{'text_54' = translate}}"
+                                                        data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestLastName-error" data-validation-error-msg="{{'validation_6' = translate}}" >
+                                                    <div id="addNewRequestLastName-error"></div>
+                                                </div>
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12 " style=" direction: {{mirrorDirection}}; text-align: {{mirrorFloat}};">
+                                                    <label class="col-xs-4 col-md-4" ng-show="lang=='fa'"  style="float: right; padding: 0;font-size: 14px;text-align: right;"> &nbsp; <span>{{'text_22' = translate}}</span>  &nbsp; </label>
+                                                    <span class="col-xs-4 col-md-4" style=" margin: 0 -3px  0 -21px; padding:0px; float: right;">
+                                                        {{'text_23' = translate}}
+                                                        <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="Geneder" value="1" ng-value="1" ng-model="addNewRequest.Gender" />
+                                                    </span>
+                                                    <span class="col-xs-4 col-md-4" style=" margin: 0 12px  0 -21px; padding:0px; float: right;">
+                                                        {{'text_24' = translate}}
+                                                        <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="Geneder" value="2" ng-value="2" ng-model="addNewRequest.Gender" />
+                                                    </span>
+                                                    <label ng-show="lang=='en'" class="col-xs-12 col-md-4" style="float: right; padding: 0;font-size: 14px;text-align: left;"> &nbsp; <span>{{'text_22' = translate}}</span>  &nbsp; </label>
+                                                </div>
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                                    <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode" ng-model="addNewRequest.NationalCode" maxlength="10" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_52' = translate}} *"
+                                                        data-validation="required  number length  IranNationalCode" data-validation-length="10" data-validation-error-msg-container="#addNewRequestNationalCode-error" >
+                                                    <div id="addNewRequestNationalCode-error"></div>
+                                                </div>
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                                    <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_55' = translate}}"
+                                                        data-validation="required custom" data-validation-length="11-14" data-validation-regexp="^(0|\+98|0098)?([ ]|,|-|[()]){0,2}9[0|1|2|3|4|5|6|7|8|9]([ ]|,|-|[()]){0,3}(?:[0-9]([ ]|,|-|[()]){0,2}){8}$" maxlength="14"  minlength="11"  data-validation-error-msg-container="#addNewRequestPhoneNumber-error" data-validation-error-msg="{{'validation_8' = translate}}">
+                                                    <div id="addNewRequestPhoneNumber-error"></div>
+                                                </div>
+                                                 
+
+                                                <div class="form-group col-sm-12 pull-right  col-xs-12"> 
+                                                    <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="addNewRequest.AdressStatus='0'" class="form-control"
+                                                            data-validation="required " data-validation-error-msg-container="#addNewRequestAdressStatus-error" >
+                                                        <option value="0" disabled> وضعیت نشانی شما *</option>
+                                                        <option ng-repeat="value in AdressStatus" ng-value="value.id">{{value.name}}</option>
+                                                    </select>
+                                                    <div id="addNewRequestAdressStatus-error"></div>
+                                                </div>
+
+
+                                                
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                                    <input id="addNewRequestEmail" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email"  type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_56' = translate}} (اختیاری)"
+                                                        data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail-error" >
+                                                    <div id="addNewRequestEmail-error"></div>
+                                                </div> 
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12">
+                                                    <input id="addNewRequestDisscount2"  ng-model="addNewRequest.discountCode" ng-init="addNewRequest.discountCode=''" maxlength="6" data-validation="length" data-validation-optional="true" data-validation-length="6"  ng-change="checkDiscountCode(addNewRequest.discountCode)"  type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_110' = translate}} (اختیاری)" >
+                                                </div> 
+ 
+                                            </div>
+                                            <div ng-show="addNewRequest.personType!='natural_person'">
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
+                                                    <input id="addNewRequestFirstName1" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="30" placeholder="{{'text_57' = translate}}"
+                                                        data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestFirstName1-error" data-validation-error-msg="{{'validation_10' = translate}}" >
+                                                    <div id="addNewRequestFirstName1-error"></div>
+                                                </div>
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                                    <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode1" ng-model="addNewRequest.NationalCode" maxlength="13" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_58' = translate}}"
+                                                        data-validation="required  number length" data-validation-length="13" data-validation-error-msg-container="#addNewRequestNationalCode1-error" data-validation-error-msg="{{'validation_11' = translate}}"  >
+                                                    <div id="addNewRequestNationalCode1-error"></div>
+                                                </div>
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                                    <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber1" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_59' = translate}}"
+                                                        data-validation="required custom" data-validation-length="11-14"  data-validation-regexp="^(0|\+98|98|0098)?([ ]|,|-|[()]){0,2}9[0|1|2|3|4|5|6|7|8|9]([ ]|,|-|[()]){0,3}(?:[0-9]([ ]|,|-|[()]){0,2}){8}$"  maxlength="14" minlength="11" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
+                                                    <div id="addNewRequestPhoneNumber1-error"></div>
+                                                </div>
+
+                                                
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                                    <input id="addNewRequestEmail1" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_60' = translate}} (اختیاری)"
+                                                        data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail1-error" >
+                                                    <div id="addNewRequestEmail1-error"></div>
+                                                </div>
+                                            </div> 
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 " >
+                                                        <input id='sendSms' style="text-align: center !important;font-size: 17px;" type="submit" ng-disabled="!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1 ||addNewRequest.AdressStatus=='0'))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1 " type="submit" class="btn btn-default btn-block btn-center"  value="{{'text_75' = translate}}" />
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </form>
+                                        
+                                        <form id="smsVerificationForm" style='display:none'> 
+                                            <div style="color:green; margin: -14px 0 17px 0;line-height: 32px;"  > 
+                                                کد تایید 4 رقمی به شماره تلفن {{ addNewRequest.PhoneNumber}} ارسال شد
+                                                <br/>
+                                                لطفا کد ارسال شده را وارد نمایید 
+                                            </div>
+                                            <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                                <input onblur="clearSpecialCharacter(this);" id="phoneNumberValidation" ng-model="phoneNumberValidation" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="کد تایید شماره تلفن"
+                                                    maxlength="4" class="form-control " placeholder="کد تایید شماره تلفن" data-validation="required  number length" data-validation-length="4" data-validation-error-msg-container="#phoneNumberValidation-error" data-validation-error-msg="لطفا کد ارسال شده به شماره تلفن خود را وارد نمایید" data-validation-has-keyup-event="true" >
+                                                <div id="phoneNumberValidation-error"></div>
+                                            </div> 
+                                            <div class="form-group col-md-12">
+                                                <div class="row" ng-show="sendSmsCount<=3">
+                                                    <div  class="col-md-12 " >
+                                                        <input style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: right;"  type="submit" ng-disabled="!phoneNumberValidation||phoneNumberValidation.length<4 || !addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1" class="btn btn-default btn-block btn-center"  value="تایید" />
+                                                        <input ng-show="sendSmsCount!=2 && sendAgainTimer==0" style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: left;" ng-click="sendSms()" type="button" ng-disabled="!sendAgain || !addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1" class="btn btn-default btn-block btn-center" value="ارسال مجدد"   />                                                        
+                                                        <input ng-show="sendSmsCount==2 && sendAgainTimer==0"  style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: left;"  ng-click="goToNextSectionWithoutVerification()" type="button"  class="btn btn-default btn-block btn-center" value="ادامه به مرحله بعد"  >
+                                                        <input ng-hide="sendAgainTimer==0" style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: left;"   type="button" disabled class="btn btn-default btn-block btn-center"   ng-value="'لطفا صبر نمایید  ('+sendAgainTimer+')'  " />     
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row" ng-show="sendSmsCount>3" style="color:red" >
+                                                    تعداد مجاز ارسال کد تایید ، به پایان رسیده است ، 
+                                                    </br>
+                                                    لطفا 24 ساعت دیگر امتحان نمایید 
+                                                </div>       
+                                            </div>
+                                        </form>
+
+                                        <div style="font-size: 15px ; color:darkorange" ng-bind='smsStatus'>
+                                        </div>
+                                    </div>
+                                    <div ng-show="smsVerificationSuccess" style="color:green; font-size:17px;">
+                                        شماره تلفن شما تایید شد ، حال میتوانید ادامه فرم را تکمیل نمایید
+                                    </div> 
+                                </div>
+
+                                <div id='registerSecondBox' class=" col-sm-6 pull-right "> 
+                                    <form id="addNewRequestForm">
+                                        
+                                        <div class="form-group  col-sm-12 pull-right  col-xs-12 " style="height:10px">
+                                        </div> 
+
+                                        <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                            <span class="tooltip" ng-hide="lang == 'en'" >
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help0' = translate}} </span>
+                                            </span>
+                                            <input   style="width: 94%;float: left;" onblur="clearSpecialCharacter(this); angular.element(this).scope().checkPostalCode();" id="addNewRequestPostalCode1" ng-model="addNewRequest.PostalCode1" ng-init="addNewRequest.PostalCode1=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_61' = translate}}"
+                                                data-validation="required  length custom CheckPostalCode" data-validation-regexp="^[0-9]+$" data-validation-length="10" maxlength="10" data-validation-error-msg-container="#addNewRequestPostalCode1-error" data-validation-error-msg="{{'validation_14' = translate}}" >
+                                            <div id="addNewRequestPostalCode1-error"></div>  <!-- data-validation-regexp="^[1-13-9]+$"  -->
+                                        </div>
+                                        <div class="form-group  col-sm-12 pull-right  col-xs-12" id="postalSelect"  >
+                                             در صورتی که کد پستی خود را نمی دانید ، کلیک کنید :  
+                                            <a href="https://epostcode.post.ir/postcode" target="_blank" style="color:rgb(31, 31, 114)" >یافتن کد پستی </a>
+                                        </div>
+                                        
+                                        <div class="form-group col-sm-12 pull-right  col-xs-12">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help1' = translate}} </span>
+                                            </span>
+
+                                            <select  style="width: 94%;float: left;" id="addNewRequestState" ng-model="addNewRequest.State" ng-change="addNewRequest.City='0';checkPostal()" ng-init="addNewRequest.State='0'" class="form-control"
+                                                    data-validation="required CheckPostalCode" data-validation-error-msg-container="#addNewRequestState-error" >
+                                                <option value="0" disabled> {{'text_62' = translate}} *</option>
+                                                <option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                            <div id="addNewRequestState-error"></div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help2' = translate}} </span>
+                                            </span>
+
+                                            <select style="width: 94%;float: left;" id="addNewRequestCity" ng-change="loadPrice(addNewRequest.City,addNewRequest.State);checkPostal()" ng-model="addNewRequest.City" ng-init="addNewRequest.City='0'" class="form-control"
+                                                    data-validation="required CheckPostalCode" data-validation-error-msg-container="#addNewRequestCity-error" >
+                                                <option value="0" disabled> {{'text_63' = translate}} *</option>
+                                                <option ng-repeat="value in city" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                            <div id="addNewRequestCity-error"></div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-6 col-xs-6" style="margin-bottom: 18px;" ng-class="lang=='en'?'pull-left col-md-offset-3':'pull-right'">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help3' = translate}} </span>
+                                            </span>
+
+                                            <select style="width: 88%;float: left;" id="addNewRequestVillageDrop" ng-model="addNewRequest.VillageDrop" ng-init="addNewRequest.VillageDrop='0'" class="form-control" style="font-size: 12px;"
+                                                    data-validation="required " data-validation-error-msg-container="#addNewRequestVillageDrop-error" >
+                                                <option disabled value="0">{{'text_64' = translate}} * </option>
+                                                <option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                            <div id="addNewRequestVillageDrop-error" style="margin: 0 3px -30px;"></div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6  col-md-6   col-xs-6 " style="margin-bottom: 18px;" ng-class="lang=='en'?'pull-left':'pull-right'">
+                                            <input id="addNewRequestVillageTxt" ng-model="addNewRequest.VillageTxt" type="text" maxlength="20" class="form-control placeHolder{{float}}" lang="fa" placeholder="{{'text_65' = translate}}"
+                                                data-validation="required custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-error-msg="{{'validation_18' = translate}}" data-validation-error-msg-container="#addNewRequestVillageTxt-error">
+                                            <div id="addNewRequestVillageTxt-error"></div>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6 col-md-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left col-md-offset-3':'pull-right'">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help4' = translate}} </span>
+                                            </span>
+                                            <select style="width: 88%;float: left;" id="addNewRequestMainRoadDrop" ng-model="addNewRequest.MainRoadDrop" ng-init="addNewRequest.MainRoadDrop=''" class="form-control">
+                                                <option selected value=""> {{'text_66' = translate}} *  </option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group  col-sm-6  col-md-6 pull-right  col-xs-6 " ng-class="lang=='en'?'pull-left':'pull-right'">
+                                            <input id="addNewRequestMainRoadTxt" ng-model="addNewRequest.MainRoadTxt" ng-init="addNewRequest.MainRoadTxt=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_67' = translate}}"
+                                                data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
+                                        </div>
+
+                                        <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left col-md-offset-3':'pull-right'">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help5' = translate}} </span>
+                                            </span>
+                                            <select style="width: 88%;float: left;" id="addNewRequestSecondaryRoadDrop1" ng-model="addNewRequest.SecondaryRoadDrop1" ng-init="addNewRequest.SecondaryRoadDrop1=''" class="form-control">
+                                                <option selected value="">{{'text_68' = translate}} (اختیاری)  </option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left':'pull-right'">
+                                            <input id="addNewRequestSecondaryRoadTxt1" ng-model="addNewRequest.SecondaryRoadTxt1" ng-init="addNewRequest.SecondaryRoadTxt1=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_69' = translate}} (اختیاری)"
+                                                data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
+                                        </div>
+
+                                        <div class="form-group  col-sm-6  col-md-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left col-md-offset-3':'pull-right'">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help6' = translate}} </span>
+                                            </span>
+                                            <select  style="width: 88%;float: left;" id="addNewRequestSecondaryRoadDrop2" ng-model="addNewRequest.SecondaryRoadDrop2" ng-init="addNewRequest.SecondaryRoadDrop2=''" class="form-control">
+                                                <option selected value="">  {{'text_70' = translate}} (اختیاری)   </option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6">
+                                            <input type="text" id="addNewRequestSecondaryRoadTxt2" ng-model="addNewRequest.SecondaryRoadTxt2" ng-init="addNewRequest.SecondaryRoadTxt2=''" class="form-control placeHolder{{float}}" placeholder="{{'text_71' = translate}} (اختیاری)"
+                                                data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
+                                        </div>
+
+                                        <div class="form-group col-sm-6 pull-right  col-xs-6">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help7' = translate}} </span>
+                                            </span>
+
+                                            <input  style="width: 88%;float: left;" id="addNewRequestPlaque" ng-model="addNewRequest.Plaque" ng-init="addNewRequest.Plaque=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" maxlength="7" placeholder="{{'text_72' = translate}}"
+                                                data-validation="required number length" data-validation-length="max7" data-validation-ignore="- _" data-validation-error-msg-container="#addNewRequestPlaque-error" >
+                                            <div id="addNewRequestPlaque-error"></div>
+                                        </div> 
+                                        
+                                        <div class="form-group col-md-6 col-sm-6 pull-left  col-xs-6"> 
+                                            <input type="checkbox" id="addNewRequestHasNoPlaque"  ng-model="addNewRequest.HasNoPlaque" ng-init="addNewRequest.HasNoPlaque=false" class="form-control" style="width: 20px;" />
+                                                
+                                            <div class="col-sm-8 pull-right col-xs-8" style="text-align:right; adding-right: 0; margin: -27px 27px 0 0;">
+                                                عدم وجود پلاک
+                                            </div>
+                                         
+                                        </div>
+
+                                        <div class="form-group col-sm-12 pull-right  col-xs-12 placeHolder{{float}}">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help8' = translate}} </span>
+                                            </span>
+
+                                            <select style="width: 94%;float: left;" id="addNewRequestFloor" ng-model="addNewRequest.Floor" class="form-control textBoxLeftAlign js-example-basic-multiple-limit  " multiple="multiple" style="font-family:{{font}} !important; font-size:{{h4}}px !important;"
+                                                    data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#addNewRequestFloor-error" >
+                                                <option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
+
+                                            </select>
+                                            <div id="addNewRequestFloor-error"></div>
+
+                                        </div>
+
+                                        <div class="form-group col-sm-12 pull-right  col-xs-12">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help9' = translate}} </span>
+                                            </span>
+
+                                            <input style="width: 94%;float: left;" id="addNewRequestUnit" ng-model="addNewRequest.Unit" ng-init="addNewRequest.Unit=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_73' = translate}} (اختیاری)"
+                                                data-validation="custom" data-suggestions=" {{'text_113' = translate}}" data-validation-optional="true"  maxlength="20" data-validation-error-msg="{{'validation_21' = translate}}"  >
+                                            <div id="addNewRequestUnit-error"></div>
+
+                                        </div>
+    
+                                        <div class="form-group col-sm-12 pull-right  col-xs-12">
+                                            <span class="tooltip" ng-hide="lang == 'en'">
+                                                <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                                <span class="tooltiptext">{{'help10' = translate}} </span>
+                                            </span>
+
+                                            <input style="width: 94%;float: left;" id="addNewRequestBuildingName" ng-model="addNewRequest.BuildingName" ng-init="addNewRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' = translate}} (اختیاری)"
+                                                data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" data-validation-error-msg="{{'validation_22' = translate}}"  >
+                                            <div id="addNewRequestBuildingName-error"></div>
+                                        </div> 
+                                           
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 " >
+                                                    <input style=" text-align: center;font-size: 17px;" id="addNewRequestSubmit" ng-disabled="!addNewRequest.PostalCode1||addNewRequest.PostalCode1.length<10 ||!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1 " type="submit" class="btn btn-default btn-block btn-center" value="{{'text_75' = translate}}" />                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form> 
+                                </div> 
+
+                            </div>
+                        </span>    
+                    </div>
+                    <div style=" height: 147px; margin:0px 0px 13px 0px; display:none;" ng-show="addNewRequest.postKind && !notShowPostSendingPriceBox"  class="row firstHide alert alert-info alert-block fade in">
+                        <button ng-click="addNewRequest.postKind=false; cancelRequest();" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+
+						<p>
+							{{'text_92' = translate}}
+						</p>
+						<p>
+							{{'text_109' = translate}}
+						</p>
+
+                        <div class="col-lg-12 form-group">
+                            <div class="col-lg-5 col-md-5 col-md-pull-3 pull-right col-lg-pull-4 " style="text-align: right;margin-top: 5px;">
+                              <!--  <select ng-model="addNewRequest.companyRequestTypeId" ng-init="addNewRequest.companyRequestTypeId=''" ng-change="loadPreview(addNewRequest.companyRequestTypeId)" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' {{'text_97' = translate}} ' for value in sendType">
+                                    <option value="" selected disabled>{{'text_106' = translate}}</option>
+                                </select>-->
+
+                                <div ng-repeat="value in sendType" ng-init="addNewRequest.companyRequestTypeId=''" >
+                                    <input type="radio" name="companyRequestTypeId" ng-model="addNewRequest.companyRequestTypeId" ng-value="value.id" ng-click="loadPreview(addNewRequest.companyRequestTypeId)" style=" transform: scale(1.5);">
+                                  <div style=" width: 92%;float: left;" ng-init="value.price==null?value.price=0:null">{{value.name +' - '+ value.price + ' {{'text_97' = translate}} '}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="addNewRequest.companyRequestTypeId!='' && addNewRequest.postKind" style="margin: 0 0 12px 0;background-color: rgba(85, 226, 59, 0.1); border-radius: 5px; border: 1px solid rgba(158, 216, 179, 0.42);">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-4" style="margin: 27px 0 0 0;">
+                                    <img width="200" class="openModal" style="box-shadow: 7px 7px 5px #888888;cursor: pointer;" src="img/letterBig.png" />
+                                </div>
+                                <div class="col-lg-7" style="font-size: 18px;text-align: right;color: rgba(36, 5, 107, 0.87); padding: 19px;">
+
+
+                                    <table class="table table-advance table-hover" ng-init="discount=0;">
+                                        <tr>
+                                            <td style=" width: 28%;"> {{'text_93' = translate}} </td>
+                                            <td ng-bind="' {{'text_94' = translate}} '+SelectedPostMethod.name "></td>
+                                        </tr>
+                                        <tr ng-show="SelectedPostMethod.description!=null">
+                                            <td>{{'text_95' = translate}} </td>
+                                            <td ng-bind="SelectedPostMethod.description"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{'text_96' = translate}} </td>
+                                            <td ng-bind="(SelectedPostMethod.price) + ' {{'text_97' = translate}} '"></td>
+                                            <!-- <td ng-bind="(SelectedPostMethod.price-(SelectedPostMethod.price*discount)/100) + ' {{'text_97' = translate}} '"></td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>{{'text_98' = translate}}</td>
+                                            <td ng-bind="(SelectedPostMethod.price*0.09 )+ ' {{'text_97' = translate}} '"></td>
+                                            <!-- <td ng-bind="((SelectedPostMethod.price-(SelectedPostMethod.price*discount)/100)*0.09 )+ ' {{'text_97' = translate}} '"></td> -->
+                                        </tr>
+                                        <tr>
+                                            <td>میزان تخفیف</td>
+                                            <td ng-bind="(SelectedPostMethod.price*discount)/100+ ' {{'text_97' = translate}} '"></td>
+                                        </tr>
+										<tr>
+											<td>
+												<b>{{'text_99' = translate}}</b>
+											</td>
+											<td>
+												<b ng-bind="(((SelectedPostMethod.price-(SelectedPostMethod.price*discount)/100)*0.09 )+(SelectedPostMethod.price-(SelectedPostMethod.price*discount)/100))+ ' {{'text_97' = translate}} '+('.'+discount!=0?'  {{'text_112' = translate}}':'')"></b>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<b>{{'text_110' = translate}}</b>
+											</td>
+											<td>
+ 											    <input type="text" class="textBoxLeftAlign" ng-model="addNewRequest.discountCode" ng-init="addNewRequest.discountCode=''" maxlength="6" data-validation="length" data-validation-optional="true" data-validation-length="6" ng-change="checkDiscountCode(addNewRequest.discountCode)" style="width: 84px;">
+  											</td>
+										</tr>
+										<tr>
+											<td></td>
+											<td>
+												<p style="color:green;" ng-show="discount!=0">{{'text_111' = translate}}</p>
+
+												<p style="color: red;" ng-show="discountFailed">{{'text_114' = translate}} </p>
+
+ 											</td>
+										</tr>
+                                    </table>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-lg-5 pull-left" style=" margin: 0 0 20px 0;">
+                                <div style="text-align:center" id="addNewRequestSendStatus"></div> 
+                                <a class="btn btn-info" ng-click="addNewRequest.postKind=false; cancelRequest();">{{'text_100' = translate}}  </a>
+                                <a class="btn btn-success" id="addNewRequestSendBtn" ng-click="addNewRequestFunction(addNewRequest)">{{'text_101' = translate}}  </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <div ng-show="addNewRequest.success" ng-init="addNewRequest.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="addNewRequest.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'successful' = translate}}
+                        </h4>
+                        <p ng-bind="addNewRequest.success"></p>
+                    </div>
+
+                    <div ng-show="addNewRequest.error" ng-init="addNewRequest.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="addNewRequest.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' = translate}}
+                        </h4>
+                        <p ng-bind="addNewRequest.error"></p>
+                    </div>
+
+                </div>
+
+
+            </section>
+            
+            <section id="edit" class="notShowInIframe section section-center section-contact  section-hilite section-testimonial">
+
+                <div class="container">
+                    <div class="main-action row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12  col-xs-12" style="float:right !important;">
+                                <h2 class="section-title"><span style="line-height: 39px; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;"> ویرایش آدرس ثبت شده  </span></h2>
+
+                                <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                                   شما میتوانید ،  اطلاعات آدرس خود را تا 12 ساعت پس از ثبت نام ، ویرایش نمایید .
+                                   <br/>
+                                    دقت نمایید که امکان ویرایش نام و نام خانوادگی ، شماره تماس و کد ملی وجود ندارد ، برای تغییر این اطلاعات ، می بایست دوباره ثبت نام نمایید.
+                                </p>
+                            </div>
+                            <form id="editLoadRequestForm" ng-submit="editLoadRequestFunction(editRequest)">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-md-pull-3  col-sm-pull-3 col-xs-12" style="float:right !important; margin-top:15px;">
+                                        <div class="form-group">
+
+                                            <input onblur="clearSpecialCharacter(this);" id="editTrackingCode" ng-model="editRequest.uniqeId" style="margin: auto; width: 248px;direction: ltr; padding-left: 25px;" type="text" maxlength="20" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_76' = translate}}"
+                                                   data-validation="required  number length" data-validation-length="min10" data-validation-error-msg-container="#editTrackingCode-error" data-validation-error-msg="{{'validation_3' = translate}}">
+                                            <div id="editTrackingCode-error"></div>
+
+                                            <input onblur="clearSpecialCharacter(this);" id="editNationalCode" ng-model="editRequest.nationalCode" style="margin: auto;margin-top: 15px; width: 248px;direction: ltr; padding-left: 25px;" type="text" maxlength="10" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_52' = translate}}"
+                                                    data-validation="required  number length " data-validation-length="10" data-validation-error-msg-container="#editNationalCode-error" data-validation-error-msg="{{'validation_1' = translate}}">
+                                            <div id="editNationalCode-error"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3 col-sm-offset-3 col-sm-6  col-xs-10 col-xs-offset-1">
+                                        <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+                                            <button id="editRequest" type="submit" ng-disabled="!editRequest.uniqeId ||editRequest.uniqeId.length <10 || !editRequest.nationalCode || editRequest.nationalCode.length <10" style="padding: 5px;font-size: 17px;" class="btn btn-default btn-block">ویرایش</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div ng-show="edit.success" ng-init="edit.success=''" style=" display:none;" class="firstHide  fade in">
+                      
+                      <!-- mjh -->
+                        <div class="col-md-6 col-sm-6 col-md-offset-3  col-sm-offset-3 col-xs-12">
+                            <form id="editRequestFormSubmit">
+                                
+                                <div class="form-group  col-sm-12 pull-right  col-xs-12 " style="height:10px">
+                                </div> 
+
+                                <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                    <span class="tooltip" ng-hide="lang == 'en'" >
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help0' = translate}} </span>
+                                    </span>
+                                    <input   style="width: 94%;float: left;" onblur="clearSpecialCharacter(this); angular.element(this).scope().checkPostalCodeForEdit();" id="editRequestPostalCode1" ng-model="editRequest.PostalCode1" ng-init="editRequest.PostalCode1=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_61' = translate}}"
+                                        data-validation="required  length custom CheckPostalCodeForEdit" data-validation-regexp="^[0-9]+$" data-validation-length="10" maxlength="10" data-validation-error-msg-container="#editRequestPostalCode1-error" data-validation-error-msg="{{'validation_14' = translate}}" >
+                                    <div id="editRequestPostalCode1-error"></div>  <!-- data-validation-regexp="^[1-13-9]+$"  -->
+                                </div>
+                                <!-- <div class="form-group  col-sm-12 pull-right  col-xs-12" id="postalSelect"  >
+                                    در صورتی که کد پستی خود را نمی دانید ، کلیک کنید :  
+                                    <a href="https://epostcode.post.ir/postcode" target="_blank" style="color:rgb(31, 31, 114)" >یافتن کد پستی </a>
+                                </div> -->
+                                
+                                <div class="form-group col-sm-12 pull-right  col-xs-12">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help1' = translate}} </span>
+                                    </span>
+
+                                    <select  style="width: 94%;float: left;" id="editRequestState" ng-model="editRequest.State" ng-change="editRequest.City='0';checkPostal()" ng-init="editRequest.State='0'" class="form-control"
+                                            data-validation="required CheckPostalCode" data-validation-error-msg-container="#editRequestState-error" >
+                                        <option value="0" disabled> {{'text_62' = translate}} *</option>
+                                        <option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
+                                    </select>
+                                    <div id="editRequestState-error"></div>
+                                </div>
+
+                                <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help2' = translate}} </span>
+                                    </span>
+
+                                    <select style="width: 94%;float: left;" id="editRequestCity" ng-change="loadPrice(editRequest.City,editRequest.State);checkPostal()" ng-model="editRequest.City" ng-init="editRequest.City='0'" class="form-control"
+                                            data-validation="required CheckPostalCode" data-validation-error-msg-container="#editRequestCity-error" >
+                                        <option value="0" disabled> {{'text_63' = translate}} *</option>
+                                        <option ng-repeat="value in city" ng-value="value.id">{{value.name}}</option>
+                                    </select>
+                                    <div id="editRequestCity-error"></div>
+                                </div>
+
+                                <div class="form-group  col-sm-6 col-md-6 col-xs-6" style="margin-bottom: 18px;" ng-class="lang=='en'?'pull-left col-md-offset-3':'pull-right'">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help3' = translate}} </span>
+                                    </span>
+
+                                    <select style="width: 88%;float: left;" id="editRequestVillageDrop" ng-model="editRequest.VillageDrop" ng-init="editRequest.VillageDrop='0'" class="form-control" style="font-size: 12px;"
+                                            data-validation="required " data-validation-error-msg-container="#editRequestVillageDrop-error" >
+                                        <option disabled value="0">{{'text_64' = translate}} * </option>
+                                        <option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
+                                    </select>
+                                    <div id="editRequestVillageDrop-error" style="margin: 0 3px -30px;"></div>
+                                </div>
+
+                                <div class="form-group  col-sm-6  col-md-6   col-xs-6 " style="margin-bottom: 18px;" ng-class="lang=='en'?'pull-left':'pull-right'">
+                                    <input id="editRequestVillageTxt" ng-model="editRequest.VillageTxt" type="text" maxlength="20" class="form-control placeHolder{{float}}" lang="fa" placeholder="{{'text_65' = translate}}"
+                                        data-validation="required custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-error-msg="{{'validation_18' = translate}}" data-validation-error-msg-container="#editRequestVillageTxt-error">
+                                    <div id="editRequestVillageTxt-error"></div>
+                                </div>
+
+                                <div class="form-group  col-sm-6 col-md-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left col-md-offset-3':'pull-right'">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help4' = translate}} </span>
+                                    </span>
+                                    <select style="width: 88%;float: left;" id="editRequestMainRoadDrop" ng-model="editRequest.MainRoadDrop" ng-init="editRequest.MainRoadDrop=''" class="form-control">
+                                        <option selected value=""> {{'text_66' = translate}} *  </option>
+                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group  col-sm-6  col-md-6 pull-right  col-xs-6 " ng-class="lang=='en'?'pull-left':'pull-right'">
+                                    <input id="editRequestMainRoadTxt" ng-model="editRequest.MainRoadTxt" ng-init="editRequest.MainRoadTxt=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_67' = translate}}"
+                                        data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
+                                </div>
+
+                                <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left col-md-offset-3':'pull-right'">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help5' = translate}} </span>
+                                    </span>
+                                    <select style="width: 88%;float: left;" id="editRequestSecondaryRoadDrop1" ng-model="editRequest.SecondaryRoadDrop1" ng-init="editRequest.SecondaryRoadDrop1=''" class="form-control">
+                                        <option selected value="">{{'text_68' = translate}} (اختیاری)  </option>
+                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left':'pull-right'">
+                                    <input id="editRequestSecondaryRoadTxt1" ng-model="editRequest.SecondaryRoadTxt1" ng-init="editRequest.SecondaryRoadTxt1=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_69' = translate}} (اختیاری)"
+                                        data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
+                                </div>
+
+                                <div class="form-group  col-sm-6  col-md-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left col-md-offset-3':'pull-right'">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help6' = translate}} </span>
+                                    </span>
+                                    <select  style="width: 88%;float: left;" id="editRequestSecondaryRoadDrop2" ng-model="editRequest.SecondaryRoadDrop2" ng-init="editRequest.SecondaryRoadDrop2=''" class="form-control">
+                                        <option selected value="">  {{'text_70' = translate}} (اختیاری)   </option>
+                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6">
+                                    <input type="text" id="editRequestSecondaryRoadTxt2" ng-model="editRequest.SecondaryRoadTxt2" ng-init="editRequest.SecondaryRoadTxt2=''" class="form-control placeHolder{{float}}" placeholder="{{'text_71' = translate}} (اختیاری)"
+                                        data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
+                                </div>
+
+                                <div class="form-group col-sm-6 pull-right  col-xs-6">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help7' = translate}} </span>
+                                    </span>
+
+                                    <input  style="width: 88%;float: left;" id="editRequestPlaque" ng-model="editRequest.Plaque" ng-init="editRequest.Plaque=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" maxlength="7" placeholder="{{'text_72' = translate}}"
+                                        data-validation="required number length" data-validation-length="max7" data-validation-ignore="- _" data-validation-error-msg-container="#editRequestPlaque-error" >
+                                    <div id="editRequestPlaque-error"></div>
+                                </div> 
+                                
+                                <div class="form-group col-md-6 col-sm-6 pull-left  col-xs-6"> 
+                                    <input type="checkbox" id="editRequestHasNoPlaque"  ng-model="editRequest.HasNoPlaque" ng-init="editRequest.HasNoPlaque=false" class="form-control" style="width: 20px;" />
+                                        
+                                    <div class="col-sm-8 pull-right col-xs-8" style="text-align:right; margin: -27px 10px 0 0;">
+                                        عدم وجود پلاک
+                                    </div>
+                                
+                                </div>
+
+                                <div class="form-group col-sm-12 pull-right  col-xs-12 placeHolder{{float}}">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help8' = translate}} </span>
+                                    </span>
+
+                                    <select style="width: 94%;float: left;" id="editRequestFloor" ng-model="editRequest.Floor" class="form-control textBoxLeftAlign js-example-basic-multiple-limit  " multiple="multiple" style="font-family:{{font}} !important; font-size:{{h4}}px !important;"
+                                            data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#editRequestFloor-error" >
+                                        <option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
+
+                                    </select>
+                                    <div id="editRequestFloor-error"></div>
+
+                                </div>
+
+                                <div class="form-group col-sm-12 pull-right  col-xs-12">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help9' = translate}} </span>
+                                    </span>
+
+                                    <input style="width: 94%;float: left;" id="editRequestUnit" ng-model="editRequest.Unit" ng-init="editRequest.Unit=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_73' = translate}} (اختیاری)"
+                                        data-validation="custom" data-suggestions=" {{'text_113' = translate}}" data-validation-optional="true"  maxlength="20" data-validation-error-msg="{{'validation_21' = translate}}"  >
+                                    <div id="editRequestUnit-error"></div>
+
+                                </div>
+
+                                <div class="form-group col-sm-12 pull-right  col-xs-12">
+                                    <span class="tooltip" ng-hide="lang == 'en'">
+                                        <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
+                                        <span class="tooltiptext">{{'help10' = translate}} </span>
+                                    </span>
+
+                                    <input style="width: 94%;float: left;" id="editRequestBuildingName" ng-model="editRequest.BuildingName" ng-init="editRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' = translate}} (اختیاری)"
+                                        data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" data-validation-error-msg="{{'validation_22' = translate}}"  >
+                                    <div id="editRequestBuildingName-error"></div>
+                                </div> 
+                                
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 " >
+                                            <input style=" text-align: center;font-size: 17px;" id="editRequestSubmit" ng-disabled="!editRequest.PostalCode1||editRequest.PostalCode1.length<10" type="submit" class="btn btn-default btn-block btn-center" value="ویرایش اطلاعات" />                                                
+                                            <div id="addNewRequestSendStatus"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form> 
+                            <div ng-show="editRequest.success" ng-init="editRequest.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                                    <button ng-click="editRequest.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                                        x
+                                        <i class="icon-remove"></i>
+                                    </button>
+                                    <h4>
+                                        <i class="icon-ok-sign"></i>
+                                       موفقیت آمیز
+                                    </h4>
+            
+                                    <p style=" margin: 10px 8%;" ng-bind="editRequest.success"></p> 
+                                </div>
+            
+                            <div ng-show="editRequest.error" ng-init="editRequest.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                                    <button ng-click="editRequest.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                                        x
+                                        <i class="icon-remove"></i>
+                                    </button>
+                                    <h4>
+                                        <i class="icon-ok-sign"></i>
+                                        {{'error' = translate}}
+                                    </h4>
+                                    <p ng-bind="editRequest.error"></p>
+                                </div>
+            
+                        <div>
+                    </div>
+
+                    <div ng-show="edit.error" ng-init="edit.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="edit.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' = translate}}
+                        </h4>
+                        <p ng-bind="edit.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+            
+            <section id="fallow" class="notShowInIframe section section-center section-contact  section-testimonial">
+
+                <div class="container">
+                    <div class="main-action row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12  col-xs-12" style="float:right !important;">
+                                <h2 class="section-title"><span style="line-height: 39px; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;"> {{'text_25' = translate}} </span></h2>
+
+                                <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                                    {{'text_26' = translate}}
+                                </p>
+                            </div>
+                            <form id="getRequestForm" ng-submit="getRequestFunction(get)">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-md-pull-3  col-sm-pull-3 col-xs-12" style="float:right !important; margin-top:15px;">
+                                        <div class="form-group">
+                                            <input onblur="clearSpecialCharacter(this);" id="trackingCode1" ng-model="get.uniqeId" style="margin: auto; width: 248px;direction: ltr; padding-left: 25px;" type="text" maxlength="20" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_76' = translate}}"
+                                                   data-validation="required  number length" data-validation-length="min10" data-validation-error-msg-container="#trackingCode1-error" data-validation-error-msg="{{'validation_3' = translate}}">
+                                            <div id="trackingCode1-error"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-3 col-sm-offset-3 col-sm-6  col-xs-10 col-xs-offset-1">
+                                        <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+                                            <button id="getRequest" type="submit" ng-disabled="!get.uniqeId ||get.uniqeId.length <10" style="padding: 5px;font-size: 17px;" class="btn btn-default btn-block">{{'menu_4' = translate}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div ng-show="get.success" ng-init="get.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="get.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'text_89' = translate}}
+                        </h4>
+
+                        <p style=" margin: 10px 8%;" ng-bind="get.success1"></p>
+                        <p style=" margin: 10px 8%;" ng-bind="get.success2"></p>
+                        <p style=" margin: 10px 8%;" ng-bind="get.success3"></p>
+                    </div>
+
+                    <div ng-show="get.error" ng-init="get.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="get.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' = translate}}
+                        </h4>
+                        <p ng-bind="get.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section id="blog" class="notShowInIframe section section-center section-cta  section-hilite">
+                <div class="container">
+                    <h2 class="section-title"><span style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;">{{'text_27' = translate}}</span></h2>
+
+                    <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                        {{'text_28' = translate}}
+                    </p>
+                    <div class="main-action">
+                        <form method="post" name="contactform" id="reportRequestForm" ng-submit="reportRequestConfirmFunction(report)">
+                            <div class="results"></div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-md-pull-3  col-sm-pull-3 col-xs-12" style="float:right !important">
+                                    <div class="form-group">
+                                        <input onblur="clearSpecialCharacter(this);" id="trackingCode3" ng-model="report.uniqeId" style="margin: auto; width: 248px;direction: ltr; padding-left: 25px;" type="text" maxlength="20" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_76' = translate}}"
+                                               data-validation="required  number length" data-validation-length="min10" data-validation-error-msg-container="#trackingCode3-error" data-validation-error-msg="{{'validation_3' = translate}}">
+                                        <div id="trackingCode3-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3 col-sm-offset-3 col-sm-6  col-xs-10 col-xs-offset-1">
+                                    <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+                                        <button id="reportRequest" type="submit" ng-disabled="!report.uniqeId ||report.uniqeId.length <10" style="padding: 5px;font-size: 17px;" class="btn btn-default btn-block">{{'text_78' = translate}}</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+
+                    <div ng-show="confirm.success" ng-init="confirm.success=''" style=" display:none;" class="firstHide alert alert-info alert-block fade in">
+                        <button ng-click="confirm.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <center>
+                            <h4>
+                                <i class="icon-ok-sign"></i>
+                                {{'text_89' = translate}}
+                            </h4>
+                            <a style="float: left;margin: -4px 0px 0px 44px;" ng-click="reportRequestFunction(report)" class="btn btn-default">{{'Confirm' = translate}}</a>
+                            <p style=" margin: 10px 8%;" ng-bind="confirm.success1"></p>
+                            <p style=" margin: 10px 8%;" ng-bind="confirm.success2"></p>
+                            <p style=" margin: 10px 8%;" ng-bind="confirm.success3"></p>
+                        </center>
+                    </div>
+
+                    <div ng-show="confirm.error" ng-init="confirm.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="confirm.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' = translate}}
+                        </h4>
+                        <p ng-bind="confirm.error"></p>
+                    </div>
+
+                    <div ng-show="report.success" ng-init="report.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="report.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'successful' = translate}}
+                        </h4>
+                        <p ng-bind="report.success"></p>
+                    </div>
+
+                    <div ng-show="report.error" ng-init="report.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="report.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' = translate}}
+                        </h4>
+                        <p ng-bind="report.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section id="testimonials" class="notShowInIframe section  section-testimonial section-center">
+                <div class="container">
+                    <h2 class="section-title"><span style="line-height: 33px; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;">{{'text_29' = translate}}</span></h2>
+
+                    <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                        {{'text_30' = translate}}
+                    </p><p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                        {{'text_31' = translate}}
+                    </p>
+                    <div class="main-action" style="margin-top: 38px;">
+                        <form method="post" name="contactform" id="resendRequestForm" ng-submit="beforeResendRequestFunction(resend)">
+                            <div class="results"></div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-md-pull-3  col-sm-pull-3 col-xs-12" style="float:right !important">
+                                    <div class="form-group">
+                                        <input onblur="clearSpecialCharacter(this);" id="trackingCode2" ng-model="resend.uniqeId" style="margin: auto;width: 248px;direction: ltr; padding-left: 25px;" type="text" maxlength="20" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_76' = translate}}"
+                                               data-validation="required  number length" data-validation-length="min10" data-validation-error-msg-container="#trackingCode2-error" data-validation-error-msg="{{'validation_3' = translate}}">
+                                        <div id="trackingCode2-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3 col-sm-offset-3 col-sm-6  col-xs-10 col-xs-offset-1">
+                                    <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+                                        <button id="resendRequest" type="submit" ng-disabled="!resend.uniqeId ||resend.uniqeId.length <10" style="padding: 5px;font-size: 17px;" class="btn btn-default btn-block"> {{'text_79' = translate}}</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div style="margin-top: 10px; height: 230px; display:none;" ng-show="resendGet.success" ng-init="resendGet.success=''" class=" firstHide alert alert-success alert-block fade in">
+                        <button ng-click="resendGet.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'text_102' = translate}}
+                        </h4>
+
+                        <p style=" margin: 10px 8%;" ng-bind="resendGet.success1"></p>
+                        <p style=" margin: 10px 8%;" ng-bind="resendGet.success2"></p>
+                        <p style=" margin: 10px 8%;">
+                            {{'text_103' = translate}}
+                        </p>
+                        <div class="col-lg-12 form-group">
+                            <div class="col-lg-5 col-md-5 col-md-pull-3 pull-right col-lg-pull-4 ">
+
+                               <!-- <select id="resendKindSend" ng-model="resend.KindSend" ng-init="resend.KindSend=''" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' {{'text_97' = translate}} ' for value in sendType2">
+                                    <option value="" selected disabled>{{'text_106' = translate}}</option>
+                                </select>-->
+
+
+
+                                <div ng-repeat="value in sendType2" ng-init="resend.KindSend=''" >
+                                    <input type="radio" name="companyRequestTypeId" ng-model="resend.KindSend" ng-value="value.id"  style=" transform: scale(1.5);">
+                                    <div style=" width: 92%;float: left;" ng-init="value.price==null?value.price=0:null">{{value.name +' - '+ value.price + ' {{'text_97' = translate}} '}}</div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-1 col-md-4 col-md-offset-1 col-lg-pull-4">
+                                <button type="button" class="btn btn-default" ng-click="resendRequestFunction(resend)">{{'text_104' = translate}}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="resendGet.error" ng-init="resendGet.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="resendGet.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' = translate}}
+                        </h4>
+                        <p ng-bind="resendGet.error"></p>
+                    </div>
+                    <div ng-show="resend.error" ng-init="resend.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="resend.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' = translate}}
+                        </h4>
+                        <p ng-bind="resend.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="contact" class="notShowInIframe section section-center section-hilite section-contact">
+                <div class="container">
+                    <h2 class="section-title"><span style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;">{{'text_32' = translate}}</span></h2>
+
+                    <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                        {{'text_33' = translate}}
+                    </p>
+
+                    <div class="main-action">
+                        <form method="post" name="contactform" id="addNewMessageForm" ng-submit="addNewMessageFunction(addNewMessage)">
+                            <div class="results"></div>
+                            <div class="row">
+
+                                <div class="col-sm-6  pull-right col-sm-pull-0 col-xs-12">
+                                    <div class="form-group">
+                                        <input name="subject" ng-model="addNewMessage.name" ng-init="addNewMessage.name=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_82' = translate}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="name" ng-model="addNewMessage.email" ng-init="addNewMessage.email=''" type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_83' = translate}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="phoneNumber2" ng-model="addNewMessage.cell" ng-init="addNewMessage.cell=''" max-length="11" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_84' = translate}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input onblur="clearSpecialCharacter(this);" max-length="8" ng-model="addNewMessage.uniqId" ng-init="addNewMessage.uniqId=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_77' = translate}}">
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 pull-righ col-sm-pull-0 col-xs-pull-3t">
+                                    <div class="form-group">
+                                        <textarea id="addNewMessageText" name="message" ng-model="addNewMessage.text" ng-init="addNewMessage.text=''" class="form-control placeHolder{{float}}" maxlength="2000" placeholder="{{'text_85' = translate}}" style="height: 181px" rows="6"
+                                                  data-validation="required" data-validation-error-msg-container="#addNewMessageText-error" data-validation-error-msg="{{'validation_4' = translate}}"></textarea>
+                                        <div id="addNewMessageText-error"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+
+                                            <div class="col-md-5 col-sm-5 col-xs-12">
+                                                <button id="message" style="padding: 5px;font-size: 17px;" type="submit" ng-disabled="!addNewMessage.text ||addNewMessage.text.length <1" class="btn btn-default btn-block">{{'text_80' = translate}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div ng-show="addNewMessage.success" ng-init="addNewMessage.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
+                        <button ng-click="addNewMessage.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'text_105' = translate}}
+                        </h4>
+                        <p ng-bind="addNewMessage.success"></p>
+                    </div>
+
+                    <div ng-show="addNewMessage.error" ng-init="addNewMessage.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
+                        <button ng-click="addNewMessage.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                            x
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            {{'error' = translate}}
+                        </h4>
+                        <p ng-bind="addNewMessage.error"></p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="aboutUs" class="notShowInIframe  section  section-testimonial section-center">
+                <div class="container">
+                    <h2 class="section-title"><span style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h1}}px !important;">{{'menu_8' = translate}} </span></h2>
+
+                    <div class="main-action">
+                        <form method="post" name="contactform" id="addNewMessageForm" ng-submit="addNewMessageFunction(addNewMessage)">
+                            <div class="results"></div>
+                            <div class="row">
+
+                                <div class="col-sm-12 ">
+                                    <div style=" text-align: justify; text-justify: inter-word; direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                                        {{'text_34' = translate}}
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <img src="img/logo.png"  style="width: 77px;"/>
+                                    <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">{{'text_35' = translate}}</p>
+
+                                    <span style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                                        {{'text_36' = translate}}
+                                    </span>
+
+                                    <br />
+
+                                    <br />
+                                    <br />
+                                    <img src="img/Rojina-Logo.png" style="width: 135px;" />
+                                    <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                                        {{'text_37' = translate}}
+                                    </p>
+
+                                    <span style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                                        {{'text_38' = translate}}
+                                    </span>
+
+                                    <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                                        {{'text_39' = translate}}
+                                    </p>
+
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer id="footer" class="site-footer notShowInIframe">
+            <div class="container">
+
+                <div id="sidebar-footer-1">
+                    <div class="row">
+
+                        <aside class="widget col-md-3 col-sm-6">
+
+                            <form method="post" name="contactform" id="newslatterForm" ng-submit="newsletterFunction(newsletterEmail)">
+
+                                <h5 class="widget-title" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">{{'text_40' = translate}}</h5>
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" id="newslatter" ng-model="newsletterEmail" placeholder="{{'text_81' = translate}}"
+                                           data-validation="required email" data-validation-error-msg-container="#newslatter-error" />
+                                    <span class="input-group-btn">
+                                        <button type="submit" ng-disabled="!newsletterEmail ||newsletterEmail.length <7" class="btn btn-danger" style="padding: 6px;"><i class="fa  fa-envelope-o"></i></button>
+                                    </span>
+                                </div>
+
+
+                                <p id="newslatter-error" style="margin-top: 7px;" ng-bind="newsletterResponse"></p>
+                                <ul class="social-links"></ul>
+                            </form>
+
+                        </aside>
+
+                        <aside class="widget col-md-3 col-sm-6">
+                            <h5 class="widget-title" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">{{'text_41' = translate}}</h5>
+                            <a href="/law/">    <p style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h5}}px !important;">{{'text_42' = translate}}</p></a>
+                        </aside>
+
+                        <aside class="widget col-md-3 col-sm-6">
+                            <h5 class="widget-title" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">{{'text_43' = translate}}</h5>
+                            <div class="textwidget">
+                                <div class="adr" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h4}}px !important;">
+                                    <div class="street-address" style=" direction:{{direction}} !important;font-family:{{font}} !important; font-size:{{h5}}px !important;">
+                                        {{'text_44' = translate}}
+                                    </div>
+                                    <div><span>{{'text_45' = translate}}</span>: <span class="tel">88522948</span></div>
+                                    <div><span>{{'text_46' = translate}}</span>: <a class="url" href="http://avs.post.ir">avs.post.ir</a></div>
+
+                                </div>
+
+                            </div>
+                        </aside>
+                        <aside class="widget col-md-3 col-sm-6">
+                            <img id='hwlaxlapsguiwmcssgui' style='cursor:pointer' onclick='window.open("https://trustseal.enamad.ir/Verify.aspx?id=43080&p=odshfuixdrfsaqgwdrfs", "Popup","toolbar=no, location=no, statusbar=no, menubar=no, scrollbars=1, resizable=0, width=580, height=600, top=30")' alt='' src='https://trustseal.enamad.ir/logo.aspx?id=43080&p=aodsvjymgthvukaqgthv' />
+
+                        </aside>
+                    </div>
+                </div>
+
+
+                <div class="copyright" style="border-top: 2px solid rgba(255,255,255,.1);"><p><span>{{'lisense' = translate}}  </span><br /><span>{{'text_47' = translate}}</span>  <a href="http://www.post.ir/"> {{'text_48' = translate}}</a>  <a href="http://www.rojina.com/">{{'text_49' = translate}}</a> <span>{{'text_50' = translate}}</span></p></div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="scroll-to-top" style="margin-bottom: 14px;" data-spy="affix" data-offset-top="200"><a href="#page" class="smooth-scroll"><i class="fa fa-arrow-up"></i></a></div>
+    <!--<script src="Model/Model.js"></script>
+    <script src="js/angular-translate.min.js"></script>-->
+
+    <link href="css/template.min.css" rel="stylesheet">
+    
+    <script src="js/jquery-2.1.3.min.js"></script>
+ 
+    <script>
+        
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        if(getParameterByName('notShowInIframe')=="true"){
+            $('.notShowInIframe').hide();
+            $('.site-header').hide();
+            $('#features').hide();
+            $('#main').css({'padding': '0'});
+            $('.meshim_widget_components_chatButton_Button rtl').remove();;
+            $('.smooth-scroll').remove();
+        } 
+        if(getParameterByName('company')=="taxi"){
+            $('.notShowInIframe').hide();
+            $('#navigation').hide(); 
+            $('#features').insertAfter('#register');  
+            $('#main').css({'padding': '0'});
+            $('.meshim_widget_components_chatButton_Button rtl').remove();;
+            $('.smooth-scroll').remove();
+            $('.translate').html('<img style="width: 100px;margin: 0px 0 0px 0;" src="/img/taxi.jpg">')
+        } 
+        if(getParameterByName('company')=="tap30"){
+            $('.notShowInIframe').hide();
+            $('#navigation').hide();
+            $('#features').insertAfter('#register');  
+            $('#main').css({'padding': '0'});
+            $('.meshim_widget_components_chatButton_Button rtl').remove();;
+            $('.smooth-scroll').remove(); 
+            $('.translate').css({
+                "background-color": "black"
+            })
+            $('.translate').html('<img style="width: 150px;margin: 0px 0 0px 0;" src="/img/tap30.png">')
+        } 
+        if(getParameterByName('company')=="enamad"){
+            $('.notShowInIframe').hide();
+            $('#navigation').hide();
+            $('#features').insertAfter('#register');  
+            $('#main').css({'padding': '0'});
+            $('.meshim_widget_components_chatButton_Button rtl').remove();;
+            $('.smooth-scroll').remove();
+            $('.translate').html('<img style="width: 70px;margin: 0px 0 0px 0;" src="/img/enamad.png">')
+        } 
+    </script>  
+
+
+    <!-- <script src="Controller/static.js"></script> -->
+    <script src="js/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="Controller/Controller.js?v=75"></script>
+    <script src="Model/Model.js?v=3"></script>
+    <script src="js/plain-overlay-limit.min.js"></script> 
+    <script src="js/main.min.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+
+            var counter = 0;
+            var upArrowCounter = 0;
+            $('#toggleMainText').click(function () {
+                if (counter == 0) {
+                    $('#mainText').css({ 'height': '315px', 'border': '1px solid rebeccapurple' , 'background-color': 'rgba(243, 231, 255, 0.37)' });
+                    $('#toggleMainText').text('توضیحات کمتر')
+                    counter = 1;
+                } else {
+                    $('#mainText').css({ 'height': '0px' , 'border': 'none' , 'background-color': 'transparent'});
+                    $('#toggleMainText').text('توضیحات بیشتر')
+                    counter = 0;
+                }
+                // $('#toggleMainText').hide();
+            })
+
+            $(".openModal").click(function () {
+                $("#modalHolder").modal();
+            });
+
+            // Add "loaded" class when a section has been loaded
+            $(window).scroll(function () {
+                var scrollTop = $(window).scrollTop();
+                $(".section").each(function () {
+                    var elementTop = $(this).offset().top - $('#header').outerHeight();
+                    if (scrollTop >= elementTop) {
+                        $(this).addClass('loaded');
+                    }
+                });
+            });
+            // One Page Navigation Setup
+            $('.one-page-nav #navigation').singlePageNav({
+                offset: $('.one-page-nav').outerHeight(),
+                filter: ':not(.external)',
+                speed: 750,
+                currentClass: 'active',
+
+                beforeStart: function () {
+                },
+                onComplete: function () {
+                }
+            });
+            // Sticky Navbar Affix
+            $('.one-page-nav').affix({
+                offset: {
+                    top: $('#topbar').outerHeight(),
+                }
+            });
+            // Smooth Hash Link Scroll
+            $('.smooth-scroll').click(function () {
+                console.log(upArrowCounter)
+                if (upArrowCounter == 0) {
+                    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            upArrowCounter = 1;
+
+                            $('html,body').animate({
+                                scrollTop: target.offset().top - 30
+                            }, 1000);
+                            setTimeout(function () {
+                                upArrowCounter = 0;
+                            }, 2000);
+                            return false;
+                        }
+                    }
+
+
+                }
+            });
+            $('.nav a').on('click', function () {
+                if ($('.navbar-toggle').css('display') !== 'none') {
+                    $(".navbar-toggle").click();
+                }
+            });
+
+            // filter items when filter link is clicked
+            $('#filters a').click(function () {
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector });
+                return false;
+            });
+
+        })(jQuery);
+    </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://avs.post.ir",
+        "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+98-21-8852 2948",
+        "contactType": "customer service"
+        }]
+        }
+    </script>
+
+    <script>
+
+        function clearSpecialCharacter(input) {
+            $(input).val(input.value.replace(/[&\/\\#,()$~%.'":*?<>{} -]/g, ''))
+        }
+    </script>
+
+    <!--Start of Zendesk Chat Script-->
+    <!-- <script type="text/javascript">
+        window.$zopim || (function (d, s) {
+            var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+            d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                z.set.
+                _.push(o)
+            }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
+            $.src = "https://v2.zopim.com/?4O3bq7aswkYOmGbeNWrlWMxgbOQFNF8D"; z.t = +new Date; $.
+            type = "text/javascript"; e.parentNode.insertBefore($, e)
+        })(document, "script");
+    </script> -->
+    <!--End of Zendesk Chat Script-->
+
+    <script>
+    //   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    //   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    //   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    //   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    //   ga('create', 'UA-91988544-1', 'auto');
+    //   ga('send', 'pageview'); 
+    </script>
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110602483-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-110602483-1');
+    </script>
+ -->
+
+
+ 
+
+</body>
+</html>

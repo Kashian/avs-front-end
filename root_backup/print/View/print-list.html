@@ -1,0 +1,165 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                جستجو
+
+            </header>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal tasi-form">
+                    <div class="form-group ">
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">نام </label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="شماره دسته" id="batch_id" ng-init="request.batch_id=''" ng-model="request.batch_id" class="form-control marginTop5">
+                            </div>
+                        </div>
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label"> نام خانوادگی</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <input type="text" placeholder="شماره فایل" id="unique_id" ng-init="request.unique_id=''" ng-model="request.unique_id" class="form-control marginTop5">
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label"> کد رهگیری سامانه تصدیق</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <select class="form-control marginTop5" id="status_id" ng-init="request.status_id=''" ng-model="request.status_id">
+                                    <option value="">وضعیت </option>
+                                      <option value="to_post"> به پست</option>
+                                    <option value="to_post_problem">اشکال در تحویل به پست</option>
+                                    <option value="print_problem">اشکال در چاپ</option>
+                                    <option value="to_print">به چاپ</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <!--<label class="col-lg-2 col-md-2 control-label">بازه زمانی</label>-->
+                            <div class="col-lg-3 col-md-2">
+                                <select class="form-control marginTop5" id="creation_time" ng-init="request.creation_time=''" ng-model="request.creation_time">
+                                    <option value="">تاریخ</option>
+                                    <!--<option value="1">سه ماه گذشته</option>-->
+                                    <option value="2">ماه گذشته</option>
+                                    <option value="3">هفته گذشته</option>
+                                    <!--<option value="4">دیروز</option>
+                                    <option value="5">امروز</option>
+                                    <option value="6">فردا</option>-->
+                                    <!--<option value="7">هفته آینده</option>
+                                    <option value="8">ماه آینده</option>-->
+                                    <!--<option value="9">سه ماه آینده</option>-->
+                                    <option value="10">ماه اخیر </option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="pull-right col-lg-11">
+                            <button ng-click="printRequestList(request)" class="btn btn-danger pull-left " type="submit">فیلتر کردن</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<div class="row" ng-init="printRequestList(request)">
+    <div class="col-lg-12 ">
+        <section class="panel">
+            <header class="panel-heading">
+                لیست نامه ها
+            </header>
+            <table class="table table-striped table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;"> شماره </th>
+                        <th style="text-align: center;"> استان </th>
+                        <th style="text-align: center;"> شهرستان</th>
+                        <th style="text-align: center;"> شماره واحد</th>
+                        <th style="text-align: center;"> وضعیت</th>
+                        <th style="text-align: center;"> تغییر وضعیت </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat=" value in ApiListResult">
+                        <td ng-bind="$index +1" style="text-align: center;"> </td>
+                        <td ng-bind="value.province.label" style="text-align: center;"></td>
+                        <td ng-bind="value.city.label" style="text-align: center;"></td>
+                        <td ng-bind="value.unique_id" style="text-align: center;"></td>
+                        <td ng-bind="value.status.label" style="text-align: center;"></td>
+                        <td style="text-align: center;">
+                            <input type="checkbox" ng-model="value.Selected" ng-init="value.Selected=''" />
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading"></header>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal tasi-form">
+                    <div class="form-group ">
+
+                        <div>
+                            <label class="col-lg-2 col-md-2 control-label">نوع وضعیت را مشخص کنید </label>
+                            <div class="col-lg-3 col-md-2">
+                                <select class="form-control marginTop5" id="status_id" ng-init="status_id='to_post'" ng-model="status_id">
+                                    <option value="to_post">تحویل به پست</option>
+                                    <option value="to_post_problem">اشکال در پست</option>
+                                    <option value="print_problem">اشکال در چاپ</option>
+                                    <option value="to_print">در دست چاپ</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="pull-right col-lg-11">
+                            <button ng-click="printChangeStatus(status_id)" class="btn btn-success pull-left " type="button">ذخیره </button>
+                        </div>
+                    </div>
+                     
+                    <div ng-show="successfulAddingApi" class="alert alert-success alert-block fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            موفقیت آمیز
+                        </h4>
+                        <p>  تغییر وضعیت با موفقیت انجام شد</p>
+                    </div>
+
+                  
+
+                    <div ng-show="errorChangeStatus" class=" alert alert-block alert-danger fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            خطا
+                        </h4>
+                        <p> عملیات با خطا مواجه شد ، لطفا با شرکت روژینا تماس بگیرید و خطا را مطرح کنید</p>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+

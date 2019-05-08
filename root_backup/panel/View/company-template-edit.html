@@ -1,0 +1,58 @@
+﻿<div class="row" ng-init="LoadTemplateInfo()">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                افزودن متن نامه
+            </header>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal tasi-form">
+                    <div class="form-group ">
+
+                        <div style="height:100px;">
+                            <label class="col-lg-1 control-label">عنوان نامه</label>
+                            <div class="col-lg-11">
+                                <div class="col-lg-2">
+                                    <input type="text" ng-model="template.name" placeholder="" class="form-control marginTop5">
+                                </div>
+                            </div>
+
+                            <label class="col-lg-1 control-label">فعال</label>
+                            <div class="col-lg-11">
+                                <div class="col-lg-2">
+                                    <input type="checkbox" ng-init="template.isActive=true;" ng-model="template.isActive">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <textarea style="width:90%; margin:auto" ckeditor="editorOptions" ng-change="ckEditorCkeckLength()" ng-model="template.body"></textarea>
+
+                        </div>
+                        <span class="error" >
+                            متن ورودی حداکثر 500 کارکتر می باشد
+                        </span>
+                        
+                    </div>
+                    <div class="form-group">
+                        <div class="pull-right col-lg-11">
+                            <button ng-hide="successfulAddingTemplate" class="btn btn-danger pull-left " ng-click="companyTemplateEdit();">ذخیره</button>
+                        </div>
+                    </div>
+
+
+                    <div ng-show="successfulAddingTemplate" class="alert alert-success alert-block fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        <h4>
+                            <i class="icon-ok-sign"></i>
+                            موفقیت آمیز
+                        </h4>
+                        <p>ویرایش قالب نامه  با موفقیت انجام شد</p>
+                        <a style="float: left;margin: -40px 0px 0px 44px;" class="btn btn-default" href="#!/company-template-list">بازگشت</a>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

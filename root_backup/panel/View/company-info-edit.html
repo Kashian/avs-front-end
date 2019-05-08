@@ -1,0 +1,391 @@
+﻿<section class="panel" ng-init="initFunctionForEditInfo()">
+    <!--name, registration_id, economic_id, organization_type_id, ceo, tel, cell, national_id, fax, email, website, postcode, city_id, district_type_id, district, pass_type_1_id, pass_1, pass_type_2_id, pass_2,pass_type_3_id, pass_3, plaque, floor, unit_no, description, contact_person, logo, push_notification_url-->
+    <div class="row">
+        <div class="col-lg-12">
+
+            <header class="panel-heading">
+                تغییر مشخصات کاربر
+            </header>
+
+            <div class="panel-body">
+                <form role="form" ng-submit="companyInfoEdit(companyInfo)">
+                    <div class="form-group">
+
+                        <div class="col-lg-4">
+                            <div class="col-lg-12">
+
+                                <header class="panel-heading col-lg-9 col-lg-offset-6 col-lg-pull-4" style="  margin-bottom: 30px;   color: black;">
+                                    مشخصات اولیه رابط و سازمان
+                                </header>
+
+                            </div>
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <!--<label for="companyInfoName"> نام سازمان  </label>-->
+                                <input id="companyInfoName" ng-model="companyInfo.Name" ng-init="companyInfo.Name=''" type="text" class="form-control" placeholder="نام سازمان "
+                                       data-validation="required" data-validation-error-msg-container="#companyInfoName-error" data-validation-help="لطفا نام سازمان خود را وارد نمایید">
+                                <div id="companyInfoName-error"></div>
+                            </div>
+
+                            <!--<div class="col-lg-12" style=" margin-top: 20px;">
+                                <input type="text" class="form-control" id="companyInfoType" placeholder="نوع سازمان"
+                                       data-validation="required" data-validation-error-msg-container="#companyInfoType-error" data-validation-help="لطفا نوع سازمان خود را وارد نمایید">
+                                <div id="companyInfoType-error"></div>
+                            </div>-->
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <select id="companyInfoType" ng-model="companyInfo.Type" ng-init="companyInfo.Type=''" class="form-control" ng-options="value.id as value.name for value in organizationType"
+                                        data-validation="required" data-validation-error-msg-container="#companyInfoType-error" data-validation-help="لطفا نوع سازمان خود را وارد نمایید">
+                                    <option selected value="">نوع سازمان </option>
+                                    <!--<option ng-repeat="value in organizationType" ng-value="value.id">{{value.name}}</option>-->
+                                </select>
+                                <div id="companyInfoType-error"></div>
+                            </div>
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoNationalId" ng-model="companyInfo.NationalId" ng-init="companyInfo.NationalId=''" maxlength="10" type="text" class="form-control" placeholder="شناسه ملی شرکت/سازمان"
+                                       data-validation="required number" data-validation-error-msg-container="#companyInfoNationalId-error" data-validation-help="لطفا شناسه ملی سازمان خود را وارد نمایید">
+                                <div id="companyInfoNationalId-error"></div>
+                            </div>
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input type="text" ng-model="companyInfo.CeoName" ng-init="companyInfo.CeoName=''" class="form-control" id="companyInfoCeoName" placeholder="نام مدیر عامل  "
+                                       data-validation="required" data-validation-error-msg-container="#companyInfoCeoName-error" data-validation-help="لطفا نام مدیر عامل سازمان خود را وارد نمایید">
+                                <div id="companyInfoCeoName-error"></div>
+                            </div>
+                            <!--<div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoCeoEmail" ng-model="companyInfo.CeoEmail" ng-init="companyInfo.CeoEmail=''" type="text" class="form-control" placeholder="ایمیل مدیر عامل "
+                                       data-validation="required email" data-validation-error-msg-container="#companyInfoCeoEmail-error" data-validation-help="لطفا ایمیل مدیر عامل سازمان خود را وارد نمایید">
+                                <div id="companyInfoCeoEmail-error"></div>
+                            </div>-->
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input type="text" class="form-control" id="companyInfoContacPersonName" ng-model="companyInfo.ContacPersonName" ng-init="companyInfo.ContacPersonName=''" placeholder=" نام شخص رابط اصلی"
+                                       data-validation="required" data-validation-error-msg-container="#companyInfoContacPersonName-error" data-validation-help="لطفا نام شخص رابط اصلی را وارد نمایید">
+                                <div id="companyInfoContacPersonName-error"></div>
+                            </div>
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input type="text" class="form-control" id="companyInfoContacPersonTell" ng-model="companyInfo.ContacPersonTell" ng-init="companyInfo.ContacPersonTell=''" placeholder="تلفن همراه شخص رابط اصلی "
+                                       data-validation="required number length" maxlength="11" data-validation-length="11" data-validation-error-msg-container="#companyInfoContacPersonTell-error" data-validation-help="09121111111 تلفن همراه شخص رابط اصلی را وارد نمایید">
+                                <div id="companyInfoContacPersonTell-error"></div>
+                            </div>
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input type="text" class="form-control" id="companyInfoContacPersonEmail" ng-model="companyInfo.ContacPersonEmail" ng-init="companyInfo.ContacPersonEmail=''" placeholder="ایمیل شخص رابط اصلی "
+                                       data-validation="required email" data-validation-error-msg-container="#companyInfoContacPersonEmail-error" data-validation-help="لطفا ایمیل شخص رابط اصلی را وارد نمایید">
+                                <div id="companyInfoContacPersonEmail-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input type="text" class="form-control" id="companyInfoEconomicId" ng-model="companyInfo.EconomicId" ng-init="companyInfo.EconomicId=''" placeholder="کد اقصادی"
+                                       data-validation="required number" data-validation-error-msg-container="#companyInfoEconomicId-error" data-validation-help="لطفا کد اقتصادی سازمان را وارد نمایید">
+                                <div id="companyInfoEconomicId-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoTell" ng-model="companyInfo.Tell" ng-init="companyInfo.Tell=''" type="text" class="form-control" placeholder=" تلفن ثابت "
+                                       data-validation="required number length" maxlength="11" data-validation-length="11" data-validation-error-msg-container="#companyInfoTell-error" data-validation-help="لطفا تلفن ثابت سازمان را وارد نمایید02122334455">
+                                <div id="companyInfoTell-error"></div>
+                            </div>
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoFax" ng-model="companyInfo.Fax" ng-init="companyInfo.Fax=''" type="text" class="form-control" placeholder="فکس "
+                                       data-validation="required number length" maxlength="11" data-validation-length="11" data-validation-error-msg-container="#companyInfoFax-error" data-validation-help="لطفا فکس سازمان را وارد نمایید02122334455">
+                                <div id="companyInfoFax-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoSite" ng-model="companyInfo.Site" ng-init="companyInfo.Site=''" type="text" class="form-control" placeholder="وبسایت "
+                                       data-validation="required" data-validation-error-msg-container="#companyInfoSite-error" data-validation-help="لطفا وبسایت سازمان را وارد نمایید">
+                                <div id="companyInfoSite-error"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-lg-4">
+                            <div class="col-lg-12">
+
+                                <header class="panel-heading col-lg-7 col-lg-offset-7 col-lg-pull-5" style="  margin-bottom: 30px;   color: black;">
+                                    نشانی محل دفتر اصلی
+                                </header>
+
+                            </div>
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoPostalCode1" ng-model="companyInfo.PostalCode1" type="text" class="form-control" placeholder="کد پستی مکان شما "
+                                       data-validation="required  length custom" data-validation-regexp="^[1-13-9]+$" data-validation-length="10" maxlength="10" data-validation-error-msg-container="#companyInfoPostalCode1-error" data-validation-error-msg="کد پستی 10 رقم می باشد، لطفا 10 رقم وارد کنید" data-validation-help="لطفا کد پستی مکان خود را وارد نمایید1234512345">
+                                <div id="companyInfoPostalCode1-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <select id="companyInfoState" ng-model="companyInfo.State" ng-init="companyInfo.State=''" class="form-control" ng-options="value.id as value.name for value in state"
+                                        data-validation="required " data-validation-error-msg-container="#companyInfoState-error" data-validation-help="لطفا نام استان  خود را انتخاب نمایید">
+                                    <option value="0" disabled>نام استان *</option>
+                                    <!--<option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>-->
+                                </select>
+                                <div id="companyInfoState-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <label class="sr-only">نام شهرستان</label>
+                                <select id="companyInfoCity" ng-model="companyInfo.City" ng-init="companyInfo.City=''" class="form-control" ng-options="value.id as value.name for value in city"
+                                        data-validation="required" data-validation-error-msg-container="#companyInfoCity-error" data-validation-help="لطفا نام شهرستان  خود را انتخاب نمایید">
+                                    <option value="0" disabled>نام شهرستان *</option>
+                                    <!--<option ng-repeat="value in city" ng-value="value.id">{{value.name}}</option>-->
+
+                                </select>
+                                <div id="companyInfoCity-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <select id="companyInfoVillageDrop" ng-model="companyInfo.VillageDrop" ng-init="companyInfo.VillageDrop=''" class="form-control" style="font-size: 12px;" ng-options="value.id as value.name for value in district"
+                                        data-validation="required " data-validation-error-msg-container="#companyInfoVillageDrop-error" data-validation-error-msg="لطفا نوع محله یا بخش  خود را انتخاب نمایید" data-validation-help="لطفا محله یا بخش یا دهستان  را انتخاب نمایید">
+                                    <option disabled value="0">  محله/بخش/دهستان* </option>
+                                    <!--<option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>-->
+                                </select>
+                                <div id="companyInfoVillageDrop-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoVillageTxt" ng-model="companyInfo.VillageTxt" type="text" maxlength="20" class="form-control" lang="fa" placeholder="نام محله / بخش / دهستان*"
+                                       data-validation="required custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-error-msg="لطفا نام محله یا بخش  خود را به فارسی وارد نمایید" data-validation-error-msg-container="#companyInfoVillageTxt-error">
+                                <div id="companyInfoVillageTxt-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <select id="companyInfoMainRoadDrop" ng-model="companyInfo.MainRoadDrop" ng-init="companyInfo.MainRoadDrop=''" class="form-control" ng-options="value.id as value.name for value in pass">
+                                    <option value="">   نوع معبر اصلی*  </option>
+                                    <!--<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>-->
+                                </select>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoMainRoadTxt" ng-model="companyInfo.MainRoadTxt" ng-init="companyInfo.MainRoadTxt=''" type="text" class="form-control" placeholder="معبر اصلی*"
+                                       data-validation=" custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-optional="true" />
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <select id="companyInfoSecondaryRoadDrop1" ng-model="companyInfo.SecondaryRoadDrop1" ng-init="companyInfo.SecondaryRoadDrop1=''" class="form-control" ng-options="value.id as value.name for value in pass">
+                                    <option selected value=""> نوع معبر فرعی 1   </option>
+                                    <!--<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>-->
+                                </select>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoSecondaryRoadTxt1" ng-model="companyInfo.SecondaryRoadTxt1" ng-init="companyInfo.SecondaryRoadTxt1=''" type="text" class="form-control" placeholder="معبر فرعی 1"
+                                       data-validation=" custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-optional="true" />
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <select id="companyInfoSecondaryRoadDrop2" ng-model="companyInfo.SecondaryRoadDrop2" ng-init="companyInfo.SecondaryRoadDrop2=''" class="form-control" ng-options="value.id as value.name for value in pass">
+                                    <option selected value="">  نوع معبر فرعی 2   </option>
+                                    <!--<option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>-->
+                                </select>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input type="text" id="companyInfoSecondaryRoadTxt2" ng-model="companyInfo.SecondaryRoadTxt2" ng-init="companyInfo.SecondaryRoadTxt2=''" class="form-control" placeholder=" معبر فرعی 2"
+                                       data-validation=" custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-optional="true" />
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoPlaque" ng-model="companyInfo.Plaque" type="text" class="form-control" maxlength="7" placeholder="پلاک / شماره*"
+                                       data-validation="required number length" data-validation-length="max7" data-validation-ignore=". / , \ +" data-validation-error-msg-container="#companyInfoPlaque-error">
+                                <div id="companyInfoPlaque-error"></div>
+                            </div>
+
+                            <!--<div class="col-lg-12" style=" margin-top: 20px;">
+                                <select id="companyInfoFloor" ng-model="companyInfo.Floor" class="form-control  js-example-basic-multiple-limit" multiple="multiple"
+                                        data-validation="" maxlength="20" data-validation-error-msg-container="#companyInfoFloor-error" >
+                                    <option value="0">0</option>
+                                    <option value="100">همکف</option>
+                                    <option value="101">پارکینگ</option>
+                                    <option value="102">زیر همکف</option>
+                                    <option value="103">زیرزمین</option>
+                                    <option value="104">نیم طبقه اول</option>
+                                    <option value="105">نیم طبقه دوم</option>
+                                    <option value="106">اول</option>
+                                    <option value="107">دوم</option>
+                                    <option value="108">سوم</option>
+                                    <option value="109">چهارم</option>
+                                    <option value="110">پنجم</option>
+                                    <option value="111">ششم</option>
+                                    <option value="112">هفتم</option>
+                                    <option value="113">هشتم</option>
+                                    <option value="114">نهم</option>
+                                    <option value="115">دهم</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                    <option value="46">46</option>
+                                    <option value="47">47</option>
+                                    <option value="48">48</option>
+                                    <option value="49">49</option>
+                                    <option value="50">50</option>
+                                    <option value="51">51</option>
+                                    <option value="52">52</option>
+                                    <option value="53">53</option>
+                                    <option value="54">54</option>
+                                    <option value="55">55</option>
+                                    <option value="56">56</option>
+                                    <option value="57">57</option>
+                                    <option value="58">58</option>
+                                    <option value="59">59</option>
+                                    <option value="60">60</option>
+                                    <option value="-15">-15</option>
+                                    <option value="-14">-14</option>
+                                    <option value="-13">-13</option>
+                                    <option value="-12">-12</option>
+                                    <option value="-11">-11</option>
+                                    <option value="-10">-10</option>
+                                    <option value="-9">-9</option>
+                                    <option value="-8">-8</option>
+                                    <option value="-7">-7</option>
+                                    <option value="-6">-6</option>
+                                    <option value="-5">-5</option>
+                                    <option value="-4">-4</option>
+                                    <option value="-3">-3</option>
+                                    <option value="-2">-2</option>
+                                    <option value="-1">-1</option>
+                                </select>
+                                <div id="companyInfoFloor-error"></div>
+
+                            </div>-->
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoUnit" ng-model="companyInfo.Unit" type="text" class="form-control" placeholder="شماره واحد"
+                                       data-suggestions="شرقی, غربی, شمالی, جنوبی " maxlength="20">
+                                <div id="companyInfoUnit-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <input id="companyInfoBuildingName" ng-model="companyInfo.BuildingName" type="text" class="form-control" placeholder="نام ساختمان"
+                                       data-validation=" custom" data-validation-regexp="^[1-9\u0600-\u06FF\s]+$" data-validation-optional="true" data-validation-error-msg="لطفا نام ساختمان را به فارسی وارد نمایید ">
+                                <div id="companyInfoBuildingName-error"></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <div class="col-lg-4">
+                            <div class="col-lg-12">
+
+                                <header class="panel-heading col-lg-5 col-lg-offset-8 col-lg-pull-5" style="  margin-bottom: 30px;   color: black;">
+                                    سایر اطلاعات فنی
+                                </header>
+
+                            </div>
+
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <!--<label for="companyInfoPush"> آدرس اینترنتی برای ارسال Push Notification     </label>-->
+                                <input type="text" class="form-control" id="companyInfoPush" ng-model="companyInfo.Push" ng-init="companyInfo.Push=''" placeholder="آدرس اینترنتی برای ارسال Push Notification  "
+                                       data-validation="required " data-validation-error-msg-container="#companyInfoPush-error" data-validation-help="لطفا آدرس اینترنتی برای ارسال Push Notification خود را وارد  ">
+                                <div id="companyInfoPush-error"></div>
+                            </div>
+
+                            <div ng-if="companyInfo.LogoOld" class="col-lg-12" style=" margin-top: 20px;">
+                                <label style="float:right;" for="companyInfoLogo"> لوگو قبلی  </label>
+                                <img style="width: 167px; margin: 17px;" ng-src="http://myaddress.space/{{companyInfo.LogoOld}}" />
+                            </div>
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <label style="float:right;" for="companyInfoLogo"> لوگو جدید   </label>
+                                <input type="file"  accept="image/x-png, image/jpeg" id="companyInfoLogo" ng-model="companyInfo.Logo" onchange="angular.element(this).scope().companyInfo.Logo = this.files[0]" ng-init="companyInfo.Logo=''" style="border:0px none; padding:0px; float:left;width: 85%;margin: -2px 0 10px -22px;" class="form-control" placeholder="لوگو  "
+                                       data-validation="" data-validation-error-msg-container="#companyInfoLogo-error" data-validation-help="">
+                                <div style="width:61px; height:61px;"></div>
+                                <div id="companyInfoLogo-error">
+                                    لطفا فایل خود را در ابعاد 256*256 و با فرمت های Jpeg و png ارسال نمایید
+                                    حجم فایل ارسالی شما باید کمتر از 5 مگابایت باشد
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <!--<label for="companyInfoDetails"> توضیحات   </label>-->
+                                <textarea class="form-control" rows="6" id="companyInfoDetails" ng-model="companyInfo.Details" ng-init="companyInfo.Details=''" placeholder="توضیحات  "
+                                          data-validation="  " data-validation-error-msg-container="#companyInfoDetails-error" data-validation-help="لطفا اگر توضیحاتی دارید ،وارد نمایید  "></textarea>
+                                <div id="companyInfoDetails-error"></div>
+                            </div>
+
+                            <div class="col-lg-12" style=" margin-top: 20px;">
+                                <button type="submit" class="btn btn-info pull-left">تغییر مشخصات</button>
+
+                            </div>
+
+                            <div ng-show="editInfoSuccess" ng-init="editInfoSuccess=''" style=" display:none; margin-top:45px;" class="firstHide alert alert-success alert-block fade in">
+                                <button ng-click="editInfoSuccess=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                                    <i class="icon-remove"></i>
+                                </button>
+                                <h4>
+                                    <i class="icon-ok-sign"></i>
+                                    موفقیت آمیز
+                                </h4>
+                                <p ng-bind="editInfoSuccess"></p>
+                            </div>
+
+                            <div ng-show="editInfoError" ng-init="editInfoError=''" style=" display:none; margin-top:45px;" class="firstHide alert alert-block alert-danger fade in">
+                                <button ng-click="editInfoError=false" style="width:20px; height:20px;" class="close close-sm" type="button">
+                                    <i class="icon-remove"></i>
+                                </button>
+                                <h4>
+                                    <i class="icon-ok-sign"></i>
+                                    خطا
+                                </h4>
+                                <p ng-bind="editInfoError"></p>
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
