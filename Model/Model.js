@@ -1,4 +1,14 @@
-﻿'use strict';
+﻿/*
+ site: avs.post.ir
+ Address Verification System
+ Developer by: Rojina Computer Ltd (+98 21 88522948)
+ Main Author: Alireza Kashian
+ Email: alireza.kashian@gmail.com
+ © 1395-1398 (2016-2019)
+ Website: rojina(www.rojina.com)
+ */
+ 
+'use strict';
 angular.module('post.Model', [])
  .factory('Model', ['$http',
     function ($http) {
@@ -140,8 +150,8 @@ angular.module('post.Model', [])
                 }
             }).then(function (result) { return result.data; });
         };
-
         //checkPostalCode
+
         Model.checkPostalcode = function (PostalCode) {
             return $http({
                 url: apiBaseUrl + 'default-company/request/postcode-info?postcode=' + PostalCode,

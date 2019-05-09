@@ -1,9 +1,11 @@
 ﻿/*
  site: avs.post.ir
- author: Mohammad Javad Heydary
- email: mjh385@gmail.com
- 1395-1396
- rojina(www.rojina.com)
+ Address Verification System
+ Developer by: Rojina Computer Ltd (+98 21 88522948)
+ Main Author: Alireza Kashian
+ Email: alireza.kashian@gmail.com
+ © 1395-1398 (2016-2019)
+ Website: rojina(www.rojina.com)
  */
 
 'use strict';
@@ -1120,7 +1122,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
           $scope.editRequest.postKind = false;
             return;
         } 
-            //if postall code not have information ( city code and province code ) or request failed , user can add all city and province ;
+            //if no information found for postal code from POST serer (city code and province code) or the request failed , then user can provice city and province himself;
         else {
             $scope.editRequest.error = false;
         }
@@ -1154,17 +1156,19 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             return;
         }
         else {
-            //disable all the form (new request form)
-             if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost'){
+            //if the user has entered irpost as discount code, then disable all the form (new request form)
+             if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
                 $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
                 $scope.loadPreview($scope.addNewRequest.companyRequestTypeId)
                 $scope.notShowPostSendingPriceBox=true;
                 $scope.addNewRequestFunction($scope.addNewRequest)
             }else{
+				$log.info('We found irpost is not entered as discount code');
                 $scope.notShowPostSendingPriceBox=false;                
             }
 
             $scope.addNewRequest.postKind = true; 
+			$log.info('Now add new request kind = true');
             $scope.$apply();
             $scope.addNewRequest.error = false;
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
@@ -1198,6 +1202,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
             // show overlay transparent layer
             //$('#overlay').show();
+			$log.info('We are in Scope.overlay3');
             $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
  
         } 
@@ -1302,7 +1307,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         });
     };
   
-    //add new requset function
+    //add Edit requset function
     $scope.editRequestFunction = function () {
 
 

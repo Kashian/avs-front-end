@@ -63,7 +63,7 @@ if (typeof Object.create !== 'function') {
 
             e.preventDefault();
 
-            if ($elem.length) { // Make sure the target elem exists
+            if ($elem.length) { // Make sure the target element exists
 
 
                 // Prevent active link from cycling during the scroll
