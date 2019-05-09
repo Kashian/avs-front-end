@@ -224,6 +224,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $.each(stateStatic , function(index,value){
                 if(value.id==stateIdTemp){
                     $scope.city = value.city_set;
+                    cityByPostal='1';
 
                     console.log('scope.city = value.city_set');
                     console.log(value.city_set);
@@ -248,7 +249,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             Model.cityList(stateIdTemp).then(function (data) {
                 //save all city to this parameter
                 $scope.city = data.data;
-
+                cityByPostal='1';
                 if(cityByPostal != '0'&& cityByPostal != ''){
                     $timeout(function(){
                         $("#addNewRequestCity").val(cityByPostal);
