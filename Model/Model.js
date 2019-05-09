@@ -83,8 +83,8 @@ angular.module('post.Model', [])
                     city_id: cityId
                 }
             }).then(function (result) {
-              console.log(result);
-              return $.parseJSON(result.data) });
+              console.log(result.data);
+              return result.data });
         };
 
         //genderList
