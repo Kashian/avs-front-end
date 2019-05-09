@@ -1,14 +1,14 @@
 ﻿<!DOCTYPE html>
 <html ng-app="post" lang="{{lang}}">
-<head> 
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-language" content="fa" />
     <meta name="keywords" content="اعتبار سنجی نشانی، اعتبار سنجی نشانی، اعتبار سنجی، اعتبار سنجی، اعتبار، صحت نشانی، اعتبار سنجی نشانی، اعتبار داشتن نشانی، چک کردن نشانی، تایید نشانی پستی، صحت نشانی و نشانی ، سامانه اعتبار سنجی نشانی شهروند ، سامانه اعتبار سنجی نشانی" />
     <meta name="description" content="این سامانه جهت صحت سنجی و راستی آزمایی نشانی پستی (محل کار یا منزل) شهروندان ایرانی طراحی شده است تا به سازمانهای دولتی و خصوصی در گردآوری اطلاعات هویت مکانی دقیق یاری رساند" />
 
-    
+
     <title> سامانه اعتبار سنجی نشانی شهروند</title>
 
     <style>
@@ -23,15 +23,15 @@
             z-index: 9999999;
         }
 
-        .cssload-thecube { 
+        .cssload-thecube {
             position: absolute;
             left: 50%;
             top: 40%;
             bottom: auto;
-            right: auto;  
+            right: auto;
             width: 73px;
             height: 73px;
-          
+
             transform: rotateZ(45deg);
                 -o-transform: rotateZ(45deg);
                 -ms-transform: rotateZ(45deg);
@@ -206,17 +206,17 @@
             }
         }
     </style>
-    
+
     <link href="css/template.min.css" rel="stylesheet">
-    
+
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
     <link rel='icon' href="img/logo.png" type='image/x-icon' />
     <link rel='apple-touch-icon' href="img/logo.png" />
- 
+
 </head>
 
 <body ng-controller="HomeCtrl" ng-init="initFunction()" style="font-family:{{font}} !important;">
-    
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="cssload-thecube">
@@ -228,10 +228,10 @@
         </div>
     </div>
     <!-- end Preloader -->
-    
+
 
     <link href="css/template.min.css" rel="stylesheet">
-    
+
     <div id="page">
         <header id="header" class="site-header">
 
@@ -469,17 +469,17 @@
                             {{'text_20' = translate}}
                         </p>
                     </div>
-                    <div class="main-action"> 
+                    <div class="main-action">
                         <span style=" direction:{{direction}}  ;font-family:{{font}} !important;">
                             <div class="results"></div>
                             <div class="row" style="position: relative;" id="overlay" >
-                                 
+
                                 <div class="col-sm-6 pull-right" >
                                     <div id='registerFirstBox' >
 
                                         <form id="sendSmsForm">
                                             <div class="form-group  col-sm-12 pull-right  col-xs-12 " style="height:10px">
-                                            </div>   
+                                            </div>
 
                                             <div class="form-group  col-sm-12 pull-right  col-xs-12 " style=" direction: {{mirrorDirection}}; text-align: {{mirrorFloat}};">
                                                 <label class="col-xs-4 col-md-4" ng-show="lang=='fa'" style="float: right; padding: 0;font-size: 14px;text-align: right;"> &nbsp; <span>{{'text_21' = translate}}</span>  &nbsp; </label>
@@ -531,28 +531,28 @@
                                                         data-validation="required custom" data-validation-length="11-14" data-validation-regexp="^(0|\+98|0098)?([ ]|,|-|[()]){0,2}9[0|1|2|3|4|5|6|7|8|9]([ ]|,|-|[()]){0,3}(?:[0-9]([ ]|,|-|[()]){0,2}){8}$" maxlength="14"  minlength="11"  data-validation-error-msg-container="#addNewRequestPhoneNumber-error" data-validation-error-msg="{{'validation_8' = translate}}">
                                                     <div id="addNewRequestPhoneNumber-error"></div>
                                                 </div>
-                                                 
 
-                                                <div class="form-group col-sm-12 pull-right  col-xs-12"> 
+
+                                                <div class="form-group col-sm-12 pull-right  col-xs-12">
                                                     <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="addNewRequest.AdressStatus='0'" class="form-control"
                                                             data-validation="required " data-validation-error-msg-container="#addNewRequestAdressStatus-error" >
                                                         <option value="0" disabled> وضعیت نشانی شما *</option>
-                                                        <option ng-repeat="value in AdressStatus" ng-value="value.id">{{value.name}}</option>
+                                                        <option ng-repeat="value in AdressStatus" ng-value="value.id track by $index">{{value.name}}</option>
                                                     </select>
                                                     <div id="addNewRequestAdressStatus-error"></div>
                                                 </div>
 
 
-                                                
+
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                                     <input id="addNewRequestEmail" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email"  type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_56' = translate}} (اختیاری)"
                                                         data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail-error" >
                                                     <div id="addNewRequestEmail-error"></div>
-                                                </div> 
+                                                </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12">
                                                     <input id="addNewRequestDisscount2"  ng-model="addNewRequest.discountCode" ng-init="addNewRequest.discountCode=''" maxlength="6" data-validation="length" data-validation-optional="true" data-validation-length="6"  ng-change="checkDiscountCode(addNewRequest.discountCode)"  type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_110' = translate}} (اختیاری)" >
-                                                </div> 
- 
+                                                </div>
+
                                             </div>
                                             <div ng-show="addNewRequest.personType!='natural_person'">
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
@@ -571,48 +571,48 @@
                                                     <div id="addNewRequestPhoneNumber1-error"></div>
                                                 </div>
 
-                                                
+
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                                     <input id="addNewRequestEmail1" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_60' = translate}} (اختیاری)"
                                                         data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail1-error" >
                                                     <div id="addNewRequestEmail1-error"></div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 " >
                                                         <input id='sendSms' style="text-align: center !important;font-size: 17px;" type="submit" ng-disabled="!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1 ||addNewRequest.AdressStatus=='0'))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1 " type="submit" class="btn btn-default btn-block btn-center"  value="{{'text_75' = translate}}" />
                                                     </div>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </form>
-                                        
-                                        <form id="smsVerificationForm" style='display:none'> 
-                                            <div style="color:green; margin: -14px 0 17px 0;line-height: 32px;"  > 
+
+                                        <form id="smsVerificationForm" style='display:none'>
+                                            <div style="color:green; margin: -14px 0 17px 0;line-height: 32px;"  >
                                                 کد تایید 4 رقمی به شماره تلفن {{ addNewRequest.PhoneNumber}} ارسال شد
                                                 <br/>
-                                                لطفا کد ارسال شده را وارد نمایید 
+                                                لطفا کد ارسال شده را وارد نمایید
                                             </div>
                                             <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                                 <input onblur="clearSpecialCharacter(this);" id="phoneNumberValidation" ng-model="phoneNumberValidation" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="کد تایید شماره تلفن"
                                                     maxlength="4" class="form-control " placeholder="کد تایید شماره تلفن" data-validation="required  number length" data-validation-length="4" data-validation-error-msg-container="#phoneNumberValidation-error" data-validation-error-msg="لطفا کد ارسال شده به شماره تلفن خود را وارد نمایید" data-validation-has-keyup-event="true" >
                                                 <div id="phoneNumberValidation-error"></div>
-                                            </div> 
+                                            </div>
                                             <div class="form-group col-md-12">
                                                 <div class="row" ng-show="sendSmsCount<=3">
                                                     <div  class="col-md-12 " >
                                                         <input style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: right;"  type="submit" ng-disabled="!phoneNumberValidation||phoneNumberValidation.length<4 || !addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1" class="btn btn-default btn-block btn-center"  value="تایید" />
-                                                        <input ng-show="sendSmsCount!=2 && sendAgainTimer==0" style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: left;" ng-click="sendSms()" type="button" ng-disabled="!sendAgain || !addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1" class="btn btn-default btn-block btn-center" value="ارسال مجدد"   />                                                        
+                                                        <input ng-show="sendSmsCount!=2 && sendAgainTimer==0" style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: left;" ng-click="sendSms()" type="button" ng-disabled="!sendAgain || !addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1" class="btn btn-default btn-block btn-center" value="ارسال مجدد"   />
                                                         <input ng-show="sendSmsCount==2 && sendAgainTimer==0"  style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: left;"  ng-click="goToNextSectionWithoutVerification()" type="button"  class="btn btn-default btn-block btn-center" value="ادامه به مرحله بعد"  >
-                                                        <input ng-hide="sendAgainTimer==0" style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: left;"   type="button" disabled class="btn btn-default btn-block btn-center"   ng-value="'لطفا صبر نمایید  ('+sendAgainTimer+')'  " />     
-                                                        
+                                                        <input ng-hide="sendAgainTimer==0" style="text-align: center !important;font-size: 17px;margin: 17px 0; width: 48%; float: left;"   type="button" disabled class="btn btn-default btn-block btn-center"   ng-value="'لطفا صبر نمایید  ('+sendAgainTimer+')'  " />
+
                                                     </div>
                                                 </div>
                                                 <div class="row" ng-show="sendSmsCount>3" style="color:red" >
-                                                    تعداد مجاز ارسال کد تایید ، به پایان رسیده است ، 
+                                                    تعداد مجاز ارسال کد تایید ، به پایان رسیده است ،
                                                     </br>
-                                                    لطفا 24 ساعت دیگر امتحان نمایید 
-                                                </div>       
+                                                    لطفا 24 ساعت دیگر امتحان نمایید
+                                                </div>
                                             </div>
                                         </form>
 
@@ -621,14 +621,14 @@
                                     </div>
                                     <div ng-show="smsVerificationSuccess" style="color:green; font-size:17px;">
                                         شماره تلفن شما تایید شد ، حال میتوانید ادامه فرم را تکمیل نمایید
-                                    </div> 
+                                    </div>
                                 </div>
 
-                                <div id='registerSecondBox' class=" col-sm-6 pull-right "> 
+                                <div id='registerSecondBox' class=" col-sm-6 pull-right ">
                                     <form id="addNewRequestForm">
-                                        
+
                                         <div class="form-group  col-sm-12 pull-right  col-xs-12 " style="height:10px">
-                                        </div> 
+                                        </div>
 
                                         <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                             <span class="tooltip" ng-hide="lang == 'en'" >
@@ -640,10 +640,10 @@
                                             <div id="addNewRequestPostalCode1-error"></div>  <!-- data-validation-regexp="^[1-13-9]+$"  -->
                                         </div>
                                         <div class="form-group  col-sm-12 pull-right  col-xs-12" id="postalSelect"  >
-                                             در صورتی که کد پستی خود را نمی دانید ، کلیک کنید :  
+                                             در صورتی که کد پستی خود را نمی دانید ، کلیک کنید :
                                             <a href="https://epostcode.post.ir/postcode" target="_blank" style="color:rgb(31, 31, 114)" >یافتن کد پستی </a>
                                         </div>
-                                        
+
                                         <div class="form-group col-sm-12 pull-right  col-xs-12">
                                             <span class="tooltip" ng-hide="lang == 'en'">
                                                 <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
@@ -653,7 +653,7 @@
                                             <select  style="width: 94%;float: left;" id="addNewRequestState" ng-model="addNewRequest.State" ng-change="addNewRequest.City='0';checkPostal()" ng-init="addNewRequest.State='0'" class="form-control"
                                                     data-validation="required CheckPostalCode" data-validation-error-msg-container="#addNewRequestState-error" >
                                                 <option value="0" disabled> {{'text_62' = translate}} *</option>
-                                                <option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
+                                                <option ng-repeat="value in state" ng-value="value.id track by $index">{{value.name}}</option>
                                             </select>
                                             <div id="addNewRequestState-error"></div>
                                         </div>
@@ -667,7 +667,7 @@
                                             <select style="width: 94%;float: left;" id="addNewRequestCity" ng-change="loadPrice(addNewRequest.City,addNewRequest.State);checkPostal()" ng-model="addNewRequest.City" ng-init="addNewRequest.City='0'" class="form-control"
                                                     data-validation="required CheckPostalCode" data-validation-error-msg-container="#addNewRequestCity-error" >
                                                 <option value="0" disabled> {{'text_63' = translate}} *</option>
-                                                <option ng-repeat="value in city" ng-value="value.id">{{value.name}}</option>
+                                                <option ng-repeat="value in city" ng-value="value.id track by $index">{{value.name}}</option>
                                             </select>
                                             <div id="addNewRequestCity-error"></div>
                                         </div>
@@ -681,7 +681,7 @@
                                             <select style="width: 88%;float: left;" id="addNewRequestVillageDrop" ng-model="addNewRequest.VillageDrop" ng-init="addNewRequest.VillageDrop='0'" class="form-control" style="font-size: 12px;"
                                                     data-validation="required " data-validation-error-msg-container="#addNewRequestVillageDrop-error" >
                                                 <option disabled value="0">{{'text_64' = translate}} * </option>
-                                                <option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
+                                                <option ng-repeat="value in district" ng-value="value.id track by $index">{{value.name}}</option>
                                             </select>
                                             <div id="addNewRequestVillageDrop-error" style="margin: 0 3px -30px;"></div>
                                         </div>
@@ -699,7 +699,7 @@
                                             </span>
                                             <select style="width: 88%;float: left;" id="addNewRequestMainRoadDrop" ng-model="addNewRequest.MainRoadDrop" ng-init="addNewRequest.MainRoadDrop=''" class="form-control">
                                                 <option selected value=""> {{'text_66' = translate}} *  </option>
-                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                                <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
                                             </select>
                                         </div>
 
@@ -715,7 +715,7 @@
                                             </span>
                                             <select style="width: 88%;float: left;" id="addNewRequestSecondaryRoadDrop1" ng-model="addNewRequest.SecondaryRoadDrop1" ng-init="addNewRequest.SecondaryRoadDrop1=''" class="form-control">
                                                 <option selected value="">{{'text_68' = translate}} (اختیاری)  </option>
-                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                                <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
                                             </select>
                                         </div>
 
@@ -731,7 +731,7 @@
                                             </span>
                                             <select  style="width: 88%;float: left;" id="addNewRequestSecondaryRoadDrop2" ng-model="addNewRequest.SecondaryRoadDrop2" ng-init="addNewRequest.SecondaryRoadDrop2=''" class="form-control">
                                                 <option selected value="">  {{'text_70' = translate}} (اختیاری)   </option>
-                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                                <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
                                             </select>
                                         </div>
 
@@ -749,15 +749,15 @@
                                             <input  style="width: 88%;float: left;" id="addNewRequestPlaque" ng-model="addNewRequest.Plaque" ng-init="addNewRequest.Plaque=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" maxlength="7" placeholder="{{'text_72' = translate}}"
                                                 data-validation="required number length" data-validation-length="max7" data-validation-ignore="- _" data-validation-error-msg-container="#addNewRequestPlaque-error" >
                                             <div id="addNewRequestPlaque-error"></div>
-                                        </div> 
-                                        
-                                        <div class="form-group col-md-6 col-sm-6 pull-left  col-xs-6"> 
+                                        </div>
+
+                                        <div class="form-group col-md-6 col-sm-6 pull-left  col-xs-6">
                                             <input type="checkbox" id="addNewRequestHasNoPlaque"  ng-model="addNewRequest.HasNoPlaque" ng-init="addNewRequest.HasNoPlaque=false" class="form-control" style="width: 20px;" />
-                                                
+
                                             <div class="col-sm-8 pull-right col-xs-8" style="text-align:right; adding-right: 0; margin: -27px 27px 0 0;">
                                                 عدم وجود پلاک
                                             </div>
-                                         
+
                                         </div>
 
                                         <div class="form-group col-sm-12 pull-right  col-xs-12 placeHolder{{float}}">
@@ -768,7 +768,7 @@
 
                                             <select style="width: 94%;float: left;" id="addNewRequestFloor" ng-model="addNewRequest.Floor" class="form-control textBoxLeftAlign js-example-basic-multiple-limit  " multiple="multiple" style="font-family:{{font}} !important; font-size:{{h4}}px !important;"
                                                     data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#addNewRequestFloor-error" >
-                                                <option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
+                                                <option ng-repeat="value in floor" ng-value="value.id track by $index">{{value.name}}</option>
 
                                             </select>
                                             <div id="addNewRequestFloor-error"></div>
@@ -786,7 +786,7 @@
                                             <div id="addNewRequestUnit-error"></div>
 
                                         </div>
-    
+
                                         <div class="form-group col-sm-12 pull-right  col-xs-12">
                                             <span class="tooltip" ng-hide="lang == 'en'">
                                                 <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
@@ -796,20 +796,20 @@
                                             <input style="width: 94%;float: left;" id="addNewRequestBuildingName" ng-model="addNewRequest.BuildingName" ng-init="addNewRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' = translate}} (اختیاری)"
                                                 data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" data-validation-error-msg="{{'validation_22' = translate}}"  >
                                             <div id="addNewRequestBuildingName-error"></div>
-                                        </div> 
-                                           
+                                        </div>
+
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 " >
-                                                    <input style=" text-align: center;font-size: 17px;" id="addNewRequestSubmit" ng-disabled="!addNewRequest.PostalCode1||addNewRequest.PostalCode1.length<10 ||!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1 " type="submit" class="btn btn-default btn-block btn-center" value="{{'text_75' = translate}}" />                                                
+                                                    <input style=" text-align: center;font-size: 17px;" id="addNewRequestSubmit" ng-disabled="!addNewRequest.PostalCode1||addNewRequest.PostalCode1.length<10 ||!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1 " type="submit" class="btn btn-default btn-block btn-center" value="{{'text_75' = translate}}" />
                                                 </div>
                                             </div>
                                         </div>
-                                    </form> 
-                                </div> 
+                                    </form>
+                                </div>
 
                             </div>
-                        </span>    
+                        </span>
                     </div>
                     <div style=" height: 147px; margin:0px 0px 13px 0px; display:none;" ng-show="addNewRequest.postKind && !notShowPostSendingPriceBox"  class="row firstHide alert alert-info alert-block fade in">
                         <button ng-click="addNewRequest.postKind=false; cancelRequest();" style="width:20px; height:20px;" class="close close-sm" type="button">
@@ -831,7 +831,7 @@
                                 </select>-->
 
                                 <div ng-repeat="value in sendType" ng-init="addNewRequest.companyRequestTypeId=''" >
-                                    <input type="radio" name="companyRequestTypeId" ng-model="addNewRequest.companyRequestTypeId" ng-value="value.id" ng-click="loadPreview(addNewRequest.companyRequestTypeId)" style=" transform: scale(1.5);">
+                                    <input type="radio" name="companyRequestTypeId" ng-model="addNewRequest.companyRequestTypeId" ng-value="value.id track by $index" ng-click="loadPreview(addNewRequest.companyRequestTypeId)" style=" transform: scale(1.5);">
                                   <div style=" width: 92%;float: left;" ng-init="value.price==null?value.price=0:null">{{value.name +' - '+ value.price + ' {{'text_97' = translate}} '}}</div>
                                 </div>
 
@@ -907,7 +907,7 @@
                         <div class="row">
 
                             <div class="col-lg-5 pull-left" style=" margin: 0 0 20px 0;">
-                                <div style="text-align:center" id="addNewRequestSendStatus"></div> 
+                                <div style="text-align:center" id="addNewRequestSendStatus"></div>
                                 <a class="btn btn-info" ng-click="addNewRequest.postKind=false; cancelRequest();">{{'text_100' = translate}}  </a>
                                 <a class="btn btn-success" id="addNewRequestSendBtn" ng-click="addNewRequestFunction(addNewRequest)">{{'text_101' = translate}}  </a>
                             </div>
@@ -944,7 +944,7 @@
 
 
             </section>
-            
+
             <section id="edit" class="notShowInIframe section section-center section-contact  section-hilite section-testimonial">
 
                 <div class="container">
@@ -987,13 +987,13 @@
                     </div>
 
                     <div ng-show="edit.success" ng-init="edit.success=''" style=" display:none;" class="firstHide  fade in">
-                      
+
                       <!-- mjh -->
                         <div class="col-md-6 col-sm-6 col-md-offset-3  col-sm-offset-3 col-xs-12">
                             <form id="editRequestFormSubmit">
-                                
+
                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 " style="height:10px">
-                                </div> 
+                                </div>
 
                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                     <span class="tooltip" ng-hide="lang == 'en'" >
@@ -1005,10 +1005,10 @@
                                     <div id="editRequestPostalCode1-error"></div>  <!-- data-validation-regexp="^[1-13-9]+$"  -->
                                 </div>
                                 <!-- <div class="form-group  col-sm-12 pull-right  col-xs-12" id="postalSelect"  >
-                                    در صورتی که کد پستی خود را نمی دانید ، کلیک کنید :  
+                                    در صورتی که کد پستی خود را نمی دانید ، کلیک کنید :
                                     <a href="https://epostcode.post.ir/postcode" target="_blank" style="color:rgb(31, 31, 114)" >یافتن کد پستی </a>
                                 </div> -->
-                                
+
                                 <div class="form-group col-sm-12 pull-right  col-xs-12">
                                     <span class="tooltip" ng-hide="lang == 'en'">
                                         <i class="fa fa-question-circle " style="margin: 6px 0 0 0px;font-size: 20px; color: #1abc9c;"></i>
@@ -1018,7 +1018,7 @@
                                     <select  style="width: 94%;float: left;" id="editRequestState" ng-model="editRequest.State" ng-change="editRequest.City='0';checkPostal()" ng-init="editRequest.State='0'" class="form-control"
                                             data-validation="required CheckPostalCode" data-validation-error-msg-container="#editRequestState-error" >
                                         <option value="0" disabled> {{'text_62' = translate}} *</option>
-                                        <option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
+                                        <option ng-repeat="value in state" ng-value="value.id track by $index">{{value.name}}</option>
                                     </select>
                                     <div id="editRequestState-error"></div>
                                 </div>
@@ -1032,7 +1032,7 @@
                                     <select style="width: 94%;float: left;" id="editRequestCity" ng-change="loadPrice(editRequest.City,editRequest.State);checkPostal()" ng-model="editRequest.City" ng-init="editRequest.City='0'" class="form-control"
                                             data-validation="required CheckPostalCode" data-validation-error-msg-container="#editRequestCity-error" >
                                         <option value="0" disabled> {{'text_63' = translate}} *</option>
-                                        <option ng-repeat="value in city" ng-value="value.id">{{value.name}}</option>
+                                        <option ng-repeat="value in city" ng-value="value.id track by $index">{{value.name}}</option>
                                     </select>
                                     <div id="editRequestCity-error"></div>
                                 </div>
@@ -1046,7 +1046,7 @@
                                     <select style="width: 88%;float: left;" id="editRequestVillageDrop" ng-model="editRequest.VillageDrop" ng-init="editRequest.VillageDrop='0'" class="form-control" style="font-size: 12px;"
                                             data-validation="required " data-validation-error-msg-container="#editRequestVillageDrop-error" >
                                         <option disabled value="0">{{'text_64' = translate}} * </option>
-                                        <option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
+                                        <option ng-repeat="value in district" ng-value="value.id track by $index">{{value.name}}</option>
                                     </select>
                                     <div id="editRequestVillageDrop-error" style="margin: 0 3px -30px;"></div>
                                 </div>
@@ -1064,7 +1064,7 @@
                                     </span>
                                     <select style="width: 88%;float: left;" id="editRequestMainRoadDrop" ng-model="editRequest.MainRoadDrop" ng-init="editRequest.MainRoadDrop=''" class="form-control">
                                         <option selected value=""> {{'text_66' = translate}} *  </option>
-                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                        <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
                                     </select>
                                 </div>
 
@@ -1080,7 +1080,7 @@
                                     </span>
                                     <select style="width: 88%;float: left;" id="editRequestSecondaryRoadDrop1" ng-model="editRequest.SecondaryRoadDrop1" ng-init="editRequest.SecondaryRoadDrop1=''" class="form-control">
                                         <option selected value="">{{'text_68' = translate}} (اختیاری)  </option>
-                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                        <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
                                     </select>
                                 </div>
 
@@ -1096,7 +1096,7 @@
                                     </span>
                                     <select  style="width: 88%;float: left;" id="editRequestSecondaryRoadDrop2" ng-model="editRequest.SecondaryRoadDrop2" ng-init="editRequest.SecondaryRoadDrop2=''" class="form-control">
                                         <option selected value="">  {{'text_70' = translate}} (اختیاری)   </option>
-                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
+                                        <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
                                     </select>
                                 </div>
 
@@ -1114,15 +1114,15 @@
                                     <input  style="width: 88%;float: left;" id="editRequestPlaque" ng-model="editRequest.Plaque" ng-init="editRequest.Plaque=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" maxlength="7" placeholder="{{'text_72' = translate}}"
                                         data-validation="required number length" data-validation-length="max7" data-validation-ignore="- _" data-validation-error-msg-container="#editRequestPlaque-error" >
                                     <div id="editRequestPlaque-error"></div>
-                                </div> 
-                                
-                                <div class="form-group col-md-6 col-sm-6 pull-left  col-xs-6"> 
+                                </div>
+
+                                <div class="form-group col-md-6 col-sm-6 pull-left  col-xs-6">
                                     <input type="checkbox" id="editRequestHasNoPlaque"  ng-model="editRequest.HasNoPlaque" ng-init="editRequest.HasNoPlaque=false" class="form-control" style="width: 20px;" />
-                                        
+
                                     <div class="col-sm-8 pull-right col-xs-8" style="text-align:right; margin: -27px 10px 0 0;">
                                         عدم وجود پلاک
                                     </div>
-                                
+
                                 </div>
 
                                 <div class="form-group col-sm-12 pull-right  col-xs-12 placeHolder{{float}}">
@@ -1133,7 +1133,7 @@
 
                                     <select style="width: 94%;float: left;" id="editRequestFloor" ng-model="editRequest.Floor" class="form-control textBoxLeftAlign js-example-basic-multiple-limit  " multiple="multiple" style="font-family:{{font}} !important; font-size:{{h4}}px !important;"
                                             data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#editRequestFloor-error" >
-                                        <option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
+                                        <option ng-repeat="value in floor" ng-value="value.id track by $index">{{value.name}}</option>
 
                                     </select>
                                     <div id="editRequestFloor-error"></div>
@@ -1161,17 +1161,17 @@
                                     <input style="width: 94%;float: left;" id="editRequestBuildingName" ng-model="editRequest.BuildingName" ng-init="editRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' = translate}} (اختیاری)"
                                         data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" data-validation-error-msg="{{'validation_22' = translate}}"  >
                                     <div id="editRequestBuildingName-error"></div>
-                                </div> 
-                                
+                                </div>
+
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 " >
-                                            <input style=" text-align: center;font-size: 17px;" id="editRequestSubmit" ng-disabled="!editRequest.PostalCode1||editRequest.PostalCode1.length<10" type="submit" class="btn btn-default btn-block btn-center" value="ویرایش اطلاعات" />                                                
+                                            <input style=" text-align: center;font-size: 17px;" id="editRequestSubmit" ng-disabled="!editRequest.PostalCode1||editRequest.PostalCode1.length<10" type="submit" class="btn btn-default btn-block btn-center" value="ویرایش اطلاعات" />
                                             <div id="addNewRequestSendStatus"></div>
                                         </div>
                                     </div>
                                 </div>
-                            </form> 
+                            </form>
                             <div ng-show="editRequest.success" ng-init="editRequest.success=''" style=" display:none;" class="firstHide alert alert-success alert-block fade in">
                                     <button ng-click="editRequest.success=false" style="width:20px; height:20px;" class="close close-sm" type="button">
                                         x
@@ -1181,10 +1181,10 @@
                                         <i class="icon-ok-sign"></i>
                                        موفقیت آمیز
                                     </h4>
-            
-                                    <p style=" margin: 10px 8%;" ng-bind="editRequest.success"></p> 
+
+                                    <p style=" margin: 10px 8%;" ng-bind="editRequest.success"></p>
                                 </div>
-            
+
                             <div ng-show="editRequest.error" ng-init="editRequest.error=''" style=" display:none;" class="firstHide alert alert-block alert-danger fade in">
                                     <button ng-click="editRequest.error=false" style="width:20px; height:20px;" class="close close-sm" type="button">
                                         x
@@ -1196,7 +1196,7 @@
                                     </h4>
                                     <p ng-bind="editRequest.error"></p>
                                 </div>
-            
+
                         <div>
                     </div>
 
@@ -1215,7 +1215,7 @@
                 </div>
             </section>
 
-            
+
             <section id="fallow" class="notShowInIframe section section-center section-contact  section-testimonial">
 
                 <div class="container">
@@ -1655,11 +1655,11 @@
     <script src="js/angular-translate.min.js"></script>-->
 
     <link href="css/template.min.css" rel="stylesheet">
-    
+
     <script src="js/jquery-2.1.3.min.js"></script>
- 
+
     <script>
-        
+
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, "\\$&");
@@ -1677,38 +1677,38 @@
             $('#main').css({'padding': '0'});
             $('.meshim_widget_components_chatButton_Button rtl').remove();;
             $('.smooth-scroll').remove();
-        } 
+        }
         if(getParameterByName('company')=="taxi"){
             $('.notShowInIframe').hide();
-            $('#navigation').hide(); 
-            $('#features').insertAfter('#register');  
+            $('#navigation').hide();
+            $('#features').insertAfter('#register');
             $('#main').css({'padding': '0'});
             $('.meshim_widget_components_chatButton_Button rtl').remove();;
             $('.smooth-scroll').remove();
             $('.translate').html('<img style="width: 100px;margin: 0px 0 0px 0;" src="/img/taxi.jpg">')
-        } 
+        }
         if(getParameterByName('company')=="tap30"){
             $('.notShowInIframe').hide();
             $('#navigation').hide();
-            $('#features').insertAfter('#register');  
+            $('#features').insertAfter('#register');
             $('#main').css({'padding': '0'});
             $('.meshim_widget_components_chatButton_Button rtl').remove();;
-            $('.smooth-scroll').remove(); 
+            $('.smooth-scroll').remove();
             $('.translate').css({
                 "background-color": "black"
             })
             $('.translate').html('<img style="width: 150px;margin: 0px 0 0px 0;" src="/img/tap30.png">')
-        } 
+        }
         if(getParameterByName('company')=="enamad"){
             $('.notShowInIframe').hide();
             $('#navigation').hide();
-            $('#features').insertAfter('#register');  
+            $('#features').insertAfter('#register');
             $('#main').css({'padding': '0'});
             $('.meshim_widget_components_chatButton_Button rtl').remove();;
             $('.smooth-scroll').remove();
             $('.translate').html('<img style="width: 70px;margin: 0px 0 0px 0;" src="/img/enamad.png">')
-        } 
-    </script>  
+        }
+    </script>
 
 
     <!-- <script src="Controller/static.js"></script> -->
@@ -1716,7 +1716,7 @@
     <script src="app.js"></script>
     <script src="Controller/Controller.js?v=75"></script>
     <script src="Model/Model.js?v=3"></script>
-    <script src="js/plain-overlay-limit.min.js"></script> 
+    <script src="js/plain-overlay-limit.min.js"></script>
     <script src="js/main.min.js"></script>
     <script>
         (function ($) {
@@ -1850,9 +1850,9 @@
     //   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
     //   ga('create', 'UA-91988544-1', 'auto');
-    //   ga('send', 'pageview'); 
+    //   ga('send', 'pageview');
     </script>
-  
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110602483-1"></script>
     <script>
@@ -1865,7 +1865,7 @@
  -->
 
 
- 
+
 
 </body>
 </html>

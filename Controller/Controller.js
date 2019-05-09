@@ -805,8 +805,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
         }, function (error) {
             $scope.truePostalAddress = '';
-            cityByPostal ='';
-            stateByPostal ='';
+            cityByPostal ='1';
+            stateByPostal ='1';
         }).finally(function () {
 
         });
