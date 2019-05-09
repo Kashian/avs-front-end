@@ -826,9 +826,9 @@
 
                         <div class="col-lg-12 form-group">
                             <div class="col-lg-5 col-md-5 col-md-pull-3 pull-right col-lg-pull-4 " style="text-align: right;margin-top: 5px;">
-                              <!--  <select ng-model="addNewRequest.companyRequestTypeId" ng-init="addNewRequest.companyRequestTypeId=''" ng-change="loadPreview(addNewRequest.companyRequestTypeId)" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' {{'text_97' = translate}} ' for value in sendType">
+                              <select ng-model="addNewRequest.companyRequestTypeId" ng-init="addNewRequest.companyRequestTypeId=''" ng-change="loadPreview(addNewRequest.companyRequestTypeId)" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' {{'text_97' = translate}} ' for value in sendType">
                                     <option value="" selected disabled>{{'text_106' = translate}}</option>
-                                </select>-->
+                                </select>
 
                                 <div ng-repeat="value in sendType" ng-init="addNewRequest.companyRequestTypeId=''" >
                                     <input type="radio" name="companyRequestTypeId" ng-model="addNewRequest.companyRequestTypeId" ng-value="value.id" ng-click="loadPreview(addNewRequest.companyRequestTypeId)" style=" transform: scale(1.5);">
