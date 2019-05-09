@@ -207,7 +207,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         Model.companyRequestTypeList(cityId).then(function (data) {
 
             //save all shipping method to this parameter
-
+            console.log(cityId);
+            console.log(provinceId);
             console.log(data);
             console.log('Company Request Type List')
 
