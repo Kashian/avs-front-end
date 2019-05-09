@@ -797,7 +797,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             }else{
               // Set to Tehran if postcode service was down
               stateByPostal='1';
-              $("#addNewRequestState").val('1'');
+              $("#addNewRequestState").val('1');
               $("#addNewRequestState").attr('disabled','disabled');
               cityByPostal='1';
               loadCity();
