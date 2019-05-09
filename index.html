@@ -537,7 +537,7 @@
                                                     <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="addNewRequest.AdressStatus='0'" class="form-control"
                                                             data-validation="required " data-validation-error-msg-container="#addNewRequestAdressStatus-error" >
                                                         <option value="0" disabled> وضعیت نشانی شما *</option>
-                                                        <option ng-repeat="value in AdressStatus" ng-value="value.id track by $index">{{value.name}}</option>
+                                                        <option ng-repeat="value in AdressStatus" ng-value="value.id">{{value.name}}</option>
                                                     </select>
                                                     <div id="addNewRequestAdressStatus-error"></div>
                                                 </div>
@@ -653,7 +653,7 @@
                                             <select  style="width: 94%;float: left;" id="addNewRequestState" ng-model="addNewRequest.State" ng-change="addNewRequest.City='0';checkPostal()" ng-init="addNewRequest.State='0'" class="form-control"
                                                     data-validation="required CheckPostalCode" data-validation-error-msg-container="#addNewRequestState-error" >
                                                 <option value="0" disabled> {{'text_62' = translate}} *</option>
-                                                <option ng-repeat="value in state" ng-value="value.id track by $index">{{value.name}}</option>
+                                                <option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                             <div id="addNewRequestState-error"></div>
                                         </div>
@@ -667,7 +667,7 @@
                                             <select style="width: 94%;float: left;" id="addNewRequestCity" ng-change="loadPrice(addNewRequest.City,addNewRequest.State);checkPostal()" ng-model="addNewRequest.City" ng-init="addNewRequest.City='0'" class="form-control"
                                                     data-validation="required CheckPostalCode" data-validation-error-msg-container="#addNewRequestCity-error" >
                                                 <option value="0" disabled> {{'text_63' = translate}} *</option>
-                                                <option ng-repeat="value in city" ng-value="value.id track by $index">{{value.name}}</option>
+                                                <option ng-repeat="value in city" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                             <div id="addNewRequestCity-error"></div>
                                         </div>
@@ -681,7 +681,7 @@
                                             <select style="width: 88%;float: left;" id="addNewRequestVillageDrop" ng-model="addNewRequest.VillageDrop" ng-init="addNewRequest.VillageDrop='0'" class="form-control" style="font-size: 12px;"
                                                     data-validation="required " data-validation-error-msg-container="#addNewRequestVillageDrop-error" >
                                                 <option disabled value="0">{{'text_64' = translate}} * </option>
-                                                <option ng-repeat="value in district" ng-value="value.id track by $index">{{value.name}}</option>
+                                                <option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                             <div id="addNewRequestVillageDrop-error" style="margin: 0 3px -30px;"></div>
                                         </div>
@@ -699,7 +699,7 @@
                                             </span>
                                             <select style="width: 88%;float: left;" id="addNewRequestMainRoadDrop" ng-model="addNewRequest.MainRoadDrop" ng-init="addNewRequest.MainRoadDrop=''" class="form-control">
                                                 <option selected value=""> {{'text_66' = translate}} *  </option>
-                                                <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                         </div>
 
@@ -715,7 +715,7 @@
                                             </span>
                                             <select style="width: 88%;float: left;" id="addNewRequestSecondaryRoadDrop1" ng-model="addNewRequest.SecondaryRoadDrop1" ng-init="addNewRequest.SecondaryRoadDrop1=''" class="form-control">
                                                 <option selected value="">{{'text_68' = translate}} (اختیاری)  </option>
-                                                <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                         </div>
 
@@ -731,7 +731,7 @@
                                             </span>
                                             <select  style="width: 88%;float: left;" id="addNewRequestSecondaryRoadDrop2" ng-model="addNewRequest.SecondaryRoadDrop2" ng-init="addNewRequest.SecondaryRoadDrop2=''" class="form-control">
                                                 <option selected value="">  {{'text_70' = translate}} (اختیاری)   </option>
-                                                <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
+                                                <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                         </div>
 
@@ -768,7 +768,7 @@
 
                                             <select style="width: 94%;float: left;" id="addNewRequestFloor" ng-model="addNewRequest.Floor" class="form-control textBoxLeftAlign js-example-basic-multiple-limit  " multiple="multiple" style="font-family:{{font}} !important; font-size:{{h4}}px !important;"
                                                     data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#addNewRequestFloor-error" >
-                                                <option ng-repeat="value in floor" ng-value="value.id track by $index">{{value.name}}</option>
+                                                <option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
 
                                             </select>
                                             <div id="addNewRequestFloor-error"></div>
@@ -831,7 +831,7 @@
                                 </select>-->
 
                                 <div ng-repeat="value in sendType" ng-init="addNewRequest.companyRequestTypeId=''" >
-                                    <input type="radio" name="companyRequestTypeId" ng-model="addNewRequest.companyRequestTypeId" ng-value="value.id track by $index" ng-click="loadPreview(addNewRequest.companyRequestTypeId)" style=" transform: scale(1.5);">
+                                    <input type="radio" name="companyRequestTypeId" ng-model="addNewRequest.companyRequestTypeId" ng-value="value.id" ng-click="loadPreview(addNewRequest.companyRequestTypeId)" style=" transform: scale(1.5);">
                                   <div style=" width: 92%;float: left;" ng-init="value.price==null?value.price=0:null">{{value.name +' - '+ value.price + ' {{'text_97' = translate}} '}}</div>
                                 </div>
 
@@ -1018,7 +1018,7 @@
                                     <select  style="width: 94%;float: left;" id="editRequestState" ng-model="editRequest.State" ng-change="editRequest.City='0';checkPostal()" ng-init="editRequest.State='0'" class="form-control"
                                             data-validation="required CheckPostalCode" data-validation-error-msg-container="#editRequestState-error" >
                                         <option value="0" disabled> {{'text_62' = translate}} *</option>
-                                        <option ng-repeat="value in state" ng-value="value.id track by $index">{{value.name}}</option>
+                                        <option ng-repeat="value in state" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                     <div id="editRequestState-error"></div>
                                 </div>
@@ -1032,7 +1032,7 @@
                                     <select style="width: 94%;float: left;" id="editRequestCity" ng-change="loadPrice(editRequest.City,editRequest.State);checkPostal()" ng-model="editRequest.City" ng-init="editRequest.City='0'" class="form-control"
                                             data-validation="required CheckPostalCode" data-validation-error-msg-container="#editRequestCity-error" >
                                         <option value="0" disabled> {{'text_63' = translate}} *</option>
-                                        <option ng-repeat="value in city" ng-value="value.id track by $index">{{value.name}}</option>
+                                        <option ng-repeat="value in city" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                     <div id="editRequestCity-error"></div>
                                 </div>
@@ -1046,7 +1046,7 @@
                                     <select style="width: 88%;float: left;" id="editRequestVillageDrop" ng-model="editRequest.VillageDrop" ng-init="editRequest.VillageDrop='0'" class="form-control" style="font-size: 12px;"
                                             data-validation="required " data-validation-error-msg-container="#editRequestVillageDrop-error" >
                                         <option disabled value="0">{{'text_64' = translate}} * </option>
-                                        <option ng-repeat="value in district" ng-value="value.id track by $index">{{value.name}}</option>
+                                        <option ng-repeat="value in district" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                     <div id="editRequestVillageDrop-error" style="margin: 0 3px -30px;"></div>
                                 </div>
@@ -1064,7 +1064,7 @@
                                     </span>
                                     <select style="width: 88%;float: left;" id="editRequestMainRoadDrop" ng-model="editRequest.MainRoadDrop" ng-init="editRequest.MainRoadDrop=''" class="form-control">
                                         <option selected value=""> {{'text_66' = translate}} *  </option>
-                                        <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
+                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                 </div>
 
@@ -1080,7 +1080,7 @@
                                     </span>
                                     <select style="width: 88%;float: left;" id="editRequestSecondaryRoadDrop1" ng-model="editRequest.SecondaryRoadDrop1" ng-init="editRequest.SecondaryRoadDrop1=''" class="form-control">
                                         <option selected value="">{{'text_68' = translate}} (اختیاری)  </option>
-                                        <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
+                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                 </div>
 
@@ -1096,7 +1096,7 @@
                                     </span>
                                     <select  style="width: 88%;float: left;" id="editRequestSecondaryRoadDrop2" ng-model="editRequest.SecondaryRoadDrop2" ng-init="editRequest.SecondaryRoadDrop2=''" class="form-control">
                                         <option selected value="">  {{'text_70' = translate}} (اختیاری)   </option>
-                                        <option ng-repeat="value in pass" ng-value="value.id track by $index">{{value.name}}</option>
+                                        <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                 </div>
 
@@ -1133,7 +1133,7 @@
 
                                     <select style="width: 94%;float: left;" id="editRequestFloor" ng-model="editRequest.Floor" class="form-control textBoxLeftAlign js-example-basic-multiple-limit  " multiple="multiple" style="font-family:{{font}} !important; font-size:{{h4}}px !important;"
                                             data-validation="" data-validation-optional="true" maxlength="20" data-validation-error-msg-container="#editRequestFloor-error" >
-                                        <option ng-repeat="value in floor" ng-value="value.id track by $index">{{value.name}}</option>
+                                        <option ng-repeat="value in floor" ng-value="value.id">{{value.name}}</option>
 
                                     </select>
                                     <div id="editRequestFloor-error"></div>
