@@ -224,8 +224,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $.each(stateStatic , function(index,value){
                 if(value.id==stateIdTemp){
                     $scope.city = value.city_set;
+
                     console.log('scope.city = value.city_set');
                     console.log(value.city_set);
+                    console.log(cityByPostal);
+                    console.log(stateByPostal);
                     if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){
                         $timeout(function(){
                             $("#addNewRequestCity").val(cityByPostal);
@@ -779,6 +782,9 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             }
             else {
               console.log ('We didnt find the postcode');
+              cityByPostal='1';
+              stateByPostal='1';
+              postalCodeText='آدرسی از سرور بازیابی نشد به دلیل وجود خطا در سرویس کد پستی';
             }
             $('#postalSelect').html(postalCodeText)
 
@@ -789,9 +795,14 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 cityByPostal=data.city_id+'';
                 loadCity();
             }else{
+              // Set to Tehran if postcode service was down
+              stateByPostal='1';
+              $("#addNewRequestState").val('1'');
+              $("#addNewRequestState").attr('disabled','disabled');
+              cityByPostal='1';
+              loadCity();
               console.log ('We didnt find the postcode and we set it to tehran');
-                cityByPostal='1';
-                stateByPostal='1';
+
             }
 
             // $scope.addNewRequest.MainRoadTxt=data.sub_locality;
