@@ -70,16 +70,21 @@ angular.module('post.Model', [])
             return $http({
                 url: apiBaseUrl + 'default-company/request-type/list',
                 method: "POST",
+                dataType: "json"
                 transformRequest: function (obj) {
                     var str = [];
                     for (var p in obj)
                         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    console.log(str.join("&"));
                     return str.join("&");
+
                 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, data: {
                     city_id: cityId
                 }
-            }).then(function (result) { return result.data; });
+            }).then(function (result) {
+              console.log(result);
+              return result.data; });
         };
 
         //genderList
