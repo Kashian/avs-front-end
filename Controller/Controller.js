@@ -209,7 +209,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             //save all shipping method to this parameter
             console.log(data);
             console.log('Company Request Type List')
-            
+
             $scope.sendType = data;
         }, function (error) {
         }).finally(function () {
@@ -1203,7 +1203,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
             // show overlay transparent layer
             $('#overlay').show();
-			      $log.info('We are in Scope.overlay3 by kashian');
+			      console.log ('We are in Scope.overlay3 by kashian');
             $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
 
         }
