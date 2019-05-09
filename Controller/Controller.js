@@ -596,7 +596,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     // this function shows all information of selected option from postage method (EMS, Registered Post, or Ordinary)
     $scope.loadPreview = function (id) {
-        console('we are in loadpreview');
+        console.log('we are in loadpreview');
         if ($scope.sendType) {
             console.log('we are inside sendType scope');
             $.each($scope.sendType, function (index, value) {
@@ -1190,12 +1190,13 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             //if the user has entered irpost as discount code, then disable all the form (new request form)
              // if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
              $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
-             console.log($scope.addNewRequest.companyRequestTypeId);
+             ali=$scope.sendType[$scope.sendType.length-1].id;
+             console.log(ali);
 
              $scope.loadPreview($scope.addNewRequest.companyRequestTypeId)
              $scope.notShowPostSendingPriceBox=false;
              $scope.addNewRequestFunction($scope.addNewRequest)
-                        	              
+
 
             $scope.addNewRequest.postKind = true;
 			      console.log ('Now add new request kind = true');
