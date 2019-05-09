@@ -162,7 +162,7 @@ angular.module('post.Model', [])
 
         Model.checkPostalcode = function (PostalCode) {
             //bypass postal code checking
-            var resultcode='{}';
+            var resultcode='{"success":false}';
             return(resultcode);
             // Commented by Alireza Kashian for debug ..must be removed
             // return $http({
