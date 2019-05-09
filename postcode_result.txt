@@ -1,0 +1,6 @@
+{
+reason: "bad_request",
+error_description: "درخواست ناقص",
+success: false,
+error: "INCOMPLETE_REQUEST"
+}
