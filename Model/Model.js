@@ -64,6 +64,9 @@ angular.module('post.Model', [])
 
         //companyRequestTypeList
         Model.companyRequestTypeList = function (cityId) {
+
+            console.log(cityId);
+            console.log('We got the city ID');
             return $http({
                 url: apiBaseUrl + 'default-company/request-type/list',
                 method: "POST",

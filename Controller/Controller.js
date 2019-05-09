@@ -200,13 +200,14 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         }
     };
 
-    //load shipping price , base on city
+    //load shipping price , based on the city
     $scope.loadPrice = function (cityId, provinceId) {
 
         //load all shipping method
         Model.companyRequestTypeList(cityId).then(function (data) {
 
             //save all shipping method to this parameter
+
             console.log(data);
             console.log('Company Request Type List')
 
@@ -219,17 +220,20 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     function loadCity(){
 
         var stateIdTemp=$("#addNewRequestState option:selected").val();
-        console.log(stateIdTemp);
+        console.log('stateIDTemp in loadCity function'+stateIdTemp);
         if(loadStatic){
             $.each(stateStatic , function(index,value){
                 if(value.id==stateIdTemp){
                     $scope.city = value.city_set;
+
+                    //debug - must be removed
                     cityByPostal='1';
+                    stateByPostal='1';
 
                     console.log('scope.city = value.city_set');
                     console.log(value.city_set);
-                    console.log(cityByPostal);
-                    console.log(stateByPostal);
+                    console.log('city by postal'+cityByPostal);
+                    console.log('statebyPostal'+stateByPostal);
                     if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){
                         $timeout(function(){
                             $("#addNewRequestCity").val(cityByPostal);
@@ -249,7 +253,9 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             Model.cityList(stateIdTemp).then(function (data) {
                 //save all city to this parameter
                 $scope.city = data.data;
+                //debug must be removed by kashian added
                 cityByPostal='1';
+                stateByPostal='1';
                 if(cityByPostal != '0'&& cityByPostal != ''){
                     $timeout(function(){
                         $("#addNewRequestCity").val(cityByPostal);
@@ -588,7 +594,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     };
 
-    //this function show all information of selected option from send type
+    // this function shows all information of selected option from postage method (EMS, Registered Post, or Ordinary)
     $scope.loadPreview = function (id) {
         if ($scope.sendType) {
             $.each($scope.sendType, function (index, value) {
