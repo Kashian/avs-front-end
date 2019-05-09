@@ -1163,12 +1163,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 $scope.notShowPostSendingPriceBox=true;
                 $scope.addNewRequestFunction($scope.addNewRequest)
             }else{
-				$log.info('We found irpost is not entered as discount code');
+				$scope.$log.info('We found irpost is not entered as discount code');
                 $scope.notShowPostSendingPriceBox=false;                
             }
 
             $scope.addNewRequest.postKind = true; 
-			$log.info('Now add new request kind = true');
+			$scope.$log.info('Now add new request kind = true');
             $scope.$apply();
             $scope.addNewRequest.error = false;
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
@@ -1202,7 +1202,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
             // show overlay transparent layer
             //$('#overlay').show();
-			$log.info('We are in Scope.overlay3');
+			$scope.$log.info('We are in Scope.overlay3');
             $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
  
         } 
