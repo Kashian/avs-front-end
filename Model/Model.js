@@ -268,7 +268,7 @@ angular.module('post.Model', [])
                     building: Value.BuildingName,
                     person_type_id: Value.personType,
                     coupon_code:(Value.discountCode).toLowerCase(),
-                    api_key: '4b3025ca-357a-4ffb-aa68-6655e4b617d7``'
+                    api_key: '4b3025ca-357a-4ffb-aa68-6655e4b617d7'
 
                 }
             }).then(function (result) { return result.data; });
