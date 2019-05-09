@@ -246,7 +246,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                     }
 
                 }
-            })companyRequestTypeList
+            })
 
         }
         else{
