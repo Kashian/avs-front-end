@@ -513,7 +513,7 @@
                                                     <label class="col-xs-4 col-md-4" ng-show="lang=='fa'"  style="float: right; padding: 0;font-size: 14px;text-align: right;"> &nbsp; <span>{{'text_22' = translate}}</span>  &nbsp; </label>
                                                     <span class="col-xs-4 col-md-4" style=" margin: 0 -3px  0 -21px; padding:0px; float: right;">
                                                         {{'text_23' = translate}}
-                                                        <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="Geneder" value="1" ng-value="1" ng-model="addNewRequest.Gender" />
+                                                        <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="Geneder" value="1" ng-value="1" ng-init="addNewRequest.Gender='1'" ng-model="addNewRequest.Gender" />
                                                     </span>
                                                     <span class="col-xs-4 col-md-4" style=" margin: 0 12px  0 -21px; padding:0px; float: right;">
                                                         {{'text_24' = translate}}
@@ -522,12 +522,12 @@
                                                     <label ng-show="lang=='en'" class="col-xs-12 col-md-4" style="float: right; padding: 0;font-size: 14px;text-align: left;"> &nbsp; <span>{{'text_22' = translate}}</span>  &nbsp; </label>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode" ng-model="addNewRequest.NationalCode" maxlength="10" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_52' = translate}} *"
+                                                    <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode" ng-model="addNewRequest.NationalCode" maxlength="10" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_52' = translate}} *" ng-init="addNewRequestNationalCode ='0071651993'"
                                                         data-validation="required  number length  IranNationalCode" data-validation-length="10" data-validation-error-msg-container="#addNewRequestNationalCode-error" >
                                                     <div id="addNewRequestNationalCode-error"></div>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_55' = translate}}"
+                                                    <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_55' = translate}}" ng-init="addNewRequestPhoneNumber ='09121121120'"
                                                         data-validation="required custom" data-validation-length="11-14" data-validation-regexp="^(0|\+98|0098)?([ ]|,|-|[()]){0,2}9[0|1|2|3|4|5|6|7|8|9]([ ]|,|-|[()]){0,3}(?:[0-9]([ ]|,|-|[()]){0,2}){8}$" maxlength="14"  minlength="11"  data-validation-error-msg-container="#addNewRequestPhoneNumber-error" data-validation-error-msg="{{'validation_8' = translate}}">
                                                     <div id="addNewRequestPhoneNumber-error"></div>
                                                 </div>
@@ -536,7 +536,7 @@
                                                 <div class="form-group col-sm-12 pull-right  col-xs-12">
                                                     <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="addNewRequest.AdressStatus='0'" class="form-control"
                                                             data-validation="required " data-validation-error-msg-container="#addNewRequestAdressStatus-error" >
-                                                        <option value="0" disabled> وضعیت نشانی شما *</option>
+                                                        <option value="1" disabled> وضعیت نشانی شما *</option>
                                                         <option ng-repeat="value in AdressStatus" ng-value="value.id">{{value.name}}</option>
                                                     </select>
                                                     <div id="addNewRequestAdressStatus-error"></div>
