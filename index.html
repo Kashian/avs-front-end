@@ -500,12 +500,12 @@
                                             </div>
                                             <div ng-show="addNewRequest.personType=='natural_person'">
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
-                                                    <input id="addNewRequestFirstName" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="30" placeholder="{{'text_53' = translate}}"
+                                                    <input id="addNewRequestFirstName" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="30" placeholder="{{'text_53' = translate}}" ng-init="addNewRequest.FirstName ='رضا'"
                                                         data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestFirstName-error" data-validation-error-msg="{{'validation_5' = translate}}" >
                                                     <div id="addNewRequestFirstName-error"></div>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
-                                                    <input id="addNewRequestLastName" ng-model="addNewRequest.LastName" type="text" class="form-control placeHolder{{float}}" maxlength="50" placeholder="{{'text_54' = translate}}"
+                                                    <input id="addNewRequestLastName" ng-model="addNewRequest.LastName" type="text" class="form-control placeHolder{{float}}" maxlength="50" placeholder="{{'text_54' = translate}}" ng-init="addNewRequest.LastName ='ارسلانی'"
                                                         data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestLastName-error" data-validation-error-msg="{{'validation_6' = translate}}" >
                                                     <div id="addNewRequestLastName-error"></div>
                                                 </div>
