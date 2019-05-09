@@ -109,15 +109,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     var cityByPostalForEdit='';
 
 
-    //dont load from server
+    //using this parametr, we load some data like city and estate as statsic data instead of using webservice
     var loadStatic=true;
 
     //set a global variable that show overal language
     $rootScope.lang = $('html').attr('lang');
-
-
-
-
 
     //when the page loaded , this function call automaticlly
     $scope.initFunction = function () {
@@ -211,6 +207,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         Model.companyRequestTypeList(cityId).then(function (data) {
 
             //save all shipping method to this parameter
+            console.log(data);
+            console.log('Company Request Type List')
             $scope.sendType = data;
         }, function (error) {
         }).finally(function () {
@@ -1162,22 +1160,15 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 $scope.loadPreview($scope.addNewRequest.companyRequestTypeId)
                 $scope.notShowPostSendingPriceBox=true;
                 $scope.addNewRequestFunction($scope.addNewRequest)
-            }else{
-<<<<<<< HEAD
-				$log.info('We found irpost is not entered as discount code');
+            }
+            else
+            {
+				     console.log ('We found irpost is not entered as discount code');
                 $scope.notShowPostSendingPriceBox=false;
             }
 
             $scope.addNewRequest.postKind = true;
-			      $log.info('Now add new request kind = true');
-=======
-				console.log ('We found irpost is not entered as discount code');
-                $scope.notShowPostSendingPriceBox=false;                
-            }
-
-            $scope.addNewRequest.postKind = true; 
-			console.log ('Now add new request kind = true');
->>>>>>> 80b1e142bdb2df2e836f24c0aa99ce50e3a7bbc3
+			      console.log ('Now add new request kind = true');
             $scope.$apply();
             $scope.addNewRequest.error = false;
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
@@ -1210,19 +1201,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
 
             // show overlay transparent layer
-<<<<<<< HEAD
             $('#overlay').show();
 			      $log.info('We are in Scope.overlay3 by kashian');
             $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
 
         }
-=======
-            //$('#overlay').show();
-			console.log ('We are in Scope.overlay3');
-            $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
- 
-        } 
->>>>>>> 80b1e142bdb2df2e836f24c0aa99ce50e3a7bbc3
     };
 
     //cancel select post shipping
