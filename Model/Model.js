@@ -169,8 +169,8 @@ angular.module('post.Model', [])
                 url: 'http://avs.post.ir/postcode_result.txt',
                 method: "POST",
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Origin':'http://www.avs.post.ir/'
+                    'Content-Type': 'application/x-www-form-urlencoded'
+
                 }
             }).then(function (result) { return result.data; });
         };
