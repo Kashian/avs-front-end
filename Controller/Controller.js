@@ -209,6 +209,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             //save all shipping method to this parameter
             console.log(data);
             console.log('Company Request Type List')
+            
             $scope.sendType = data;
         }, function (error) {
         }).finally(function () {
