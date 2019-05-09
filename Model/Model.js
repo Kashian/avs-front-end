@@ -167,7 +167,7 @@ angular.module('post.Model', [])
              return $http({
                 //url: apiBaseUrl + 'default-company/request/postcode-info?postcode=' + PostalCode,
                 url: 'http://avs.post.ir/postcode_result.txt',
-                method: "POST",
+                method: "GET",
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
 
