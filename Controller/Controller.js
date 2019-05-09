@@ -246,7 +246,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                     }
 
                 }
-            })
+            })companyRequestTypeList
 
         }
         else{
@@ -598,9 +598,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     $scope.loadPreview = function (id) {
         if ($scope.sendType) {
             $.each($scope.sendType, function (index, value) {
+                    console.log(index+' <index---value>  '+value);
                 if (value.id == id) {
                     //show name , price , id , .... in post preview
+                    console.log(console.log(index+' <index-if-value>  '+value));
                     $scope.SelectedPostMethod = value;
+                    console.log($scope.SelectedPostMethod);
                 }
             })
         }
