@@ -228,12 +228,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
                     //debug - must be removed
                     //cityByPostal='1';
-                    stateByPostal='1';
+                    //stateByPostal='1';
 
                     console.log('scope.city = value.city_set');
                     console.log(value.city_set);
-                    console.log('city by postal'+cityByPostal);
-                    console.log('statebyPostal'+stateByPostal);
+                    console.log('city by postal: '+cityByPostal);
+                    console.log('statebyPostal: '+stateByPostal);
                     if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){
                         $timeout(function(){
                             $("#addNewRequestCity").val(cityByPostal);
@@ -1195,7 +1195,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
              $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
 
              //debug by Kashian
-             statebyPostal=$scope.addNewRequest.State;
+             //statebyPostal=$scope.addNewRequest.State;
 
              $scope.loadPreview($scope.addNewRequest.companyRequestTypeId);
              $scope.notShowPostSendingPriceBox=false;
