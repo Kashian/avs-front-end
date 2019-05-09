@@ -1163,12 +1163,21 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 $scope.notShowPostSendingPriceBox=true;
                 $scope.addNewRequestFunction($scope.addNewRequest)
             }else{
+<<<<<<< HEAD
 				$log.info('We found irpost is not entered as discount code');
                 $scope.notShowPostSendingPriceBox=false;
             }
 
             $scope.addNewRequest.postKind = true;
 			      $log.info('Now add new request kind = true');
+=======
+				console.log ('We found irpost is not entered as discount code');
+                $scope.notShowPostSendingPriceBox=false;                
+            }
+
+            $scope.addNewRequest.postKind = true; 
+			console.log ('Now add new request kind = true');
+>>>>>>> 80b1e142bdb2df2e836f24c0aa99ce50e3a7bbc3
             $scope.$apply();
             $scope.addNewRequest.error = false;
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
@@ -1201,11 +1210,19 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
 
             // show overlay transparent layer
+<<<<<<< HEAD
             $('#overlay').show();
 			      $log.info('We are in Scope.overlay3 by kashian');
             $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
 
         }
+=======
+            //$('#overlay').show();
+			console.log ('We are in Scope.overlay3');
+            $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
+ 
+        } 
+>>>>>>> 80b1e142bdb2df2e836f24c0aa99ce50e3a7bbc3
     };
 
     //cancel select post shipping
