@@ -219,15 +219,18 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     function loadCity(){
 
         var stateIdTemp=$("#addNewRequestState option:selected").val();
+        console.log(stateIdTemp);
         if(loadStatic){
             $.each(stateStatic , function(index,value){
                 if(value.id==stateIdTemp){
                     $scope.city = value.city_set;
+                    console.log('scope.city = value.city_set');
+                    console.log(value.city_set);
                     if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){
                         $timeout(function(){
                             $("#addNewRequestCity").val(cityByPostal);
                             $("#addNewRequestCity").attr('disabled','disabled');
-                            console.log('we start loading price now'+cityByPostal+'  '+stateByPostal);
+                            console.log('we start loading price now');
                             $scope.loadPrice(cityByPostal,stateByPostal);
                             $scope.checkPostal();
 
