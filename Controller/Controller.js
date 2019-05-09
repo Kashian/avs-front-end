@@ -30,8 +30,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-   
-    
+
+
     if(getParameterByName('notShowInIframe')=="true"){
         $('.notShowInIframe').hide();
         $('.site-header').hide();
@@ -39,42 +39,42 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         $('#main').css({'padding': '0'});
         $('.meshim_widget_components_chatButton_Button rtl').remove();;
         $('.smooth-scroll').remove();
-    } 
+    }
     if(getParameterByName('company')=="taxi"){
         $('.notShowInIframe').hide();
-        $('#navigation').hide(); 
-        $('#features').insertAfter('#register');  
+        $('#navigation').hide();
+        $('#features').insertAfter('#register');
         $('#main').css({'padding': '0'});
         $('.meshim_widget_components_chatButton_Button rtl').remove();;
         $('.smooth-scroll').remove();
         $('.translate').css({
             "border":"none"
         })
-        $('.translate').html('<img style="width: 100px;margin: 0px 0 0px 0;" src="/img/taxi.jpg"><span style="padding: 6px;font-size: 20px;">سازمان تاکسیرانی</span>'); 
+        $('.translate').html('<img style="width: 100px;margin: 0px 0 0px 0;" src="/img/taxi.jpg"><span style="padding: 6px;font-size: 20px;">سازمان تاکسیرانی</span>');
         $timeout(function(){
-            $scope.addNewRequest.discountCode='tehrantaxi-s01-01-18'; 
-        },2)  
-    } 
+            $scope.addNewRequest.discountCode='tehrantaxi-s01-01-18';
+        },2)
+    }
     if(getParameterByName('company')=="tap30"){
         $('.notShowInIframe').hide();
         $('#navigation').hide();
-        $('#features').insertAfter('#register');  
+        $('#features').insertAfter('#register');
         $('#main').css({'padding': '0'});
         $('.meshim_widget_components_chatButton_Button rtl').remove();;
-        $('.smooth-scroll').remove(); 
+        $('.smooth-scroll').remove();
         $('.translate').css({
             "background-color": "black",
             "border":"none"
         })
         $('.translate').html('<img style="width: 150px;margin: 0px 0 0px 0;" src="/img/tap30.png"><span style="padding: 13px 6px;background-color: white;font-size: 20px;">TAP30 - سامانه هوشمند درخواست تاکسی</span>');
         $timeout(function(){
-            $scope.addNewRequest.discountCode='tap30-s01-01-18'; 
-        },2)  
-    } 
+            $scope.addNewRequest.discountCode='tap30-s01-01-18';
+        },2)
+    }
     if(getParameterByName('company')=="enamad"){
         $('.notShowInIframe').hide();
         $('#navigation').hide();
-        $('#features').insertAfter('#register');  
+        $('#features').insertAfter('#register');
         $('#main').css({'padding': '0'});
         $('.meshim_widget_components_chatButton_Button rtl').remove();;
         $('.smooth-scroll').remove();
@@ -83,33 +83,33 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         })
         $('.translate').html('<img style="width: 70px;margin: 0px 0 0px 0;" src="/img/enamad.png"><span style="padding: 6px;font-size: 20px;">نماد اعتماد الکترونیکی</span>');
         $timeout(function(){
-            $scope.addNewRequest.discountCode='etrust-s01-01-18'; 
-        },2)  
-    } 
+            $scope.addNewRequest.discountCode='etrust-s01-01-18';
+        },2)
+    }
 
-   
 
-     
+
+
     //hidden all angular element until angular.js loaded
     $('.firstHide').show();
 
-    //donot show second form in register 
+    //donot show second form in register
     $('#addNewRequestSubmit').hide();
-     
+
     $timeout(function(){
-          $scope.overlay1 =  PlainOverlay.show(document.getElementById('registerSecondBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
+          $scope.overlay1 =  PlainOverlay.show(document.getElementById('registerSecondBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
     },10)
-    
+
     //this parameter use for requesting to the server
     //if false: mean that no request in progress and you can run new request
     var request = false;
     var stateByPostal='';
-    var stateByPostalForEdit='';  
+    var stateByPostalForEdit='';
     var cityByPostal='';
     var cityByPostalForEdit='';
-    
 
-    //dont load from server 
+
+    //dont load from server
     var loadStatic=true;
 
     //set a global variable that show overal language
@@ -128,11 +128,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.pass = passStatic;
             $scope.district = districtStatic;
             $scope.floor = floorStatic;
-            $scope.PersonType =  PersonTypeStatic; 
+            $scope.PersonType =  PersonTypeStatic;
             $scope.AdressStatus =  adressStatusStatic;
         }
         else{
-        
+
             //this function get list of all state
             Model.stateList().then(function (data) {
 
@@ -165,10 +165,10 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
                                 //this function get list of all addressStatus
                                 Model.addressStatus().then(function (data) {
-                                    
+
                                     //save all PersonType to this parameter
                                     $scope.AdressStatus = data;
- 
+
                                 }, function (error) {
                                 }).finally(function () {
                                     //this mean : no requset in progress
@@ -224,34 +224,34 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $.each(stateStatic , function(index,value){
                 if(value.id==stateIdTemp){
                     $scope.city = value.city_set;
-                    if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){ 
-                        $timeout(function(){ 
+                    if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){
+                        $timeout(function(){
                             $("#addNewRequestCity").val(cityByPostal);
                             $("#addNewRequestCity").attr('disabled','disabled');
                             $scope.loadPrice(cityByPostal,stateByPostal);
                             $scope.checkPostal();
 
                         },50)
-                    } 
+                    }
 
                 }
             })
 
         }
-        else{  
+        else{
             Model.cityList(stateIdTemp).then(function (data) {
                 //save all city to this parameter
                 $scope.city = data.data;
 
-                if(cityByPostal != '0'&& cityByPostal != ''){ 
+                if(cityByPostal != '0'&& cityByPostal != ''){
                     $timeout(function(){
                         $("#addNewRequestCity").val(cityByPostal);
                         $("#addNewRequestCity").attr('disabled','disabled');
                         $scope.loadPrice(cityByPostal,stateByPostal);
                         $scope.checkPostal()
                     },50)
-                } 
-                
+                }
+
             }, function (error) {
 
             }).finally(function () {
@@ -259,7 +259,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             });
         }
     }
- 
+
     function loadCityForEdit(){
 
         var stateIdTemp=$("#editRequestState option:selected").val();
@@ -268,33 +268,33 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 if(value.id==stateIdTemp){
                     $scope.city = value.city_set;
                     console.log(cityByPostalForEdit)
-                    if(cityByPostalForEdit != '0'&& cityByPostalForEdit != ''&& cityByPostalForEdit && cityByPostalForEdit != undefined &&  cityByPostalForEdit!=null && cityByPostalForEdit!='null'){ 
-                        $timeout(function(){ 
+                    if(cityByPostalForEdit != '0'&& cityByPostalForEdit != ''&& cityByPostalForEdit && cityByPostalForEdit != undefined &&  cityByPostalForEdit!=null && cityByPostalForEdit!='null'){
+                        $timeout(function(){
                             $("#editRequestCity").val(cityByPostalForEdit);
                             $("#editRequestCity").attr('disabled','disabled');
                             $scope.checkPostalForEdit();
 
                         },50)
-                    } 
+                    }
 
                 }
             })
 
         }
-        else{  
+        else{
             Model.cityList(stateIdTemp).then(function (data) {
                 //save all city to this parameter
                 $scope.city = data.data;
 
-                if(cityByPostalForEdit != '0'&& cityByPostalForEdit != ''){ 
+                if(cityByPostalForEdit != '0'&& cityByPostalForEdit != ''){
                     $timeout(function(){
                         $("#editRequestCity").val(cityByPostalForEdit);
                         $("#editRequestCity").attr('disabled','disabled');
                         $scope.loadPrice(cityByPostalForEdit,stateByPostalForEdit);
                         $scope.checkPostalForEdit()
                     },50)
-                } 
-                
+                }
+
             }, function (error) {
 
             }).finally(function () {
@@ -302,7 +302,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             });
         }
     }
- 
+
     //if state change , citys must be loaded
     $("#addNewRequestState").on("change", function () {
         loadCity();
@@ -353,7 +353,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     //get information and status of letter
     $scope.editLoadRequestFunction = function (value) {
- 
+
         if (request == true) return;
         request = true;
 
@@ -372,23 +372,23 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.editRequest.PostalCode1 = data.postcode;
 
             $.each(stateStatic , function(index,value){
-                $.each(value.city_set, function(index2 , value2){ 
-                    if(value2.id==data.city.id){ 
+                $.each(value.city_set, function(index2 , value2){
+                    if(value2.id==data.city.id){
                         $scope.editRequest.State = value.id;
-                        stateByPostalForEdit = value.id; 
+                        stateByPostalForEdit = value.id;
                         $scope.city = value.city_set;
 
                         $scope.editRequest.City = data.city.id;
                         cityByPostalForEdit = data.city.id;
-                        $timeout(function(){  
+                        $timeout(function(){
                             $("#editRequestState").val(stateByPostalForEdit);
-                            $("#editRequestState").attr('disabled','disabled'); 
-                      
+                            $("#editRequestState").attr('disabled','disabled');
+
                             $("#editRequestCity").val(cityByPostalForEdit);
-                            $("#editRequestCity").attr('disabled','disabled'); 
-                        },250)  
+                            $("#editRequestCity").attr('disabled','disabled');
+                        },250)
                      }
-                }) 
+                })
             })
 
 
@@ -397,45 +397,45 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
             if(data.district_type && data.district_type.id){
                 $scope.editRequest.VillageDrop = data.district_type.id;
-                $timeout(function(){   
+                $timeout(function(){
                     $('#editRequestVillageDrop').val(data.district_type.id)
-                },250)   
+                },250)
             }else{
                 $scope.editRequest.VillageDrop = '';
-            } 
+            }
 
-            $scope.editRequest.VillageTxt = data.district; 
+            $scope.editRequest.VillageTxt = data.district;
 
 
             if(data.pass_type_1 && data.pass_type_1.id){
                 $scope.editRequest.MainRoadDrop = data.pass_type_1.id;
-                $timeout(function(){   
+                $timeout(function(){
                     $('#editRequestMainRoadDrop').val(data.pass_type_1.id)
-                },250)   
+                },250)
             }else{
                 $scope.editRequest.MainRoadDrop = '';
-            } 
+            }
 
             $scope.editRequest.MainRoadTxt = data.pass_1;
 
-            
+
             if(data.pass_type_2 && data.pass_type_2.id){
                 $scope.editRequest.SecondaryRoadDrop1 = data.pass_type_2.id;
-                $timeout(function(){   
+                $timeout(function(){
                     $('#editRequestSecondaryRoadDrop1').val(data.pass_type_2.id)
-                },250)   
+                },250)
             }else{
                 $scope.editRequest.SecondaryRoadDrop1 = '';
             }
 
             $scope.editRequest.SecondaryRoadTxt1 = data.pass_2;
 
-            
+
             if(data.pass_type_3 && data.pass_type_3.id){
                 $scope.editRequest.SecondaryRoadDrop2 = data.pass_type_3.id;
-                $timeout(function(){   
+                $timeout(function(){
                     $('#editRequestSecondaryRoadDrop2').val(data.pass_type_3.id)
-                },250)  
+                },250)
             }else{
                 $scope.editRequest.SecondaryRoadDrop2 = '';
             }
@@ -445,27 +445,27 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             if(data.has_no_plaque==true){
                 $scope.editRequest.Plaque = '';
                 $("#editRequestPlaque").val('عدم وجود پلاک')
-                $("#editRequestPlaque").attr("disabled", "disabled"); 
+                $("#editRequestPlaque").attr("disabled", "disabled");
                 $scope.editRequest.HasNoPlaque = data.has_no_plaque;
             }else{
                 $scope.editRequest.Plaque = data.plaque;
                 $scope.editRequest.HasNoPlaque = false;
             }
- 
+
             if(data.floor && data.floor.id){
-                $scope.editRequest.Floor = data.floor.id; 
-                $timeout(function(){   
-                    $('#editRequestFloor').val(data.floor.id) 
-                    $('#editRequestFloor').trigger('change'); 
-                },250)  
+                $scope.editRequest.Floor = data.floor.id;
+                $timeout(function(){
+                    $('#editRequestFloor').val(data.floor.id)
+                    $('#editRequestFloor').trigger('change');
+                },250)
             }else{
                 $scope.editRequest.Floor = '';
             }
 
-            $scope.editRequest.Unit = data.unit_no;  
+            $scope.editRequest.Unit = data.unit_no;
             $scope.editRequest.BuildingName = data.building;
- 
- 
+
+
         }, function (error) {
            // if (error.error = 'NOT_FOUND') {
                 $scope.edit.error = $rootScope.lang == 'fa' ? 'اطلاعات وارد شده صحیح نمی باشد ، لطفا مجددا اطلاعات را با دقت وارد نمایید ' : 'The information entered is incorrect, please re enter information carefully ';
@@ -636,7 +636,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             { if (data.pass_type_3 != '' && data.pass_3 != '') { pass += data.pass_type_3.label + ' ' + data.pass_3 + ' ' } }
 
              $scope.resendGet.success1 = $rootScope.lang == 'fa' ? ('  نامه اعتبار سنجی مورد نظر شما برای   ' + data.first_name + ' ' + data.last_name + '  می باشد  ') : ('  Verification letter for  ' + data.first_name + ' ' + data.last_name);
-             
+
             if ($rootScope.lang == 'fa') {
 
                 $scope.resendGet.success2 = '  و به  نشانی   ' ;
@@ -735,9 +735,9 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         Model.checkPostalcode($scope.addNewRequest.PostalCode1).then(function (data) {
             $scope.truePostalAddress = data;
             $scope.checkPostal();
-  
-            var postalCodeText='<div> آدرس : '; 
-            
+
+            var postalCodeText='<div> آدرس : ';
+
             if(data.province){
                 postalCodeText+=  data.province
             }
@@ -761,44 +761,44 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             }
             if(data.house_number){
                 postalCodeText+= ' ، پلاک '+ data.house_number
-            } 
+            }
             if(data.building_name && !data.building_name.trim()==''){
                 postalCodeText+= ' ، ساختمان '+ data.building_name
-            } 
+            }
             if(data.floor){
                 postalCodeText+= ' ، طبقه '+ data.floor
-            } 
-   
+            }
+
             postalCodeText+='</div>';
-            
+
 
             $('#postalSelect').html(postalCodeText)
- 
+
 
             if(data.province_id && data.province_id !=null && data.province_id!='null' && data.city_id && data.city_id!=null && data.city_id!="null" ){
                 stateByPostal=data.province_id+'';
                 $("#addNewRequestState").val(data.province_id+'');
-                $("#addNewRequestState").attr('disabled','disabled'); 
-                cityByPostal=data.city_id+'';      
-                loadCity(); 
+                $("#addNewRequestState").attr('disabled','disabled');
+                cityByPostal=data.city_id+'';
+                loadCity();
             }else{
                 cityByPostal='';
                 stateByPostal='';
             }
-        
+
             // $scope.addNewRequest.MainRoadTxt=data.sub_locality;
             // $scope.addNewRequest.SecondaryRoadTxt1=data.street
             // $scope.addNewRequest.SecondaryRoadTxt2=data.street2;
             // if(data.house_number){
             //     $scope.addNewRequest.Plaque=data.house_number;
             // }else{
-            //     $scope.addNewRequest.HasNoPlaque=true; 
+            //     $scope.addNewRequest.HasNoPlaque=true;
             //     $("#addNewRequestPlaque").val('عدم وجود پلاک')
-            //     $("#addNewRequestPlaque").attr("disabled", "disabled"); 
-            // } 
+            //     $("#addNewRequestPlaque").attr("disabled", "disabled");
+            // }
             // $scope.addNewRequest.Floor=data.floor;
             // $scope.addNewRequest.BuildingName=data.building_name
- 
+
 
         }, function (error) {
             $scope.truePostalAddress = '';
@@ -808,7 +808,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
         });
     };
- 
+
     //get this postal code information(city and province)
     $scope.checkPostalCodeForEdit = function () {
         $("#editRequestCity").removeAttr('disabled');
@@ -817,9 +817,9 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         Model.checkPostalcode($scope.editRequest.PostalCode1).then(function (data) {
             $scope.truePostalAddressForEdit = data;
             $scope.checkPostalForEdit();
- 
-            // var postalCodeText='<div> آدرس : '; 
-            
+
+            // var postalCodeText='<div> آدرس : ';
+
             // if(data.province){
             //     postalCodeText+=  data.province
             // }
@@ -843,31 +843,31 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             // }
             // if(data.house_number){
             //     postalCodeText+= ' ، پلاک '+ data.house_number
-            // } 
+            // }
             // if(data.building_name && !data.building_name.trim()==''){
             //     postalCodeText+= ' ، ساختمان '+ data.building_name
-            // } 
+            // }
             // if(data.floor){
             //     postalCodeText+= ' ، طبقه '+ data.floor
-            // } 
-   
+            // }
+
             // postalCodeText+='</div>';
-            
+
 
             // $('#postalSelect').html(postalCodeText)
- 
+
 
             if(data.province_id && data.province_id !=null && data.province_id!='null' && data.city_id && data.city_id!=null && data.city_id!="null" ){
                 stateByPostalForEdit=data.province_id+'';
                 $("#editRequestState").val(data.province_id+'');
-                $("#editRequestState").attr('disabled','disabled'); 
-                cityByPostalForEdit=data.city_id+'';      
-                loadCityForEdit(); 
+                $("#editRequestState").attr('disabled','disabled');
+                cityByPostalForEdit=data.city_id+'';
+                loadCityForEdit();
             }else{
                 cityByPostalForEdit='';
                 stateByPostalForEdit='';
             }
-        
+
         }, function (error) {
             $scope.truePostalAddressForEdit = '';
             cityByPostalForEdit='';
@@ -876,7 +876,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
         });
     };
- 
+
     //before reporting letter , must load letter information
     $scope.reportRequestConfirmFunction = function (value) {
 
@@ -903,7 +903,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             { if (data.pass_type_3 != '' && data.pass_3 != '') { pass += data.pass_type_3.label + ' ' + data.pass_3 + ' ' } }
 
              $scope.confirm.success1 = $rootScope.lang == 'fa' ? ('  نامه اعتبار سنجی مورد نظر شما برای   ' + data.first_name + ' ' + data.last_name + '  می باشد  ') : ('  Verification letter for  ' + data.first_name + ' ' + data.last_name);
-              
+
             if ($rootScope.lang == 'fa') {
                 $scope.confirm.success2 = '  و به  نشانی   ' ;
                 if(data.city){
@@ -953,7 +953,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 if(data.city)
                 {
                     $scope.confirm.success2 += data.city.label;
-                } 
+                }
             }
 
             $scope.confirm.success3 = $rootScope.lang == 'fa' ? " یا مایل هستید گزارش کنید که آدرس برای فرد مذکور اشتباه است ؟  " : 'Do you wish to report an address to the wrong person?';
@@ -993,23 +993,23 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             request = false;
         });
     };
- 
+
     $scope.goToNextSectionWithoutVerification = function (){
         if($scope.sendSmsCount==2){
             //if 2 time dont send sms , skip verification and go to next step
-            $scope.overlay1.hide();            
+            $scope.overlay1.hide();
             $('#smsVerificationForm').slideUp('fast', function() {
-                $scope.overlay2 = PlainOverlay.show(document.getElementById('registerFirstBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
+                $scope.overlay2 = PlainOverlay.show(document.getElementById('registerFirstBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
             });
 
             $scope.smsVerificationSuccess=true;
             $('#addNewRequestSubmit').show();
-            
+
             return;
         }
 
     }
- 
+
     $scope.sendSmsCount=0;
 
     //send sms for validation phone
@@ -1017,7 +1017,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         if(request==true){
             return;
         }
-        request=true; 
+        request=true;
         $scope.smsStatus= $rootScope.lang == 'fa' ?'لطفا کمی صبر کنید':'please wait...';
         if($scope.sendSmsCount==3){
             $scope.smsStatus='تعداد دفعات مجاز به پایان رسیده است ، لطفا 24 ساعت دیگر امتحان نمایید.'
@@ -1025,25 +1025,25 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         }
         $('#sendSms').hide();
         $('#smsVerificationForm').hide();
-        
+
         //send new sms to user
         Model.sendSms($scope.addNewRequest.NationalCode , $scope.addNewRequest.PhoneNumber).then(function (data) {
-         
-            $scope.smsStatus=''; 
-            $scope.overlay1.hide(); 
 
-             if(data.is_verified){  
-                $scope.overlay2 = PlainOverlay.show(document.getElementById('registerFirstBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
+            $scope.smsStatus='';
+            $scope.overlay1.hide();
+
+             if(data.is_verified){
+                $scope.overlay2 = PlainOverlay.show(document.getElementById('registerFirstBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
                 $scope.smsVerificationSuccess=true;
                 $('#addNewRequestSubmit').show();
-            }else{ 
-                
+            }else{
+
                 $('#smsVerificationForm').slideDown('fast', function() {
-                    $scope.overlay1=PlainOverlay.show(document.getElementById('registerSecondBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
-                }); 
-            
-                $scope.sendSmsCount++; 
-                $scope.sendAgain=false; 
+                    $scope.overlay1=PlainOverlay.show(document.getElementById('registerSecondBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
+                });
+
+                $scope.sendSmsCount++;
+                $scope.sendAgain=false;
                 $scope.sendAgainTimer=120;
                 var timer = $interval(function(){
                     $scope.sendAgainTimer= $scope.sendAgainTimer-1;
@@ -1052,7 +1052,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                         $interval.cancel(timer)
                     }
                 },1000)
-            } 
+            }
 
 
         }, function (error) {
@@ -1061,29 +1061,29 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             }else{
                 $scope.smsStatus= $rootScope.lang == 'fa' ? 'با عرض پوزش ، خطایی رخ داده است ، لطفا کمی بعد مجددا اقدام نمایید. ' : 'Sorry, an error has occurred. Please try again later';
                 $('#sendSms').show();
-             } 
-     
+             }
+
         }).finally(function () {
             request = false;
-        }); 
+        });
     }
- 
+
     //send secret code for validation phone
     $scope.sendSmsVerification=function(){
- 
+
         Model.sendSmsVerification($scope.addNewRequest.NationalCode , $scope.addNewRequest.PhoneNumber ,$scope.phoneNumberValidation).then(function (data) {
-              
-            $scope.overlay1.hide();            
+
+            $scope.overlay1.hide();
             $('#smsVerificationForm').slideUp('fast', function() {
-                $scope.overlay2 = PlainOverlay.show(document.getElementById('registerFirstBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
+                $scope.overlay2 = PlainOverlay.show(document.getElementById('registerFirstBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
             });
 
             $scope.smsVerificationSuccess=true;
             $('#addNewRequestSubmit').show();
-            
-           
+
+
         }, function (error) {
- 
+
             $scope.smsStatus='کد تایید وارد شده معتبر نمی باشد'//error.data.error_description;
             // if (error.error = 'NOT_FOUND') {
             //     $scope.addNewRequest.error = $rootScope.lang == 'fa' ? 'اطلاعات وارد شده صحیح نمی باشد ، لطفا مجددا اطلاعات را با دقت وارد نمایید ' : 'The information entered is incorrect, please re enter information carefully ';
@@ -1093,12 +1093,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             // }
         }).finally(function () {
             request = false;
-        }); 
+        });
 
     }
- 
+
     //check city and province with postal code information
-    $scope.checkPostal = function () { 
+    $scope.checkPostal = function () {
         if ($scope.truePostalAddress && $scope.truePostalAddress.province_id != null && $scope.addNewRequest.State != "0" && ($scope.truePostalAddress.province_id != $scope.addNewRequest.State)) {
             $scope.addNewRequest.error = $rootScope.lang == 'fa' ? 'استان و شهر وارد شده منطبق با کد پستی نیست، لطفا کد پستی و یا استان و شهر متناظر را تصحیح کنید' : 'The province and the city entered is not in accordance with postal code, postal Code or city and province the corresponding correct',
           $scope.addNewRequest.postKind = false;
@@ -1114,14 +1114,14 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.addNewRequest.error = false;
         }
     };
- 
+
     //check city and province with postal code information
-    $scope.checkPostalForEdit = function () { 
+    $scope.checkPostalForEdit = function () {
         if ($scope.truePostalAddressForEdit && $scope.truePostalAddressForEdit.province_id != null && $scope.truePostalAddressForEdit.city_id != null && $scope.truePostalAddressForEdit.city_id != '' && $scope.editRequest.City != "0" && ($scope.truePostalAddressForEdit.city_id != $scope.editRequest.City) && $scope.truePostalAddressForEdit.province_id != '' && $scope.editRequest.State != "0" && ($scope.truePostalAddressForEdit.province_id != $scope.editRequest.State)) {
             $scope.editRequest.error = $rootScope.lang == 'fa' ? 'استان و شهر وارد شده منطبق با کد پستی نیست، لطفا کد پستی و یا استان و شهر متناظر را تصحیح کنید' : 'The province and the city entered is not in accordance with postal code, postal Code or city and province the corresponding correct',
           $scope.editRequest.postKind = false;
             return;
-        } 
+        }
             //if no information found for postal code from POST serer (city code and province code) or the request failed , then user can provice city and province himself;
         else {
             $scope.editRequest.error = false;
@@ -1164,11 +1164,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 $scope.addNewRequestFunction($scope.addNewRequest)
             }else{
 				$log.info('We found irpost is not entered as discount code');
-                $scope.notShowPostSendingPriceBox=false;                
+                $scope.notShowPostSendingPriceBox=false;
             }
 
-            $scope.addNewRequest.postKind = true; 
-			$log.info('Now add new request kind = true');
+            $scope.addNewRequest.postKind = true;
+			      $log.info('Now add new request kind = true');
             $scope.$apply();
             $scope.addNewRequest.error = false;
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
@@ -1201,11 +1201,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
 
             // show overlay transparent layer
-            //$('#overlay').show();
-			$log.info('We are in Scope.overlay3');
-            $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});    
- 
-        } 
+            $('#overlay').show();
+			      $log.info('We are in Scope.overlay3 by kashian');
+            $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
+
+        }
     };
 
     //cancel select post shipping
@@ -1245,7 +1245,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             // hide overlay transparent layer
             //$('#overlay').hide();
             $scope.overlay3.hide();
-            
+
         }
     };
 
@@ -1275,7 +1275,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         } else {
             $scope.addNewRequest.Floor = '';
         }
-        
+
         if(cityByPostal && cityByPostal!=null && cityByPostal !='null'){
             $scope.addNewRequest.City = cityByPostal;
         }
@@ -1287,10 +1287,10 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.addNewRequest.Plaque='';
             $scope.addNewRequest.HasNoPlaque=true;
         }
-             
+
         //send new requset to server
         Model.requestNew($scope.addNewRequest).then(function (data) {
-
+            console.log('We should go to bank Page now');
             //server response is url of bank , we redirect user to this url
             window.location.href = data.redirect_url;
         }, function (error) {
@@ -1302,11 +1302,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             }
         }).finally(function () {
             $('#addNewRequestSendStatus').html('')
-            
+
             request = false;
         });
     };
-  
+
     //add Edit requset function
     $scope.editRequestFunction = function () {
 
@@ -1316,12 +1316,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.editRequest.error = $rootScope.lang == 'fa' ? ' لطفا معبر اصلی یا معبر فرعی خود را مشخص کنید' : 'Please specify your main crossing or crossing subsidiary';
              return;
         }
-        
+
         // check  province with postal code information
         else if ($scope.truePostalAddressForEdit && $scope.truePostalAddressForEdit.province_id != null  && $scope.truePostalAddressForEdit.city_id != null && $scope.truePostalAddressForEdit.city_id != '' && $scope.editRequest.City != "0" && ($scope.truePostalAddressForEdit.city_id != $scope.editRequest.City) && $scope.truePostalAddressForEdit.province_id != '' && $scope.editRequest.State != "0" && ($scope.truePostalAddressForEdit.province_id != $scope.editRequest.State)) {
             $scope.editRequest.error = $rootScope.lang == 'fa' ? 'استان و شهر وارد شده منطبق با کد پستی نیست، لطفا کد پستی و یا استان و شهر متناظر را تصحیح کنید' : 'The province and the city entered is not in accordance with postal code, postal Code or city and province the corresponding correct';
              return;
-        } 
+        }
 
         //disable new request button
         $('#editRequestSubmit').attr('disabled', 'disabled');
@@ -1333,14 +1333,14 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
 
         $scope.editRequest.error = '';
- 
+
 
         if ($scope.editRequest.Floor && $scope.editRequest.Floor[0]) {
             $scope.editRequest.Floor = $scope.editRequest.Floor[0]
         } else {
             $scope.editRequest.Floor = '';
         }
-        
+
         if(cityByPostalForEdit && cityByPostalForEdit!=null && cityByPostalForEdit !='null'){
             $scope.editRequest.City = cityByPostalForEdit;
         }
@@ -1352,10 +1352,10 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.editRequest.Plaque='';
             $scope.editRequest.HasNoPlaque=true;
         }
-             
+
         $scope.editRequest.success='';
         $scope.editRequest.error='';
-        
+
         //send new requset to server
         Model.requestEdit($scope.editRequest).then(function (data) {
 
@@ -1373,11 +1373,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 $scope.editRequest.error = $rootScope.lang == 'fa' ? 'با عرض پوزش ، خطایی رخ داده است ، لطفا کمی بعد مجددا اقدام نمایید. ' : 'Sorry, an error has occurred. Please try again later';
             }
         }).finally(function () {
-             
+
             request = false;
         });
     };
-  
+
     //user can send message to us
     $scope.addNewMessageFunction = function (value) {
 
@@ -1436,7 +1436,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         if((discountCode+'').toLowerCase().trim()=='irpost'){
 
             $scope.discount=100;
-            
+
         }else{
             //if discount code length be 6 , checking start
             if(discountCode.length==6 && !request){
@@ -1459,7 +1459,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                     request = false;
                 });
             }
-        } 
+        }
     };
 
     // all validation status
@@ -1476,25 +1476,25 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         'not_verified': 'نامه اعتبارسنجی نشانی هنوز تصدیق نشده است و به انتهای دوره انقضا نزدیک گردیده است.',
         'reported': 'گزارشی دریافت شده است مبنی بر خطای آدرس یا عدم حضور شهروند در نشانی قید شده در نامه اعتبارسنجی. لطفا با امور مشتریان فورا تماس تلفنی بگیرید.'
     };
- 
 
-    $('#addNewRequestHasNoPlaque').on('change',function () { 
+
+    $('#addNewRequestHasNoPlaque').on('change',function () {
         if( $('#addNewRequestHasNoPlaque').is(':checked')){
             $("#addNewRequestPlaque").val('عدم وجود پلاک')
-            $("#addNewRequestPlaque").attr("disabled", "disabled");  
+            $("#addNewRequestPlaque").attr("disabled", "disabled");
         }else{
             $("#addNewRequestPlaque").val('')
-            $("#addNewRequestPlaque").removeAttr("disabled");  
+            $("#addNewRequestPlaque").removeAttr("disabled");
         }
     });
 
-    $('#editRequestHasNoPlaque').on('change',function () { 
+    $('#editRequestHasNoPlaque').on('change',function () {
         if( $('#editRequestHasNoPlaque').is(':checked')){
             $("#editRequestPlaque").val('عدم وجود پلاک')
-            $("#editRequestPlaque").attr("disabled", "disabled");  
+            $("#editRequestPlaque").attr("disabled", "disabled");
         }else{
             $("#editRequestPlaque").val('')
-            $("#editRequestPlaque").removeAttr("disabled");  
+            $("#editRequestPlaque").removeAttr("disabled");
         }
     });
 
@@ -1550,7 +1550,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         var arabicValue=this;
         if (!arabicValue) {
             return '';
-        } 
+        }
         var arabicChars = ["ي", "ك", "‍", "دِ", "بِ", "زِ", "ذِ", "ِشِ", "ِسِ", "‌", "ى"],
             persianChars = ["ی", "ک", "", "د", "ب", "ز", "ذ", "ش", "س", "", "ی"];
 
@@ -1690,7 +1690,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     $.formUtils.addValidator({
         name: 'CheckPostalCode',
         validatorFunction: function (value, $el, config, language, $form) {
-             
+
             if ($scope.truePostalAddress && $scope.truePostalAddress.province_id != null && $scope.addNewRequest.State != "0" && ($scope.truePostalAddress.province_id != $scope.addNewRequest.State)) {
                return false;
             }
@@ -1705,15 +1705,15 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         errorMessageKey: 'CheckPostalCode'
     });
 
- 
-    
+
+
     //CheckPostalCode real time validator for edit form
     $.formUtils.addValidator({
         name: 'CheckPostalCodeForEdit',
         validatorFunction: function (value, $el, config, language, $form) {
-             
+
             if ($scope.truePostalAddressForEdit && $scope.truePostalAddressForEdit.province_id != null && $scope.truePostalAddressForEdit.city_id != null && $scope.editRequest.City != "0" && ($scope.truePostalAddressForEdit.city_id != $scope.editRequest.City) && $scope.editRequest.State != "0" && ($scope.truePostalAddressForEdit.province_id != $scope.editRequest.State)) {
-           
+
                   return false;
             }
             else {
@@ -1746,7 +1746,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     });
 
 
- 
+
 
     //added validator to add New Request Form
     $.validate({
@@ -1801,7 +1801,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         scrollToTopOnError: false
     });
 
-    
+
     //added validator to resend Request Form
     $.validate({
         language: $rootScope.lang == 'fa' ? myLanguage : '',
@@ -1844,7 +1844,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         scrollToTopOnError: false
     });
     $('.btn-center').css({ 'text-align': 'center' });
-    
+
     //end of validation
 
 

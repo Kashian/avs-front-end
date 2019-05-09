@@ -7,7 +7,7 @@
  © 1395-1398 (2016-2019)
  Website: rojina(www.rojina.com)
  */
- 
+
 'use strict';
 angular.module('post.Model', [])
  .factory('Model', ['$http',
@@ -156,7 +156,7 @@ angular.module('post.Model', [])
             return $http({
                 url: apiBaseUrl + 'default-company/request/postcode-info?postcode=' + PostalCode,
                 method: "POST",
-                headers: { 
+                headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Origin':'http://www.avs.post.ir/'
                 }
@@ -213,7 +213,7 @@ angular.module('post.Model', [])
 
 
 
-        //requestNew
+        //requestNew :: New Letter Request Function
         Model.requestNew = function (Value) {
             return $http({
                 url: apiBaseUrl + 'default-company/request/new',
@@ -295,8 +295,8 @@ angular.module('post.Model', [])
                    // company_request_type_id: Value.companyRequestTypeId,
                     // template_id: 1,
                     // duration: 12,
-                    // resend_period: 13, 
-                    building: Value.BuildingName, 
+                    // resend_period: 13,
+                    building: Value.BuildingName,
                     api_key: '4b3025ca-357a-4ffb-aa68-6655e4b617d7``'
 
                 }
@@ -366,7 +366,7 @@ angular.module('post.Model', [])
                 }
             }).then(function (result) { return result.data; });
         };
-        
+
 
 
         //rquestResend
@@ -430,7 +430,7 @@ angular.module('post.Model', [])
                 }
             }).then(function (result) { return result.data; });
         };
-        
+
         //newsletter
         Model.newsletter = function (email) {
             return $http({
@@ -468,7 +468,7 @@ angular.module('post.Model', [])
                 }
             }).then(function (result) { return result.data; });
         };
-        
+
 
         //send sms
         Model.sendSmsVerification = function (national_id , cell , secret_code) {
@@ -489,37 +489,9 @@ angular.module('post.Model', [])
                 }
             }).then(function (result) { return result.data; });
         };
-        
+
 
 
 
         return Model;
     }]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
