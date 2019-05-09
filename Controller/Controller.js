@@ -227,6 +227,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                         $timeout(function(){
                             $("#addNewRequestCity").val(cityByPostal);
                             $("#addNewRequestCity").attr('disabled','disabled');
+                            console.log('we start loading price now'+cityByPostal+'  '+stateByPostal);
                             $scope.loadPrice(cityByPostal,stateByPostal);
                             $scope.checkPostal();
 
@@ -246,6 +247,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                     $timeout(function(){
                         $("#addNewRequestCity").val(cityByPostal);
                         $("#addNewRequestCity").attr('disabled','disabled');
+                        console.log('This is here: we start loading price now'+cityByPostal+'  '+stateByPostal);
                         $scope.loadPrice(cityByPostal,stateByPostal);
                         $scope.checkPostal()
                     },50)
