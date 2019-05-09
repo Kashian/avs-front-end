@@ -734,45 +734,48 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         Model.checkPostalcode($scope.addNewRequest.PostalCode1).then(function (data) {
             $scope.truePostalAddress = data;
             $scope.checkPostal();
+            if (data.success)
+            {
+                      var postalCodeText='<div> آدرس : ';
 
-            var postalCodeText='<div> آدرس : ';
+                      if(data.province){
+                          postalCodeText+=  data.province
+                      }
+                      if(data.town_ship){
+                          postalCodeText+= ' ، '+ data.town_ship
+                      }
+                      if(data.locality_name){
+                          postalCodeText+= ' ، '+ data.locality_name
+                      }
+                      if(data.village){
+                          postalCodeText+= ' ، '+ data.village
+                      }
+                      if(data.sub_locality){
+                          postalCodeText+= ' ، '+ data.sub_locality
+                      }
+                      if(data.street_1st){
+                          postalCodeText+= ' ، '+ data.street_1st
+                      }
+                      if(data.street_2nd){
+                          postalCodeText+= ' ، '+ data.street_2nd
+                      }
+                      if(data.house_number){
+                          postalCodeText+= ' ، پلاک '+ data.house_number
+                      }
+                      if(data.building_name && !data.building_name.trim()==''){
+                          postalCodeText+= ' ، ساختمان '+ data.building_name
+                      }
+                      if(data.floor){
+                          postalCodeText+= ' ، طبقه '+ data.floor
+                      }
 
-            if(data.province){
-                postalCodeText+=  data.province
-            }
-            if(data.town_ship){
-                postalCodeText+= ' ، '+ data.town_ship
-            }
-            if(data.locality_name){
-                postalCodeText+= ' ، '+ data.locality_name
-            }
-            if(data.village){
-                postalCodeText+= ' ، '+ data.village
-            }
-            if(data.sub_locality){
-                postalCodeText+= ' ، '+ data.sub_locality
-            }
-            if(data.street_1st){
-                postalCodeText+= ' ، '+ data.street_1st
-            }
-            if(data.street_2nd){
-                postalCodeText+= ' ، '+ data.street_2nd
-            }
-            if(data.house_number){
-                postalCodeText+= ' ، پلاک '+ data.house_number
-            }
-            if(data.building_name && !data.building_name.trim()==''){
-                postalCodeText+= ' ، ساختمان '+ data.building_name
-            }
-            if(data.floor){
-                postalCodeText+= ' ، طبقه '+ data.floor
-            }
+                      postalCodeText+='</div>';
 
-            postalCodeText+='</div>';
-
-
+            }
+            else {
+              console.log ('We didnt find the postcode');
+            }
             $('#postalSelect').html(postalCodeText)
-
 
             if(data.province_id && data.province_id !=null && data.province_id!='null' && data.city_id && data.city_id!=null && data.city_id!="null" ){
                 stateByPostal=data.province_id+'';
@@ -781,8 +784,9 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 cityByPostal=data.city_id+'';
                 loadCity();
             }else{
-                cityByPostal='';
-                stateByPostal='';
+              console.log ('We didnt find the postcode and we set it to tehran');
+                cityByPostal='1';
+                stateByPostal='1';
             }
 
             // $scope.addNewRequest.MainRoadTxt=data.sub_locality;
