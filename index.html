@@ -858,13 +858,13 @@
                                         </tr>
                                         <tr>
                                             <td>{{'text_96' = translate}} </td>
-                                            <td ng-bind="(SelectedPostMethod.price) + ' {{'text_97' = translate}} '"></td>
-                                            <!-- <td ng-bind="(SelectedPostMethod.price-(SelectedPostMethod.price*discount)/100) + ' {{'text_97' = translate}} '"></td> -->
+                                            <!--td ng-bind="(SelectedPostMethod.price) + ' {{'text_97' = translate}} '"></td-->
+                                            <td ng-bind="(SelectedPostMethod.price-(SelectedPostMethod.price*discount)/100) + ' {{'text_97' = translate}} '"></td>
                                         </tr>
                                         <tr>
                                             <td>{{'text_98' = translate}}</td>
-                                            <td ng-bind="(SelectedPostMethod.price*0.09 )+ ' {{'text_97' = translate}} '"></td>
-                                            <!-- <td ng-bind="((SelectedPostMethod.price-(SelectedPostMethod.price*discount)/100)*0.09 )+ ' {{'text_97' = translate}} '"></td> -->
+                                            <!--td ng-bind="(SelectedPostMethod.price*0.09 )+ ' {{'text_97' = translate}} '"></td-->
+                                            <td ng-bind="((SelectedPostMethod.price-(SelectedPostMethod.price*discount)/100)*0.09 )+ ' {{'text_97' = translate}} '"></td>
                                         </tr>
                                         <tr>
                                             <td>میزان تخفیف</td>
@@ -1421,9 +1421,9 @@
                         <div class="col-lg-12 form-group">
                             <div class="col-lg-5 col-md-5 col-md-pull-3 pull-right col-lg-pull-4 ">
 
-                               <!-- <select id="resendKindSend" ng-model="resend.KindSend" ng-init="resend.KindSend=''" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' {{'text_97' = translate}} ' for value in sendType2">
+                               <select id="resendKindSend" ng-model="resend.KindSend" ng-init="resend.KindSend=''" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' {{'text_97' = translate}} ' for value in sendType2">
                                     <option value="" selected disabled>{{'text_106' = translate}}</option>
-                                </select>-->
+                                </select>
 
 
 
