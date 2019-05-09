@@ -227,7 +227,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                     $scope.city = value.city_set;
 
                     //debug - must be removed
-                    cityByPostal='1';
+                    //cityByPostal='1';
                     stateByPostal='1';
 
                     console.log('scope.city = value.city_set');
@@ -254,9 +254,10 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 //save all city to this parameter
                 $scope.city = data.data;
                 //debug must be removed by kashian added
-                cityByPostal='1';
-                stateByPostal='1';
-                if(cityByPostal != '0'&& cityByPostal != ''){
+
+
+
+                if(cityByPostal != '0' && cityByPostal != ''){
                     $timeout(function(){
                         $("#addNewRequestCity").val(cityByPostal);
                         $("#addNewRequestCity").attr('disabled','disabled');
@@ -596,9 +597,10 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     // this function shows all information of selected option from postage method (EMS, Registered Post, or Ordinary)
     $scope.loadPreview = function (id) {
-        console.log('we are in loadpreview');
+        console.log('we are in loadpreview and id is : '+id);
         if ($scope.sendType) {
             console.log('we are inside sendType scope');
+
             $.each($scope.sendType, function (index, value) {
                     console.log(index+' <index---value>  '+value);
                 if (value.id == id) {
@@ -794,8 +796,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             }
             else {
               console.log ('We didnt find the postcode');
-              cityByPostal='1';
-              stateByPostal='1';
+
+
               postalCodeText='آدرسی از سرور بازیابی نشد به دلیل وجود خطا در سرویس کد پستی';
             }
             $('#postalSelect').html(postalCodeText)
@@ -807,11 +809,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 cityByPostal=data.city_id+'';
                 loadCity();
             }else{
-              // Set to Tehran if postcode service was down
-              stateByPostal='1';
-              $("#addNewRequestState").val('1');
+              // Set to selected State from drop down if post service was down
+              stateByPostal=$scope.addNewRequest.State;
+              cityByPostal=$scope.addNewRequest.City;
+              //$("#addNewRequestState").val('1');
               $("#addNewRequestState").attr('disabled','disabled');
-              cityByPostal='1';
+              // cityByPostal='1';
               loadCity();
               console.log ('We didnt find the postcode and we set it to tehran');
 
@@ -1191,11 +1194,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
              // if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
              $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
 
+             //debug by Kashian
+             statebyPostal=$scope.addNewRequest.State;
 
-
-             $scope.loadPreview($scope.addNewRequest.companyRequestTypeId)
+             $scope.loadPreview($scope.addNewRequest.companyRequestTypeId);
              $scope.notShowPostSendingPriceBox=false;
-             $scope.addNewRequestFunction($scope.addNewRequest)
+             $scope.addNewRequestFunction($scope.addNewRequest);
 
             $scope.addNewRequest.postKind = true;
 			      console.log ('Now add new request kind = true');
@@ -1306,12 +1310,14 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.addNewRequest.Floor = '';
         }
 
-        if(cityByPostal && cityByPostal!=null && cityByPostal !='null'){
-            $scope.addNewRequest.City = cityByPostal;
-        }
-        if(stateByPostal && stateByPostal!=null && stateByPostal!='null'){
-            $scope.addNewRequest.State = stateByPostal;
-        }
+        // This part commented by Alireza Kashian - must be removed...for debug
+        // if(cityByPostal && cityByPostal!=null && cityByPostal !='null'){
+        //     $scope.addNewRequest.City = cityByPostal;
+        // }
+        // if(stateByPostal && stateByPostal!=null && stateByPostal!='null'){
+        //     $scope.addNewRequest.State = stateByPostal;
+        // }
+
 
         if($scope.addNewRequest.Plaque =='0' || $scope.addNewRequest.Plaque==''){
             $scope.addNewRequest.Plaque='';

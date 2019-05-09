@@ -161,14 +161,18 @@ angular.module('post.Model', [])
         //checkPostalCode
 
         Model.checkPostalcode = function (PostalCode) {
-            return $http({
-                url: apiBaseUrl + 'default-company/request/postcode-info?postcode=' + PostalCode,
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Origin':'http://www.avs.post.ir/'
-                }
-            }).then(function (result) { return result.data; });
+            //bypass postal code checking
+            var resultcode='{}';
+            return(resultcode);
+            // Commented by Alireza Kashian for debug ..must be removed
+            // return $http({
+            //     url: apiBaseUrl + 'default-company/request/postcode-info?postcode=' + PostalCode,
+            //     method: "POST",
+            //     headers: {
+            //         'Content-Type': 'application/x-www-form-urlencoded',
+            //         'Origin':'http://www.avs.post.ir/'
+            //     }
+            // }).then(function (result) { return result.data; });
         };
 
         //checkDiscountCode
