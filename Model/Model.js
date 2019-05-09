@@ -70,7 +70,7 @@ angular.module('post.Model', [])
             return $http({
                 url: apiBaseUrl + 'default-company/request-type/list',
                 method: "POST",
-                dataType: "json"
+                dataType: "json",
                 transformRequest: function (obj) {
                     var str = [];
                     for (var p in obj)
