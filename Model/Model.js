@@ -73,9 +73,9 @@ angular.module('post.Model', [])
                 dataType: "json",
                 transformRequest: function (obj) {
                     var str = [];
+                    // "generates city_id=X"
                     for (var p in obj)
                         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-                    console.log(str.join("&"));
                     return str.join("&");
 
                 },
@@ -84,7 +84,7 @@ angular.module('post.Model', [])
                 }
             }).then(function (result) {
               console.log(result);
-              return result.data; });
+              return $.parseJSON(result.data) });
         };
 
         //genderList
