@@ -1192,6 +1192,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         else {
             //if the user has entered irpost as discount code, then disable all the form (new request form)
              // if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
+             console.log('sendType');
+             console.log($scope.sendType[$scope.sendType.length-1].id);
              $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
 
              //debug by Kashian
