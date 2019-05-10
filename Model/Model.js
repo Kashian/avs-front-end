@@ -165,9 +165,9 @@ angular.module('post.Model', [])
 
             // Url changed by alireza kashian for debug
              return $http({
-                //url: apiBaseUrl + 'default-company/request/postcode-info?postcode=' + PostalCode,
-                url: 'http://avs.post.ir/postcode_result.txt',
-                method: "GET",
+                url: apiBaseUrl + 'default-company/request/postcode-info?postcode=' + PostalCode,
+                // debug: url: 'http://avs.post.ir/postcode_result.txt',
+                method: "POST",
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
 
