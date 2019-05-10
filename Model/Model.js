@@ -224,7 +224,6 @@ angular.module('post.Model', [])
         //--------------------------3-request Api---------------------------------------
 
 
-
         //requestNew :: New Letter Request Function
         Model.requestNew = function (Value) {
             return $http({
@@ -268,7 +267,8 @@ angular.module('post.Model', [])
                     building: Value.BuildingName,
                     person_type_id: Value.personType,
                     coupon_code:(Value.discountCode).toLowerCase(),
-                    api_key: '4b3025ca-357a-4ffb-aa68-6655e4b617d7'
+                    api_key: 'a4e67fc97f1b4ad0969c42942652ffad'
+                    // this is api key for Post Company of Iran
 
                 }
             }).then(function (result) { return result.data; });
@@ -309,7 +309,8 @@ angular.module('post.Model', [])
                     // duration: 12,
                     // resend_period: 13,
                     building: Value.BuildingName,
-                    api_key: '4b3025ca-357a-4ffb-aa68-6655e4b617d7``'
+                    api_key: 'a4e67fc97f1b4ad0969c42942652ffad'
+                    // this is api key for Post Company of Iran
 
                 }
             }).then(function (result) { return result.data; });
