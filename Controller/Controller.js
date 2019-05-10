@@ -227,24 +227,21 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                 if(value.id==stateIdTemp){
                     $scope.city = value.city_set;
 
-                    //debug - must be removed
-                    //cityByPostal='1';
-                    //stateByPostal='1';
-
                     console.log('scope.city = value.city_set');
                     console.log(value.city_set);
                     console.log('city by postal: '+cityByPostal);
                     console.log('statebyPostal: '+stateByPostal);
-                    if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){
-                        $timeout(function(){
-                            $("#addNewRequestCity").val(cityByPostal);
-                            $("#addNewRequestCity").attr('disabled','disabled');
-                            console.log('we start loading price now');
-                            $scope.loadPrice(cityByPostal,stateByPostal);
-                            $scope.checkPostal();
 
-                        },50)
-                    }
+                    // if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){
+                    //     $timeout(function(){
+                    //         $("#addNewRequestCity").val(cityByPostal);
+                    //         $("#addNewRequestCity").attr('disabled','disabled');
+                    //         console.log('we start loading price now');
+                    //         $scope.loadPrice(cityByPostal,stateByPostal);
+                    //         $scope.checkPostal();
+                    //
+                    //     },50)
+                    // }
 
                 }
             })
@@ -1191,7 +1188,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             return;
         }
         else {
-            //if the user has entered irpost as discount code, then disable all the form (new request form)
+             //if the user has entered irpost as discount code, then disable all the form (new request form)
              // if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
              console.log('sendType');
              console.log($scope.sendType.length);
