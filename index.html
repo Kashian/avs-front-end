@@ -561,13 +561,13 @@
                                                     <div id="addNewRequestFirstName1-error"></div>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode1" ng-model="addNewRequest.NationalCode" maxlength="13" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_58' = translate}}"
-                                                        data-validation="required  number length" data-validation-length="13" data-validation-error-msg-container="#addNewRequestNationalCode1-error" data-validation-error-msg="{{'validation_11' = translate}}"  >
+                                                    <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode1" ng-model="addNewRequest.NationalCode" maxlength="11" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_58' = translate}}"
+                                                        data-validation="required  number length" data-validation-length="11" data-validation-error-msg-container="#addNewRequestNationalCode1-error" data-validation-error-msg="{{'validation_11' = translate}}"  >
                                                     <div id="addNewRequestNationalCode1-error"></div>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                                     <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber1" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_59' = translate}}"
-                                                        data-validation="required custom" data-validation-length="11-14"  data-validation-regexp="^(0|\+98|98|0098)?([ ]|,|-|[()]){0,2}9[0|1|2|3|4|5|6|7|8|9]([ ]|,|-|[()]){0,3}(?:[0-9]([ ]|,|-|[()]){0,2}){8}$"  maxlength="14" minlength="11" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
+                                                        data-validation="required custom" data-validation-length="11-14"  data-validation-regexp="^(0|\+98|98|0098)?([ ]|,|-|[()]){0,2}(?:[0-9]([ ]|,|-|[()]){0,2}){7,12}$"  maxlength="14" minlength="7" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
                                                     <div id="addNewRequestPhoneNumber1-error"></div>
                                                 </div>
 
