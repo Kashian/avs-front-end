@@ -1041,8 +1041,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         }
 
     }
-    
-    $scope.sendSmsCount=0;
+    // this is changed from 0 to 2. So in all cases smsVerificationForm will not be active.
+    $scope.sendSmsCount=2;
 
     //send sms for validation phone
     $scope.sendSms=function(){
