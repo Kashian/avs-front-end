@@ -1028,7 +1028,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     $scope.goToNextSectionWithoutVerification = function (){
         if($scope.sendSmsCount==2){
-            //if 2 time dont send sms , skip verification and go to next step
+            //if tried for two times and no sms verification done, we can skip verification and go to next step
             $scope.overlay1.hide();
             $('#smsVerificationForm').slideUp('fast', function() {
                 $scope.overlay2 = PlainOverlay.show(document.getElementById('registerFirstBox'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
@@ -1041,8 +1041,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         }
 
     }
-
-    $scope.sendSmsCount=0;
+    // this is changed from 0 to 2. So in all cases smsVerificationForm will not be active.
+    $scope.sendSmsCount=2;
 
     //send sms for validation phone
     $scope.sendSms=function(){
