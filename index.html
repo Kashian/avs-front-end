@@ -581,7 +581,7 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 " >
-                                                        <input id='sendSms' style="text-align: center !important;font-size: 17px;" type="submit" ng-disabled="!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<11||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1 ||addNewRequest.AdressStatus=='0'))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1 " type="submit" ng-click="goToNextSectionWithoutVerification()" class="btn btn-default btn-block btn-center"  value="{{'text_75' = translate}}" />
+                                                        <input id='sendSms' style="text-align: center !important;font-size: 17px;" type="submit" ng-disabled="!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<7||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1 ||addNewRequest.AdressStatus=='0'))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1 " type="submit" ng-click="goToNextSectionWithoutVerification()" class="btn btn-default btn-block btn-center"  value="{{'text_75' = translate}}" />
                                                     </div>
                                                 </div>
                                             </div>

@@ -1046,6 +1046,9 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     //send sms for validation phone
     $scope.sendSms=function(){
+        //to disable sending SMS we added this line (by kashian) Remove below line to enable SMS verification
+        request=true;
+
         if(request==true){
             return;
         }
