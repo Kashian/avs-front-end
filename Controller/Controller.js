@@ -809,21 +809,24 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             if(data.success && data.province_id && data.province_id !=null && data.province_id!='null' && data.city_id && data.city_id!=null && data.city_id!="null" ){
                 console.log('data from postal webservice is fine');
                 stateByPostal=data.province_id+'';
+                cityByPostal=data.city_id+'';
                 $("#addNewRequestState").val(data.province_id+'');
                 $("#addNewRequestState").attr('disabled','disabled');
-                cityByPostal=data.city_id+'';
-                loadCity();
-            }else{
-              // Set to selected State from drop down if post service was down
-              stateByPostal=$scope.addNewRequest.State;
-              cityByPostal=$scope.addNewRequest.City;
-              //$("#addNewRequestState").val('1');
-              $("#addNewRequestState").attr('disabled','disabled');
-              // cityByPostal='1';
-              loadCity();
-              console.log ('We didnt find the postcode and we set it to tehran');
 
+                loadCity();
             }
+
+            // else{
+            //   // Set to selected State from drop down if post service was down
+            //   stateByPostal=$scope.addNewRequest.State;
+            //   cityByPostal=$scope.addNewRequest.City;
+            //   //$("#addNewRequestState").val('1');
+            //   //$("#addNewRequestState").attr('disabled','disabled');
+            //   // cityByPostal='1';
+            //   loadCity();
+            //   console.log ('We didnt find the postcode and we set it to tehran');
+            //
+            // }
 
             // $scope.addNewRequest.MainRoadTxt=data.sub_locality;
             // $scope.addNewRequest.SecondaryRoadTxt1=data.street
