@@ -73,6 +73,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     }
     if(getParameterByName('company')=="enamad"){
         $('.notShowInIframe').hide();
+        $('#footer.site-footer.notShowInIframe').show();
         $('#navigation').hide();
         $('#features').insertAfter('#register');
         $('#main').css({'padding': '0'});
@@ -82,9 +83,9 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             "border":"none"
         })
         $('.translate').html('<img style="width: 70px;margin: 0px 0 0px 0;" src="/img/enamad.png"><span style="padding: 6px;font-size: 20px;">نماد اعتماد الکترونیکی</span>');
-        $timeout(function(){
-            $scope.addNewRequest.discountCode='etrust-s01-01-18';
-        },2)
+        // $timeout(function(){
+        //     $scope.addNewRequest.discountCode='etrust-s01-01-18';
+        // },2)
     }
 
 
