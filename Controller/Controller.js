@@ -76,6 +76,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         $('#footer.site-footer.notShowInIframe').show();
         $('#navigation').hide();
         $('#features').insertAfter('#register');
+        $('#aboutUs').show();
         $('#main').css({'padding': '0'});
         $('.meshim_widget_components_chatButton_Button rtl').remove();;
         $('.smooth-scroll').remove();
