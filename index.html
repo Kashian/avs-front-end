@@ -487,7 +487,7 @@
 
                                                 <span class="col-xs-4 col-md-4" style=" margin: 0 -3px  0 -21px; padding:0px; float: right;">
                                                     {{'text_90' = translate}}
-                                                    <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="personType" value="natural_person" ng-model="addNewRequest.personType" ng-init="addNewRequest.personType='natural_person'" />
+                                                    <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="personType" value="natural_person" ng-model="addNewRequest.personType"  />
                                                 </span>
                                                 <span class="col-xs-4 col-md-4" style=" margin: 0  12px  0 -21px; padding:0px; float: right;">
                                                     {{'text_91' = translate}}
@@ -500,12 +500,12 @@
                                             </div>
                                             <div ng-show="addNewRequest.personType=='natural_person'">
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
-                                                    <input id="addNewRequestFirstName" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="30" placeholder="{{'text_53' = translate}}" ng-init="addNewRequest.FirstName ='رضا'"
+                                                    <input id="addNewRequestFirstName" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="30" placeholder="{{'text_53' = translate}}"
                                                         data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestFirstName-error" data-validation-error-msg="{{'validation_5' = translate}}" >
                                                     <div id="addNewRequestFirstName-error"></div>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
-                                                    <input id="addNewRequestLastName" ng-model="addNewRequest.LastName" type="text" class="form-control placeHolder{{float}}" maxlength="50" placeholder="{{'text_54' = translate}}" ng-init="addNewRequest.LastName ='ارسلانی'"
+                                                    <input id="addNewRequestLastName" ng-model="addNewRequest.LastName" type="text" class="form-control placeHolder{{float}}" maxlength="50" placeholder="{{'text_54' = translate}}"
                                                         data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestLastName-error" data-validation-error-msg="{{'validation_6' = translate}}" >
                                                     <div id="addNewRequestLastName-error"></div>
                                                 </div>
@@ -513,7 +513,7 @@
                                                     <label class="col-xs-4 col-md-4" ng-show="lang=='fa'"  style="float: right; padding: 0;font-size: 14px;text-align: right;"> &nbsp; <span>{{'text_22' = translate}}</span>  &nbsp; </label>
                                                     <span class="col-xs-4 col-md-4" style=" margin: 0 -3px  0 -21px; padding:0px; float: right;">
                                                         {{'text_23' = translate}}
-                                                        <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="Geneder" value="1" ng-value="1" ng-init="addNewRequest.Gender='1'" ng-model="addNewRequest.Gender" />
+                                                        <input type="radio" style="margin:0 10px 0 10px" class="forDisableCheckBox" name="Geneder" value="1" ng-value="1" ng-model="addNewRequest.Gender" />
                                                     </span>
                                                     <span class="col-xs-4 col-md-4" style=" margin: 0 12px  0 -21px; padding:0px; float: right;">
                                                         {{'text_24' = translate}}
@@ -522,12 +522,12 @@
                                                     <label ng-show="lang=='en'" class="col-xs-12 col-md-4" style="float: right; padding: 0;font-size: 14px;text-align: left;"> &nbsp; <span>{{'text_22' = translate}}</span>  &nbsp; </label>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode" ng-model="addNewRequest.NationalCode" maxlength="10" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_52' = translate}} *" ng-init="addNewRequest.NationalCode ='0071651993'"
+                                                    <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode" ng-model="addNewRequest.NationalCode" maxlength="10" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_52' = translate}} *"
                                                         data-validation="required  number length  IranNationalCode" data-validation-length="10" data-validation-error-msg-container="#addNewRequestNationalCode-error" >
                                                     <div id="addNewRequestNationalCode-error"></div>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_55' = translate}}" ng-init="addNewRequest.PhoneNumber ='09123353044'"
+                                                    <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_55' = translate}}"
                                                         data-validation="required custom" data-validation-length="11-14" data-validation-regexp="^(0|\+98|0098)?([ ]|,|-|[()]){0,2}9[0|1|2|3|4|5|6|7|8|9]([ ]|,|-|[()]){0,3}(?:[0-9]([ ]|,|-|[()]){0,2}){8}$" maxlength="14"  minlength="11"  data-validation-error-msg-container="#addNewRequestPhoneNumber-error" data-validation-error-msg="{{'validation_8' = translate}}">
                                                     <div id="addNewRequestPhoneNumber-error"></div>
                                                 </div>
