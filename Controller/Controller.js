@@ -228,6 +228,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $.each(stateStatic , function(index,value){
                 if(value.id==stateIdTemp){
                     $scope.city = value.city_set;
+                    console.log('we came here to load city from static file');
 
                     console.log('scope.city = value.city_set');
                     console.log(value.city_set);
@@ -253,6 +254,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             Model.cityList(stateIdTemp).then(function (data) {
                 //save all city to this parameter
                 $scope.city = data.data;
+                console.log('we came here to load city from server');
                 //debug must be removed by kashian added
 
 
@@ -792,17 +794,20 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                       }
 
                       postalCodeText+='</div>';
-
+                      console.log (postalCodeText);
             }
             else {
               console.log ('We didnt find the postcode');
 
 
-              postalCodeText='آدرسی از سرور بازیابی نشد به دلیل وجود خطا در سرویس کد پستی';
+              postalCodeText='کد پستی شما در شش ساعت آتی بصورت اتومات ارزیابی خواهد شد';
             }
+
+
             $('#postalSelect').html(postalCodeText)
 
-            if(data.province_id && data.province_id !=null && data.province_id!='null' && data.city_id && data.city_id!=null && data.city_id!="null" ){
+            if(data.success && data.province_id && data.province_id !=null && data.province_id!='null' && data.city_id && data.city_id!=null && data.city_id!="null" ){
+                console.log('data from postal webservice is fine');
                 stateByPostal=data.province_id+'';
                 $("#addNewRequestState").val(data.province_id+'');
                 $("#addNewRequestState").attr('disabled','disabled');
