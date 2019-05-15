@@ -1700,10 +1700,10 @@
         }
         if(getParameterByName('company')=="enamad"){
             $('.notShowInIframe').hide();
+            $('#footer.site-footer.notShowInIframe').show();
             $('#navigation').hide();
             $('#features').insertAfter('#register');
             $('#main').css({'padding': '0'});
-            $('#footer').show();
             $('.meshim_widget_components_chatButton_Button rtl').remove();;
             $('.smooth-scroll').remove();
             $('.translate').html('<img style="width: 70px;margin: 0px 0 0px 0;" src="/img/enamad.png">')
