@@ -89,7 +89,7 @@ angular.module('post.Model', [])
                 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, data: {
                     city_id: cityId,
-                    key: companyApiKey
+                    api_key: companyApiKey
                 }
             }).then(function (result) {
               console.log(result.data);
