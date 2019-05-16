@@ -205,12 +205,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     //load shipping price , based on the city
     $scope.loadPrice = function (cityId, provinceId) {
-        companyApiKey=$scope.companyApiKey;
-        if (companyApiKey!='a4e67fc97f1b4ad0969c42942652ffad'){defaultCompany=1;}
-        else {defaultCompany=2;}
-        console.log(companyApiKey+' '+defaultCompany);
+
+        if ($scope.companyApiKey!='a4e67fc97f1b4ad0969c42942652ffad'){$scope.defaultCompany=1;}
+        else {$scope.defaultCompany=2;}
+        console.log($scope.companyApiKey+' '+$scope.defaultCompany);
         //load all shipping method
-        Model.companyRequestTypeList(cityId,companyApiKey,defaultCompany).then(function (data) {
+        Model.companyRequestTypeList(cityId,$scope.companyApiKey,$scope.defaultCompany).then(function (data) {
 
             //save all shipping method to this parameter
             console.log(cityId);
