@@ -1301,8 +1301,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         $('#addNewRequestSendBtn').attr('enabled', 'enabled');
 
         $('#addNewRequestSendStatus').html('لطفا کمی صبر کنید')
-        if (request == true) {
-          console.log('request is true');
+        if (request != true) {
+          console.log('request is false');
 
           return;
         }
