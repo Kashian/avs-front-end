@@ -1296,7 +1296,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     //add new requset function
     $scope.addNewRequestFunction = function () {
-
+        console.log('we arrive in new request');
         //disable new request button
         $('#addNewRequestSendBtn').attr('enabled', 'enabled');
 
@@ -1334,7 +1334,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.addNewRequest.Plaque='';
             $scope.addNewRequest.HasNoPlaque=true;
         }
-
+        console.log('we are close to model and send request to server');
         //send new requset to server
         Model.requestNew($scope.addNewRequest).then(function (data) {
             console.log('We should go to bank Page now');
@@ -1374,7 +1374,13 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         $('#editRequestSubmit').attr('disabled', 'disabled');
 
         $('#editRequestSendStatus').html('لطفا کمی صبر کنید')
-        if (request == true) return;
+        if (request == true)
+
+        {
+          console.log('request is true');
+
+          return;
+        }
 
         request = true;
 
