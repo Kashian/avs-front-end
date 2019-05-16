@@ -1206,17 +1206,14 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         else {
              //if the user has entered irpost as discount code, then disable all the form (new request form)
              // if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
-             console.log('sendType');
-             console.log($scope.sendType.length);
              $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
-             console.log($scope.addNewRequest.companyRequestTypeId);
 
              $scope.loadPreview($scope.addNewRequest.companyRequestTypeId);
              $scope.notShowPostSendingPriceBox=false;
              $scope.addNewRequestFunction($scope.addNewRequest);
 
             $scope.addNewRequest.postKind = true;
-			      console.log ('Now add new request kind = true');
+
             $scope.$apply();
             $scope.addNewRequest.error = false;
             $('#addNewRequestSubmit').attr('disabled', 'disabled');
@@ -1250,7 +1247,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
             // show overlay transparent layer
             $('#overlay').show();
-			      console.log ('We are in Scope.overlay3 by kashian');
+
             $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
 
         }
@@ -1301,7 +1298,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     $scope.addNewRequestFunction = function () {
 
         //disable new request button
-        $('#addNewRequestSendBtn').attr('disabled', 'disabled');
+        $('#addNewRequestSendBtn').attr('enabled', 'enabled');
 
         $('#addNewRequestSendStatus').html('لطفا کمی صبر کنید')
         if (request == true) return;
