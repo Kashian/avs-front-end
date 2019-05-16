@@ -213,11 +213,10 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         Model.companyRequestTypeList(cityId,$scope.companyApiKey,$scope.defaultCompany).then(function (data) {
 
             //save all shipping method to this parameter
-            console.log(cityId);
-            console.log(provinceId);
             console.log(data);
-            console.log('Company Request Type List')
-            $scope.sendType = data;
+            $scope.sendType = JSON.parse(data);
+            console.log($scope.sendType);
+
         }, function (error) {
         }).finally(function () {
         });
@@ -1208,12 +1207,13 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
              // if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
              console.log('sendType');
              console.log($scope.sendType.length);
-             $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
+             //$scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
+             //$scope.addNewRequest.companyRequestTypeId=JSON.parse($scope.sendType);
 
              //debug by Kashian
              //statebyPostal=$scope.addNewRequest.State;
 
-             //$scope.loadPreview($scope.addNewRequest.companyRequestTypeId);
+             $scope.loadPreview($scope.addNewRequest.companyRequestTypeId);
              $scope.notShowPostSendingPriceBox=false;
              $scope.addNewRequestFunction($scope.addNewRequest);
 
