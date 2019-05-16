@@ -602,17 +602,17 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     // this function shows all information of selected option from postage method (EMS, Registered Post, or Ordinary)
     $scope.loadPreview = function (id) {
-        console.log('we are in loadpreview and id is : '+id);
+        //console.log('we are in loadpreview and id is : '+id);
         if ($scope.sendType) {
             console.log('we are inside sendType scope');
 
             $.each($scope.sendType, function (index, value) {
-                    console.log(index+' <index---value>  '+value);
+                    //console.log(index+' <index---value>  '+value);
                 if (value.id == id) {
                     //show name , price , id , .... in post preview
-                    console.log(console.log(index+' <index-if-value>  '+value));
+                    //console.log(console.log(index+' <index-if-value>  '+value));
                     $scope.SelectedPostMethod = value;
-                    console.log($scope.SelectedPostMethod);
+                    //console.log($scope.SelectedPostMethod);
                 }
             })
         }
