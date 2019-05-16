@@ -75,7 +75,7 @@ angular.module('post.Model', [])
             else {
               urlCallService='company/request-type/list';
             }
-            console.log(urlCallService+' '+companyApiKey+' '+defaultCompany);
+            console.log(apiBaseUrl+urlCallService+' '+companyApiKey+' '+defaultCompany);
             return $http({
                 url: apiBaseUrl + urlCallService,
                 method: "POST",
@@ -89,7 +89,7 @@ angular.module('post.Model', [])
                 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, data: {
                     city_id: cityId,
-                    api_key: companyApiKey
+                    key: companyApiKey
                 }
             }).then(function (result) {
               console.log(result.data);
