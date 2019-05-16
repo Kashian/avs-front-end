@@ -83,7 +83,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         $('.translate').css({
             "border":"none"
         })
-        $('.translate').html('<img style="width: 70px;margin: 0px 0 0px 100;" src="/img/enamad.png"><span style="padding: 6px;font-size: 20px;">نماد اعتماد الکترونیکی</span>');
+        $('.translate').html('<img style="width: 70px;margin: 0px 0px 0px 100px;" src="/img/enamad.png"><span style="padding: 6px;font-size: 20px;">نماد اعتماد الکترونیکی</span>');
         // $timeout(function(){
         //     $scope.addNewRequest.discountCode='etrust-s01-01-18';
         // },2)
