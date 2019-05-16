@@ -63,12 +63,20 @@ angular.module('post.Model', [])
         };
 
         //companyRequestTypeList
-        Model.companyRequestTypeList = function (cityId) {
-
+        Model.companyRequestTypeList = function (cityId,companyApiKey,defaultCompany) {
+            console.log(companyApiKey);
             console.log(cityId);
-            console.log('We got the city ID');
+            console.log('We got the city ID and api_key');
+            if (defaultCompany==1) {
+              companyApiKey='';
+              urlCallService='default-company/request-type/list';
+            }
+            else {
+              urlCallService='company/request-type/list';
+            }
+            console.log(urlCallService+' '+companyApiKey+' '+defaultCompany);
             return $http({
-                url: apiBaseUrl + 'default-company/request-type/list',
+                url: apiBaseUrl + urlCallService,
                 method: "POST",
                 dataType: "json",
                 transformRequest: function (obj) {
@@ -77,10 +85,10 @@ angular.module('post.Model', [])
                     for (var p in obj)
                         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
                     return str.join("&");
-
                 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, data: {
-                    city_id: cityId
+                    city_id: cityId,
+                    api_key: companyApiKey
                 }
             }).then(function (result) {
               console.log(result.data);
