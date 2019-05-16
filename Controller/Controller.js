@@ -1311,6 +1311,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
         $scope.addNewRequest.success = '';
         $scope.addNewRequest.error = '';
+        $scope.addNewRequest.api_key=$scope.companyApiKey;
 
         //added default value of null parameters and fit data in right format
         if ($scope.addNewRequest.personType != 'natural_person') {
@@ -1347,9 +1348,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         }, function (error) {
             if (error.error = 'NOT_FOUND') {
                 $scope.addNewRequest.error = $rootScope.lang == 'fa' ? 'اطلاعات وارد شده صحیح نمی باشد ، لطفا مجددا اطلاعات را با دقت وارد نمایید ' : 'The information entered is incorrect, please re enter information carefully ';
+                request=false;
             }
             else {
                 $scope.addNewRequest.error = $rootScope.lang == 'fa' ? 'با عرض پوزش ، خطایی رخ داده است ، لطفا کمی بعد مجددا اقدام نمایید. ' : 'Sorry, an error has occurred. Please try again later';
+                request=false;
             }
         }).finally(function () {
             $('#addNewRequestSendStatus').html('')
