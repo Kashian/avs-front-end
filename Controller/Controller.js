@@ -1208,11 +1208,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
              // if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
              console.log('sendType');
              console.log($scope.sendType.length);
-             //$scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
-             //$scope.addNewRequest.companyRequestTypeId=JSON.parse($scope.sendType);
-
-             //debug by Kashian
-             //statebyPostal=$scope.addNewRequest.State;
+             $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
+             console.log($scope.addNewRequest.companyRequestTypeId);
 
              $scope.loadPreview($scope.addNewRequest.companyRequestTypeId);
              $scope.notShowPostSendingPriceBox=false;
