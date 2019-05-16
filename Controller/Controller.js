@@ -214,7 +214,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
             //save all shipping method to this parameter
             console.log(data);
-            $scope.sendType = JSON.parse(data);
+            $scope.sendType = data.replace(/"/g, "'");
+            
             console.log($scope.sendType);
 
         }, function (error) {
