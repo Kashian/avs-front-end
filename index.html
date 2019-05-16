@@ -828,7 +828,7 @@
                               <select ng-model="addNewRequest.companyRequestTypeId" ng-init="addNewRequest.companyRequestTypeId=''" ng-change="loadPreview(addNewRequest.companyRequestTypeId)" class="form-control" ng-options="value.id as value.name +' - '+ value.price + ' {{'text_97' = translate}} ' for value in sendType">
                                     <option value="" selected disabled>{{'text_106' = translate}}</option>
                                 </select>
-                                {{sendType | JSON}}
+                                {{sendType | json}}
                                 <div ng-repeat="value in sendType" ng-init="addNewRequest.companyRequestTypeId=''" >
                                   <input type="radio" name="companyRequestTypeId" ng-model="addNewRequest.companyRequestTypeId" ng-value="value.id" ng-click="loadPreview(addNewRequest.companyRequestTypeId)" style=" transform: scale(1.5);">
                                   <div style=" width: 92%;float: left;" ng-init="value.price==null?value.price=0:null">{{value.name +' - '+ value.price + ' {{'text_97' = translate}} '}}</div>
