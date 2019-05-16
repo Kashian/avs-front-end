@@ -72,6 +72,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         },2)
     }
     if(getParameterByName('company')=="enamad"){
+        $scope.companyApiKey='718dd93aa02d48c38afc8f42cdd94091';
         $('.notShowInIframe').hide();
         $('#footer.site-footer.notShowInIframe').show();
         $('#navigation').hide();
