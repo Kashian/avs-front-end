@@ -110,7 +110,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     var stateByPostalForEdit='';
     var cityByPostal='';
     var cityByPostalForEdit='';
-
+    $scope.companyApiKey='a4e67fc97f1b4ad0969c42942652ffad';
 
     //using this parametr, we load some data like city and estate as statsic data instead of using webservice
     var loadStatic=true;
