@@ -74,7 +74,7 @@ angular.module('post.Model', [])
             else {
                 urlCallService='company/request-type/list';
             }
-            console.log(apiBaseUrl+urlCallService+' '+companyApiKey+' '+defaultCompany);
+            console.log(apiBaseUrl+urlCallService+' '+companyApiKey);
             return $http({
                 url: apiBaseUrl + urlCallService,
                 method: "POST",
