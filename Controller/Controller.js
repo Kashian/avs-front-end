@@ -557,7 +557,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
                     $scope.get.success2 += ' واحد ' + data.unit_no;
                 }
 
-                $scope.get.success2 += '   ارسال شده است.  ';
+                $scope.get.success2 += '   بزودی ارسال خواهد شد.  ';
 
                 //if language is english
             } else {
