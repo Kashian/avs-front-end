@@ -1183,34 +1183,44 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         if (($scope.addNewRequest.MainRoadDrop === '' || $scope.addNewRequest.MainRoadTxt === '') && ($scope.addNewRequest.SecondaryRoadDrop1 === '' || $scope.addNewRequest.SecondaryRoadTxt1 === '') && ($scope.addNewRequest.SecondaryRoadDrop2 === '' || $scope.addNewRequest.SecondaryRoadTxt2 === '')) {
             $scope.addNewRequest.error = $rootScope.lang == 'fa' ? ' لطفا معبر اصلی یا معبر فرعی خود را مشخص کنید' : 'Please specify your main crossing or crossing subsidiary';
             $scope.addNewRequest.postKind = false;
+            request=false;
             return;
         }
         //check Gender selected
         else if (($scope.addNewRequest.Gender == '' || $scope.addNewRequest.Gender == undefined) && $scope.addNewRequest.personType == 'natural_person') {
             $scope.addNewRequest.error = $rootScope.lang == 'fa' ? 'لطفا جنسیت خود را مشخص نمایید' : 'Please specify your gender';
             $scope.addNewRequest.postKind = false;
+            request=false;
             return;
         }
         // check  province with postal code information
         else if ($scope.truePostalAddress && $scope.truePostalAddress.province_id != null && $scope.addNewRequest.State != "0" && ($scope.truePostalAddress.province_id != $scope.addNewRequest.State)) {
             $scope.addNewRequest.error = $rootScope.lang == 'fa' ? 'استان و شهر وارد شده منطبق با کد پستی نیست، لطفا کد پستی و یا استان و شهر متناظر را تصحیح کنید' : 'The province and the city entered is not in accordance with postal code, postal Code or city and province the corresponding correct',
             $scope.addNewRequest.postKind = false;
+            request=false;
             return;
         }
         //check city with postal code information
         else if ($scope.truePostalAddress && $scope.truePostalAddress.city_id != null && $scope.addNewRequest.City != "0" && ($scope.truePostalAddress.city_id != $scope.addNewRequest.City)) {
             $scope.addNewRequest.error = $rootScope.lang == 'fa' ? 'استان و شهر وارد شده منطبق با کد پستی نیست، لطفا کد پستی و یا استان و شهر متناظر را تصحیح کنید' : 'The province and the city entered is not in accordance with postal code, postal Code or city and province the corresponding correct',
             $scope.addNewRequest.postKind = false;
+            request=false;
             return;
         }
         else {
              //if the user has entered irpost as discount code, then disable all the form (new request form)
              // if(($scope.addNewRequest.discountCode+'').toLowerCase().trim()=='irpost!!!!'){
-             $scope.addNewRequest.companyRequestTypeId=$scope.sendType[$scope.sendType.length-1].id;
+
+             var biggestCompanyRequestTypeId = 0;
+             for (var i = 0, len = $scope.sendType.length; i < len; i++){
+               if  ($scope.sendType[i].id>biggestCompanyRequestTypeId){ biggestCompanyRequestTypeId=$scope.sendType[i].id; }
+              }
+
+             $scope.addNewRequest.companyRequestTypeId=biggestCompanyRequestTypeId;
 
              $scope.loadPreview($scope.addNewRequest.companyRequestTypeId);
              $scope.notShowPostSendingPriceBox=false;
-             $scope.addNewRequestFunction($scope.addNewRequest);
+             // $scope.addNewRequestFunction($scope.addNewRequest);
 
             $scope.addNewRequest.postKind = true;
 
@@ -1249,6 +1259,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $('#overlay').show();
 
             $scope.overlay3 = PlainOverlay.show(document.getElementById('overlay'),{style: {backgroundColor: 'rgba(255, 255, 255, 0.72)',  cursor: 'not-allowed' ,zIndex: 9000}});
+            $('#addNewRequestSendBtn').attr('enabled', 'enabled');
+            request =  true;
 
         }
     };
@@ -1296,14 +1308,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     //add new requset function
     $scope.addNewRequestFunction = function () {
-        console.log('we arrive in new request');
-        //disable new request button
-        $('#addNewRequestSendBtn').attr('enabled', 'enabled');
 
-        $('#addNewRequestSendStatus').html('لطفا کمی صبر کنید')
+
+        $('#addNewRequestSendBtn').attr('disabled', 'disabled');
+        $('#addNewRequestSendStatus').html(' ...لطفا کمی صبر کنید')
         if (request != true) {
-          console.log('request is false');
-
           return;
         }
 
@@ -1339,10 +1348,10 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             $scope.addNewRequest.Plaque='';
             $scope.addNewRequest.HasNoPlaque=true;
         }
-        console.log('we are close to model and send request to server');
+
         //send new requset to server
         Model.requestNew($scope.addNewRequest).then(function (data) {
-            console.log('We should go to bank Page now');
+
             //server response is url of bank , we redirect user to this url
             window.location.href = data.redirect_url;
         }, function (error) {
@@ -1352,11 +1361,11 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
             }
             else {
                 $scope.addNewRequest.error = $rootScope.lang == 'fa' ? 'با عرض پوزش ، خطایی رخ داده است ، لطفا کمی بعد مجددا اقدام نمایید. ' : 'Sorry, an error has occurred. Please try again later';
+                $('#addNewRequestSendBtn').attr('enabled', 'enabled');
                 request=false;
             }
         }).finally(function () {
             $('#addNewRequestSendStatus').html('')
-
             request = false;
         });
     };
