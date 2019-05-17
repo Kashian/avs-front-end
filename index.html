@@ -532,11 +532,11 @@
                                                     <div id="addNewRequestPhoneNumber-error"></div>
                                                 </div>
 
-
+                                                <!-- Address Status for natural_person is collected here   -->
                                                 <div class="form-group col-sm-12 pull-right  col-xs-12">
-                                                    <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="addNewRequest.AdressStatus=1" class="form-control"
+                                                    <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="addNewRequest.AdressStatus='1'" class="form-control"
                                                             data-validation="required " data-validation-error-msg-container="#addNewRequestAdressStatus-error" >
-                                                        <option value="0" disabled> وضعیت نشانی شما *</option>
+                                                        <option value="0" disabled selected> وضعیت نشانی شما *</option>
                                                         <option ng-repeat="value in AdressStatus" ng-value="value.id">{{value.name}}</option>
                                                     </select>
                                                     <div id="addNewRequestAdressStatus-error"></div>
@@ -554,12 +554,23 @@
                                                 </div>
 
                                             </div>
+
+                                            <!-- First Name for Company is Company Name -->
                                             <div ng-show="addNewRequest.personType!='natural_person'">
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
-                                                    <input id="addNewRequestFirstName1" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="60" placeholder="{{'text_57' = translate}}"
+                                                    <input id="addNewRequestFirstName1" ng-model="addNewRequest.FirstName" type="text" class="form-control placeHolder{{float}}" maxlength="75" placeholder="{{'text_57' = translate}}"
                                                         data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestFirstName1-error" data-validation-error-msg="{{'validation_10' = translate}}" >
                                                     <div id="addNewRequestFirstName1-error"></div>
                                                 </div>
+
+                                                <!-- Last name for Company is First/Last for Director of Company   -->
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12  ">
+                                                    <input id="addNewRequestLastName1" ng-model="addNewRequest.LastName" type="text" class="form-control placeHolder{{float}}" maxlength="75" placeholder="{{'text_115' = translate}}"
+                                                        data-validation="required custom" data-validation-regexp="{{'alphabetRegex' = translate}}" data-validation-error-msg-container="#addNewRequestLastName1-error" data-validation-error-msg="{{'validation_23' = translate}}" >
+                                                    <div id="addNewRequestLastName1-error"></div>
+                                                </div>
+
+
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                                     <input onblur="clearSpecialCharacter(this); " id="addNewRequestNationalCode1" ng-model="addNewRequest.NationalCode" maxlength="11" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_58' = translate}}"
                                                         data-validation="required  number length" data-validation-length="11" data-validation-error-msg-container="#addNewRequestNationalCode1-error" data-validation-error-msg="{{'validation_11' = translate}}"  >
@@ -567,16 +578,30 @@
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                                     <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber1" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_59' = translate}}"
-                                                        data-validation="required custom" data-validation-length="11-14"  data-validation-regexp="^(0|\+98|98|0098)?([ ]|,|-|[()]){0,2}(?:[0-9]([ ]|,|-|[()]){0,2}){7,12}$"  maxlength="14" minlength="7" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
+                                                        data-validation="required custom" data-validation-length="7-14"  data-validation-regexp="^(0|\+98|98|0098)?([ ]|,|-|[()]){0,2}(?:[0-9]([ ]|,|-|[()]){0,2}){7,12}$"  maxlength="13" minlength="7" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
                                                     <div id="addNewRequestPhoneNumber1-error"></div>
+                                                </div>
+
+                                                <div class="form-group col-sm-12 pull-right  col-xs-12">
+                                                    <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="addNewRequest.AdressStatus='1'" class="form-control"
+                                                            data-validation="required " data-validation-error-msg-container="#addNewRequestAdressStatus1-error" >
+                                                        <option value="0" disabled selected> وضعیت نشانی شما *</option>
+                                                        <option ng-repeat="value in AdressStatus" ng-value="value.id">{{value.name}}</option>
+                                                    </select>
+                                                    <div id="addNewRequestAdressStatus1-error"></div>
                                                 </div>
 
 
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input id="addNewRequestEmail1" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_60' = translate}} (اختیاری)"
-                                                        data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail1-error" >
+                                                    <input id="addNewRequestEmail1" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_116' = translate}} (اختیاری)"
+                                                        data-validation="email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail1-error" >
                                                     <div id="addNewRequestEmail1-error"></div>
                                                 </div>
+                                                <!-- Discount code for companies -->
+                                                <div class="form-group  col-sm-12 pull-right  col-xs-12">
+                                                    <input id="addNewRequestDisscount3"  ng-model="addNewRequest.discountCode" ng-init="addNewRequest.discountCode=''" maxlength="6" data-validation="length" data-validation-optional="true" data-validation-length="6"  ng-change="checkDiscountCode(addNewRequest.discountCode)"  type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_110' = translate}} (اختیاری)" >
+                                                </div>
+
                                             </div>
                                             <div class="form-group">
                                                 <div class="row">
