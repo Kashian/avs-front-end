@@ -11,7 +11,7 @@
 'use strict';
 
 var module = angular.module('post.Controller', []);
-$scope.companyApiKey='a4e67fc97f1b4ad0969c42942652ffad';
+
 
 
 //-------------------------Home-------------------------
@@ -30,7 +30,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
-
+    $scope.companyApiKey='a4e67fc97f1b4ad0969c42942652ffad';
 
     if(getParameterByName('notShowInIframe')=="true"){
         $('.notShowInIframe').hide();
