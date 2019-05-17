@@ -68,7 +68,7 @@ angular.module('post.Model', [])
             console.log(cityId);
             console.log('We got the city ID and api_key');
             var urlCallService;
-            if ()(companyApiKey=='a4e67fc97f1b4ad0969c42942652ffad') or (companyApiKey=='')) {
+            if ((companyApiKey=='a4e67fc97f1b4ad0969c42942652ffad') or (companyApiKey=='')) {
                 urlCallService='default-company/request-type/list';
             }
             else {
