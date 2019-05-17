@@ -11,7 +11,7 @@
 'use strict';
 
 var module = angular.module('post.Controller', []);
-
+$scope.companyApiKey='a4e67fc97f1b4ad0969c42942652ffad';
 
 
 //-------------------------Home-------------------------
@@ -111,7 +111,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     var stateByPostalForEdit='';
     var cityByPostal='';
     var cityByPostalForEdit='';
-    $scope.companyApiKey='a4e67fc97f1b4ad0969c42942652ffad';
+
 
     //using this parametr, we load some data like city and estate as statsic data instead of using webservice
     var loadStatic=true;
@@ -207,8 +207,10 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     //load shipping price , based on the city
     $scope.loadPrice = function (cityId, provinceId) {
 
-
-        console.log($scope.companyApiKey+' '+$scope.defaultCompany);
+        if(getParameterByName('company')=="enamad"){
+              $scope.companyApiKey='718dd93aa02d48c38afc8f42cdd94091';
+        }
+        console.log($scope.companyApiKey);
         //load all shipping method
         if ($scope.companyApiKey!='a4e67fc97f1b4ad0969c42942652ffad')
             {$scope.companyApiKey='718dd93aa02d48c38afc8f42cdd94091';}
