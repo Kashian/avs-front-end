@@ -39,6 +39,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         $('#main').css({'padding': '0'});
         $('.meshim_widget_components_chatButton_Button rtl').remove();;
         $('.smooth-scroll').remove();
+
     }
     if(getParameterByName('company')=="taxi"){
         $('.notShowInIframe').hide();
@@ -206,11 +207,12 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
     //load shipping price , based on the city
     $scope.loadPrice = function (cityId, provinceId) {
 
-        if ($scope.companyApiKey=='a4e67fc97f1b4ad0969c42942652ffad'){$scope.defaultCompany=1;}
-        else {$scope.defaultCompany=2;}
+
         console.log($scope.companyApiKey+' '+$scope.defaultCompany);
         //load all shipping method
-        Model.companyRequestTypeList(cityId,$scope.companyApiKey,$scope.defaultCompany).then(function (data) {
+        if ($scope.companyApiKey!='a4e67fc97f1b4ad0969c42942652ffad')
+            {$scope.companyApiKey='718dd93aa02d48c38afc8f42cdd94091';}
+        Model.companyRequestTypeList(cityId,$scope.companyApiKey).then(function (data) {
 
             //save all shipping method to this parameter
             console.log(data);
@@ -235,8 +237,8 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
                     console.log('scope.city = value.city_set');
                     console.log(value.city_set);
-                    console.log('city by postal: '+cityByPostal);
-                    console.log('statebyPostal: '+stateByPostal);
+
+
 
                     // if(cityByPostal != '0'&& cityByPostal != '' && cityByPostal && cityByPostal != undefined && cityByPostal!=null && cityByPostal!='null'){
                     //     $timeout(function(){

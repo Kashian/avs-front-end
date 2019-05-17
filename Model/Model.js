@@ -63,17 +63,16 @@ angular.module('post.Model', [])
         };
 
         //companyRequestTypeList
-        Model.companyRequestTypeList = function (cityId,companyApiKey,defaultCompany) {
+        Model.companyRequestTypeList = function (cityId,companyApiKey) {
             console.log(companyApiKey);
             console.log(cityId);
             console.log('We got the city ID and api_key');
             var urlCallService;
-            if (defaultCompany==1) {
-              companyApiKey='';
-              urlCallService='default-company/request-type/list';
+            if ()(companyApiKey=='a4e67fc97f1b4ad0969c42942652ffad') or (companyApiKey=='')) {
+                urlCallService='default-company/request-type/list';
             }
             else {
-              urlCallService='company/request-type/list';
+                urlCallService='company/request-type/list';
             }
             console.log(apiBaseUrl+urlCallService+' '+companyApiKey+' '+defaultCompany);
             return $http({
