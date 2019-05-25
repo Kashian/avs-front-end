@@ -772,8 +772,8 @@
                                                 <span class="tooltiptext">{{'help7' = translate}} </span>
                                             </span>
 
-                                            <input  style="width: 88%;float: left;" id="addNewRequestPlaque" ng-model="addNewRequest.Plaque" ng-init="addNewRequest.Plaque=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" maxlength="7" placeholder="{{'text_72' = translate}}"
-                                                data-validation="required number length" data-validation-length="max7" data-validation-ignore="- _" data-validation-error-msg-container="#addNewRequestPlaque-error" >
+                                            <input  style="width: 88%;float: left;" id="addNewRequestPlaque" ng-model="addNewRequest.Plaque" ng-init="addNewRequest.Plaque=''" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" maxlength="8" placeholder="{{'text_72' = translate}}"
+                                                data-validation-regexp="^[0-9]{1,4}([/.]{1}[0-9]{1,3}|[0-9]{1,3})" data-validation-length="max8" data-validation-ignore="- _" data-validation-error-msg-container="#addNewRequestPlaque-error" >
                                             <div id="addNewRequestPlaque-error"></div>
                                         </div>
 

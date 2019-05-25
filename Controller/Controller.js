@@ -1727,7 +1727,7 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
 
     // validation message
     var myLanguage = {
-        requiredFields: 'لطفا همه های اجباری را پر نمایید',
+        requiredFields: 'لطفا همه فیلدهای  اجباری را پر نمایید (دارای ستاره)',
         requiredField: 'لطفا این فیلد را پر نمایید',
         badEmail: 'لطفا آدرس ایمیل را به درستی وارد نمایید',
         lengthBadStart: 'لطفا  ',
