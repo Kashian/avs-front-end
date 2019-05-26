@@ -371,7 +371,7 @@
 
         if (params && params[1]) {
 
-
+            console.log('unique id of payment: ',params[1])
             $.ajax({
                 type: "GET",
                 url: "/infra/core/default-company/request/invoice/" + params[1],
