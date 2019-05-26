@@ -52,11 +52,11 @@
   "text_32": "Submit comments, complaints or criticism",
   "text_33": "Incase of having any question about the service or facing any problem with the process of verification, please fill the form bellow",
   "text_34": "Address Verification Web Service is a RESTFUL webservice which helps the organization to easily track and verify the costumer address by sending secure automated letters to their home or work address registered on the database. The Address verification letter includes a 6-digit secrect code which the client should use it in combination with his national ID to verify his address. There are 3 options for clients to connect to AVS which are Phone, Web and SMS.",
-  "text_35": " National Post Company of IRAN :",
+  "text_35": "National Post Company of IRAN :",
   "text_36": "Address: Customer Service Dept, 3rd Floor, Central Building of Post Company, No. 267, Beheshti Street, Tehran, IRAN",
-  "text_37": " Rojina Computer Ltd :",
+  "text_37": "Rojina Computer Ltd :",
   "text_38": "Address: Apt 1st East, No. 3, Jahad Alley, Shariaty Street, Tehran , IRAN",
-  "text_39": "Contact :  88522948 - 88733022",
+  "text_39": "Contact : 021 41924 ext. 9",
   "text_40": "Join our newsletter",
   "text_41": "Terms and Conditions",
   "text_42": "Click on the rule's link to see terms and conditions",
@@ -139,6 +139,3 @@
   "text_92": "Your information was recorded, then select the type of sending and payment, you will receive a verification letter"
 
 }
-
-
- 

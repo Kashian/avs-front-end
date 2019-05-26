@@ -1,7 +1,7 @@
 ﻿/*
  site: avs.post.ir
  Address Verification System
- Developer by: Rojina Computer Ltd (+98 21 88522948)
+ Developed by: Rojina Computer Ltd (+98 21 41924 ext 9)
  Main Author: Alireza Kashian
  Email: alireza.kashian@gmail.com
  © 1395-1398 (2016-2019)
