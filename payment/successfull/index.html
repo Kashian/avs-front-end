@@ -395,7 +395,7 @@
                     $('.vat_price').html(data.invoice.vat_price)
                     $('.tax').html((parseInt(data.invoice.price) * 0.09).toFixed(0));
                     // $('.discount').html(parseInt(data.invoice.price) - parseInt(data.invoice.vat_price).toFixed(0))
-                    $('.discount').html(parseInt('0')
+                    //$('.discount').html(parseInt('0'))
                     var pass = '';
                     if (data.pass_type_1)
                     { if (data.pass_type_1 != '' && data.pass_1 != '') { pass += data.pass_type_1.label + ' ' + data.pass_1 + ' ' } }
