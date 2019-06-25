@@ -270,8 +270,8 @@ angular.module('post.Model', [])
                     address_status_id:Value.AdressStatus,
                     company_request_type_id: Value.companyRequestTypeId,
                     template_id: 1,
-                    duration: 12,
-                    resend_period: 13,
+                    duration: 21,
+                    resend_period: 21,
                     resend_expiration_time: '',
                     building: Value.BuildingName,
                     person_type_id: Value.personType,
@@ -314,8 +314,8 @@ angular.module('post.Model', [])
                    // address_status_id:Value.AdressStatus,
                    // company_request_type_id: Value.companyRequestTypeId,
                     // template_id: 1,
-                    // duration: 12,
-                    // resend_period: 13,
+                    duration: 21,
+                    resend_period: 21,
                     building: Value.BuildingName,
                     api_key: Value.api_key
                     // this is api key for Post Company of Iran
