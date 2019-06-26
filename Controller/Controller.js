@@ -214,7 +214,9 @@ module.controller('HomeCtrl', ['$scope', '$rootScope', 'Model','$timeout','$inte
         //load all shipping method
         if ($scope.companyApiKey!='a4e67fc97f1b4ad0969c42942652ffad')
             {$scope.companyApiKey='718dd93aa02d48c38afc8f42cdd94091';}
-        Model.companyRequestTypeList(cityId,$scope.companyApiKey).then(function (data) {
+        var postcode=$scope.addNewRequest.PostalCode1;
+        console.log("postcode:",postcode);
+        Model.companyRequestTypeList(cityId,postcode,$scope.companyApiKey).then(function (data) {
 
             //save all shipping method to this parameter
             console.log(data);

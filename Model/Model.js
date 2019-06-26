@@ -63,7 +63,7 @@ angular.module('post.Model', [])
         };
 
         //companyRequestTypeList
-        Model.companyRequestTypeList = function (cityId,companyApiKey) {
+        Model.companyRequestTypeList = function (cityId,postcode,companyApiKey) {
             console.log(companyApiKey);
             console.log(cityId);
             console.log('We got the city ID and api_key');
@@ -88,6 +88,7 @@ angular.module('post.Model', [])
                 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, data: {
                     city_id: cityId,
+                    postcode: postcode,
                     api_key: companyApiKey
                 }
             }).then(function (result) {
