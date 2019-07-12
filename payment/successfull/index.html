@@ -211,7 +211,7 @@
                             <div class="firstHide alert alert-info alert-block fade in  ">
                                 <h2>
                                     <i class="icon-ok-sign"></i>
-                                    کد رهگیری ثبت نام: 
+                                    کد رهگیری ثبت نام:
                                     <span class="unique_id"> </span>
                                 </h2>
                                 <h3>
@@ -398,9 +398,9 @@
                     $('.code').html(data.invoice.code)
                     $('.issue_date').html(data.invoice.issue_date)
                     $('.invoiceName').html(data.invoice.name)
-                    $('.price').html(data.invoice.price)
+                    $('.price').html((parseInt(data.invoice.vat_price) * 100/109).toFixed(0))
                     $('.vat_price').html(data.invoice.vat_price)
-                    $('.tax').html((parseInt(data.invoice.price) * 0.09).toFixed(0));
+                    $('.tax').html((parseInt(data.invoice.vat_price) * 9/109).toFixed(0));
                     // $('.discount').html(parseInt(data.invoice.price) - parseInt(data.invoice.vat_price).toFixed(0))
                     //$('.discount').html(parseInt('0'))
                     var pass = '';
