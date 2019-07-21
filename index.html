@@ -536,9 +536,9 @@
 
                                                 <!-- Address Status for natural_person is collected here   -->
                                                 <div class="form-group col-sm-12 pull-right  col-xs-12">
-                                                    <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="addNewRequest.AdressStatus='1'" class="form-control"
+                                                    <select  id="addNewRequestAdressStatus" ng-model="addNewRequest.AdressStatus" ng-init="value=addNewRequest.AdressStatus[0]" class="form-control"
                                                             data-validation="required " data-validation-error-msg-container="#addNewRequestAdressStatus-error" >
-                                                        <option value="0" disabled selected> وضعیت نشانی شما *</option>
+                                                        <option ng-value="0" disabled selected> وضعیت نشانی شما *</option>
                                                         <option ng-repeat="value in AdressStatus" ng-value="value.id">{{value.name}}</option>
                                                     </select>
                                                     <div id="addNewRequestAdressStatus-error"></div>
@@ -547,8 +547,8 @@
 
 
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input id="addNewRequestEmail" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email"  type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_56' = translate}} (اختیاری)"
-                                                        data-validation=" email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail-error" >
+                                                    <input id="addNewRequestEmail" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email"  type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_56' = translate}} (الزامی)"
+                                                        data-validation=" email" data-validation-error-msg-container="#addNewRequestEmail-error" >
                                                     <div id="addNewRequestEmail-error"></div>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12">
@@ -580,7 +580,7 @@
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                                     <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber1" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_59' = translate}}"
-                                                        data-validation="required custom" data-validation-length="7-14"  data-validation-regexp="^(0|\+98|98|0098)?([ ]|,|-|[()]){0,2}(?:[0-9]([ ]|,|-|[()]){0,2}){7,12}$"  maxlength="13" minlength="7" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
+                                                        data-validation="required custom" data-validation-length="7-14"  data-validation-regexp="^(0|\+98|98|0098)?([ ]|,|-|[()]){0,2}(?:[0-9]([ ]|,|-|[()]){0,2}){7,12}$"  maxlength="13" minlength="10" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
                                                     <div id="addNewRequestPhoneNumber1-error"></div>
                                                 </div>
 
@@ -595,8 +595,8 @@
 
 
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input id="addNewRequestEmail1" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_116' = translate}} (اختیاری)"
-                                                        data-validation="email" data-validation-optional="true" data-validation-error-msg-container="#addNewRequestEmail1-error" >
+                                                    <input id="addNewRequestEmail1" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email" type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_116' = translate}} (الزامی)"
+                                                        data-validation="email"  data-validation-error-msg-container="#addNewRequestEmail1-error" >
                                                     <div id="addNewRequestEmail1-error"></div>
                                                 </div>
                                                 <!-- Discount code for companies -->
@@ -608,7 +608,7 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-6 col-xs-6 col-sm-offset-3 col-xs-offset-3 " >
-                                                        <input id='sendSms' style="text-align: center !important;font-size: 17px;" type="submit" ng-disabled="!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber||addNewRequest.PhoneNumber.length<7||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1 ||addNewRequest.AdressStatus=='0'))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1||!addNewRequest.LastName||addNewRequest.LastName.length<2 || addNewRequest.AdressStatus=='0' " type="submit" ng-click="goToNextSectionWithoutVerification()" class="btn btn-default btn-block btn-center"  value="{{'text_75' = translate}}" />
+                                                        <input id='sendSms' style="text-align: center !important;font-size: 17px;" type="submit" ng-disabled="!addNewRequest.NationalCode||addNewRequest.NationalCode.length<10||!addNewRequest.PhoneNumber|| !addNewRequest.Email||addNewRequest.PhoneNumber.length<7||(addNewRequest.personType=='natural_person'&&(!addNewRequest.Gender||addNewRequest.Gender.length<1 ||addNewRequest.AdressStatus=='0'))||!addNewRequest.FirstName||addNewRequest.FirstName.length<1||!addNewRequest.LastName||addNewRequest.LastName.length<2 || addNewRequest.AdressStatus=='0' " type="submit" ng-click="goToNextSectionWithoutVerification()" class="btn btn-default btn-block btn-center"  value="{{'text_75' = translate}}" />
                                                     </div>
                                                 </div>
                                             </div>
