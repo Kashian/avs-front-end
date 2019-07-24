@@ -580,7 +580,7 @@
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
                                                     <input onblur="clearSpecialCharacter(this);" id="addNewRequestPhoneNumber1" ng-model="addNewRequest.PhoneNumber" type="text" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_59' = translate}}"
-                                                        data-validation="required custom" data-validation-length="7-14"  data-validation-regexp="^(0|\+98|98|0098)?([ ]|,|-|[()]){0,2}(?:[0-9]([ ]|,|-|[()]){0,2}){7,12}$"  maxlength="13" minlength="10" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
+                                                        data-validation="required custom" data-validation-length="11-14"  data-validation-regexp="^(0|\+98|0098)?([ ]|,|-|[()]){0,2}9[0|1|2|3|4|5|6|7|8|9]([ ]|,|-|[()]){0,3}(?:[0-9]([ ]|,|-|[()]){0,2}){8}$"  maxlength="14" minlength="11" data-validation-error-msg-container="#addNewRequestPhoneNumber1-error" data-validation-error-msg="{{'validation_12' = translate}}" >
                                                     <div id="addNewRequestPhoneNumber1-error"></div>
                                                 </div>
 
@@ -724,13 +724,13 @@
                                                 <span class="tooltiptext">{{'help4' = translate}} </span>
                                             </span>
                                             <select style="width: 88%;float: left;" id="addNewRequestMainRoadDrop" ng-model="addNewRequest.MainRoadDrop" ng-init="addNewRequest.MainRoadDrop=''" class="form-control">
-                                                <option selected value=""> {{'text_66' = translate}} *  </option>
+                                                <option selected value=""> {{'text_66' = translate}} (الزامی*) </option>
                                                 <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group  col-sm-6  col-md-6 pull-right  col-xs-6 " ng-class="lang=='en'?'pull-left':'pull-right'">
-                                            <input id="addNewRequestMainRoadTxt" ng-model="addNewRequest.MainRoadTxt" ng-init="addNewRequest.MainRoadTxt=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_67' = translate}}"
+                                            <input id="addNewRequestMainRoadTxt" ng-model="addNewRequest.MainRoadTxt" ng-init="addNewRequest.MainRoadTxt=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_67' = translate}}  (الزامی*)"
                                                 data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
                                         </div>
 
@@ -740,13 +740,13 @@
                                                 <span class="tooltiptext">{{'help5' = translate}} </span>
                                             </span>
                                             <select style="width: 88%;float: left;" id="addNewRequestSecondaryRoadDrop1" ng-model="addNewRequest.SecondaryRoadDrop1" ng-init="addNewRequest.SecondaryRoadDrop1=''" class="form-control">
-                                                <option selected value="">{{'text_68' = translate}} (اختیاری)  </option>
+                                                <option selected value="">{{'text_68' = translate}} </option>
                                                 <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left':'pull-right'">
-                                            <input id="addNewRequestSecondaryRoadTxt1" ng-model="addNewRequest.SecondaryRoadTxt1" ng-init="addNewRequest.SecondaryRoadTxt1=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_69' = translate}} (اختیاری)"
+                                            <input id="addNewRequestSecondaryRoadTxt1" ng-model="addNewRequest.SecondaryRoadTxt1" ng-init="addNewRequest.SecondaryRoadTxt1=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_69' = translate}}"
                                                 data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
                                         </div>
 
@@ -756,13 +756,13 @@
                                                 <span class="tooltiptext">{{'help6' = translate}} </span>
                                             </span>
                                             <select  style="width: 88%;float: left;" id="addNewRequestSecondaryRoadDrop2" ng-model="addNewRequest.SecondaryRoadDrop2" ng-init="addNewRequest.SecondaryRoadDrop2=''" class="form-control">
-                                                <option selected value="">  {{'text_70' = translate}} (اختیاری)   </option>
+                                                <option selected value="">  {{'text_70' = translate}} </option>
                                                 <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6">
-                                            <input type="text" id="addNewRequestSecondaryRoadTxt2" ng-model="addNewRequest.SecondaryRoadTxt2" ng-init="addNewRequest.SecondaryRoadTxt2=''" class="form-control placeHolder{{float}}" placeholder="{{'text_71' = translate}} (اختیاری)"
+                                            <input type="text" id="addNewRequestSecondaryRoadTxt2" ng-model="addNewRequest.SecondaryRoadTxt2" ng-init="addNewRequest.SecondaryRoadTxt2=''" class="form-control placeHolder{{float}}" placeholder="{{'text_71' = translate}}"
                                                 data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
                                         </div>
 
@@ -807,7 +807,7 @@
                                                 <span class="tooltiptext">{{'help9' = translate}} </span>
                                             </span>
 
-                                            <input style="width: 94%;float: left;" id="addNewRequestUnit" ng-model="addNewRequest.Unit" ng-init="addNewRequest.Unit=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_73' = translate}} (اختیاری)"
+                                            <input style="width: 94%;float: left;" id="addNewRequestUnit" ng-model="addNewRequest.Unit" ng-init="addNewRequest.Unit=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_73' = translate}} (در صورت وجود حتما وارد نمایید)"
                                                 data-validation="custom" data-suggestions=" {{'text_113' = translate}}" data-validation-optional="true"  maxlength="20" data-validation-error-msg="{{'validation_21' = translate}}"  >
                                             <div id="addNewRequestUnit-error"></div>
 
@@ -819,7 +819,7 @@
                                                 <span class="tooltiptext">{{'help10' = translate}} </span>
                                             </span>
 
-                                            <input style="width: 94%;float: left;" id="addNewRequestBuildingName" ng-model="addNewRequest.BuildingName" ng-init="addNewRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' = translate}} (اختیاری)"
+                                            <input style="width: 94%;float: left;" id="addNewRequestBuildingName" ng-model="addNewRequest.BuildingName" ng-init="addNewRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' = translate}} (در صورت عدم وجود پلاک،نام ساختمان الزامیست)"
                                                 data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" data-validation-error-msg="{{'validation_22' = translate}}"  >
                                             <div id="addNewRequestBuildingName-error"></div>
                                         </div>
@@ -1088,13 +1088,13 @@
                                         <span class="tooltiptext">{{'help4' = translate}} </span>
                                     </span>
                                     <select style="width: 88%;float: left;" id="editRequestMainRoadDrop" ng-model="editRequest.MainRoadDrop" ng-init="editRequest.MainRoadDrop=''" class="form-control">
-                                        <option selected value=""> {{'text_66' = translate}} *  </option>
+                                        <option selected value=""> {{'text_66' = translate}} (الزامی*) </option>
                                         <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group  col-sm-6  col-md-6 pull-right  col-xs-6 " ng-class="lang=='en'?'pull-left':'pull-right'">
-                                    <input id="editRequestMainRoadTxt" ng-model="editRequest.MainRoadTxt" ng-init="editRequest.MainRoadTxt=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_67' = translate}}"
+                                    <input id="editRequestMainRoadTxt" ng-model="editRequest.MainRoadTxt" ng-init="editRequest.MainRoadTxt=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_67' = translate}} (الزامی*)"
                                         data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
                                 </div>
 
@@ -1104,13 +1104,13 @@
                                         <span class="tooltiptext">{{'help5' = translate}} </span>
                                     </span>
                                     <select style="width: 88%;float: left;" id="editRequestSecondaryRoadDrop1" ng-model="editRequest.SecondaryRoadDrop1" ng-init="editRequest.SecondaryRoadDrop1=''" class="form-control">
-                                        <option selected value="">{{'text_68' = translate}} (اختیاری)  </option>
+                                        <option selected value="">{{'text_68' = translate}} </option>
                                         <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6" ng-class="lang=='en'?'pull-left':'pull-right'">
-                                    <input id="editRequestSecondaryRoadTxt1" ng-model="editRequest.SecondaryRoadTxt1" ng-init="editRequest.SecondaryRoadTxt1=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_69' = translate}} (اختیاری)"
+                                    <input id="editRequestSecondaryRoadTxt1" ng-model="editRequest.SecondaryRoadTxt1" ng-init="editRequest.SecondaryRoadTxt1=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_69' = translate}}"
                                         data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
                                 </div>
 
@@ -1120,13 +1120,13 @@
                                         <span class="tooltiptext">{{'help6' = translate}} </span>
                                     </span>
                                     <select  style="width: 88%;float: left;" id="editRequestSecondaryRoadDrop2" ng-model="editRequest.SecondaryRoadDrop2" ng-init="editRequest.SecondaryRoadDrop2=''" class="form-control">
-                                        <option selected value="">  {{'text_70' = translate}} (اختیاری)   </option>
+                                        <option selected value="">  {{'text_70' = translate}} </option>
                                         <option ng-repeat="value in pass" ng-value="value.id">{{value.name}}</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-md-6 col-sm-6 pull-right  col-xs-6">
-                                    <input type="text" id="editRequestSecondaryRoadTxt2" ng-model="editRequest.SecondaryRoadTxt2" ng-init="editRequest.SecondaryRoadTxt2=''" class="form-control placeHolder{{float}}" placeholder="{{'text_71' = translate}} (اختیاری)"
+                                    <input type="text" id="editRequestSecondaryRoadTxt2" ng-model="editRequest.SecondaryRoadTxt2" ng-init="editRequest.SecondaryRoadTxt2=''" class="form-control placeHolder{{float}}" placeholder="{{'text_71' = translate}}"
                                         data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" />
                                 </div>
 
@@ -1171,7 +1171,7 @@
                                         <span class="tooltiptext">{{'help9' = translate}} </span>
                                     </span>
 
-                                    <input style="width: 94%;float: left;" id="editRequestUnit" ng-model="editRequest.Unit" ng-init="editRequest.Unit=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_73' = translate}} (اختیاری)"
+                                    <input style="width: 94%;float: left;" id="editRequestUnit" ng-model="editRequest.Unit" ng-init="editRequest.Unit=''" type="text" class="form-control placeHolder{{float}}" placeholder="{{'text_73' = translate}} (در صورت وجود حتما وارد نمایید)"
                                         data-validation="custom" data-suggestions=" {{'text_113' = translate}}" data-validation-optional="true"  maxlength="20" data-validation-error-msg="{{'validation_21' = translate}}"  >
                                     <div id="editRequestUnit-error"></div>
 
@@ -1183,7 +1183,7 @@
                                         <span class="tooltiptext">{{'help10' = translate}} </span>
                                     </span>
 
-                                    <input style="width: 94%;float: left;" id="editRequestBuildingName" ng-model="editRequest.BuildingName" ng-init="editRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' = translate}} (اختیاری)"
+                                    <input style="width: 94%;float: left;" id="editRequestBuildingName" ng-model="editRequest.BuildingName" ng-init="editRequest.BuildingName=''" type="text" class="form-control  placeHolder{{float}}" placeholder="{{'text_74' = translate}} (در صورت عدم وجود پلاک حتما وارد نمایید)"
                                         data-validation=" custom" data-validation-regexp="{{'alphabetNumericRegex' = translate}}" data-validation-optional="true" data-validation-error-msg="{{'validation_22' = translate}}"  >
                                     <div id="editRequestBuildingName-error"></div>
                                 </div>
