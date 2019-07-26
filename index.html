@@ -322,8 +322,8 @@
 
                                 <div class="col-md-10 col-md-pull-1 col-md-offset-1" style="float:right !important">
                                     <div class="form-group">
-                                        <input onblur="clearSpecialCharacter(this);" id="nationalCode" type="text" ng-model="verify.national_id" maxlength="13" class="form-control textBoxLeftAlign placeHolder{{float}}" style="float: left; height: 64px;font-size: 26px; padding-left: 25px;" placeholder="{{'text_108' = translate}}"
-                                               data-validation="required  number length" data-validation-length="10-13" data-validation-error-msg-container="#nationalCode-error" data-validation-error-msg="{{'validation_1' = translate}}">
+                                        <input onblur="clearSpecialCharacter(this);" id="nationalCode" type="text" ng-model="verify.national_id" maxlength="11" class="form-control textBoxLeftAlign placeHolder{{float}}" style="float: left; height: 64px;font-size: 26px; padding-left: 25px;" placeholder="{{'text_108' = translate}}"
+                                               data-validation="required  number length" data-validation-length="10-11" data-validation-error-msg-container="#nationalCode-error" data-validation-error-msg="{{'validation_1' = translate}}">
                                         <div style="width:20px; height: 63px;"></div>
                                         <div id="nationalCode-error" style="text-align: center;float: right;"></div>
                                     </div>
@@ -547,8 +547,8 @@
 
 
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12 ">
-                                                    <input id="addNewRequestEmail" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email"  type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_56' = translate}} (الزامی)"
-                                                        data-validation=" email" data-validation-error-msg-container="#addNewRequestEmail-error" >
+                                                    <input id="addNewRequestEmail" ng-model="addNewRequest.Email" ng-init="addNewRequest.Email=''" name="email"  type="email" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_56' = translate}} (*الزامی)"
+                                                        data-validation="email" data-validation-error-msg-container="#addNewRequestEmail-error" >
                                                     <div id="addNewRequestEmail-error"></div>
                                                 </div>
                                                 <div class="form-group  col-sm-12 pull-right  col-xs-12">
@@ -993,8 +993,8 @@
                                                    data-validation="required  number length" data-validation-length="min10" data-validation-error-msg-container="#editTrackingCode-error" data-validation-error-msg="{{'validation_3' = translate}}">
                                             <div id="editTrackingCode-error"></div>
 
-                                            <input onblur="clearSpecialCharacter(this);" id="editNationalCode" ng-model="editRequest.nationalCode" style="margin: auto;margin-top: 15px; width: 248px;direction: ltr; padding-left: 25px;" type="text" maxlength="10" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_52' = translate}}"
-                                                    data-validation="required  number length " data-validation-length="10" data-validation-error-msg-container="#editNationalCode-error" data-validation-error-msg="{{'validation_1' = translate}}">
+                                            <input onblur="clearSpecialCharacter(this);" id="editNationalCode" ng-model="editRequest.nationalCode" style="margin: auto;margin-top: 15px; width: 248px;direction: ltr; padding-left: 25px;" type="text" maxlength="11" class="form-control textBoxLeftAlign placeHolder{{float}}" placeholder="{{'text_118' = translate}}"
+                                                    data-validation="required  number length" data-validation-length="11" data-validation-error-msg-container="#editNationalCode-error" data-validation-error-msg="{{'validation_25' = translate}}">
                                             <div id="editNationalCode-error"></div>
 
                                         </div>
